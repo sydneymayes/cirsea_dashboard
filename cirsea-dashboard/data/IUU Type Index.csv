@@ -1,0 +1,11 @@
+IUU Type,Observable,Granularity Index,Detection Area
+Underreporting of fishing effort,0,5,1
+Underreporting of fishing catch,0,5,1
+Gear-related offense,2,4,2
+Fishing in a prohibited zone,2,1,1
+Transhipments,2,2,3
+Dark Vessels (not broadcasting location via VMS/AIS),1,1,3
+Fishing out of season,2,1,2
+Fishing above quota,0,5,1
+Vessel with false flag,2,4,3
+Fishing without license,2,4,2
