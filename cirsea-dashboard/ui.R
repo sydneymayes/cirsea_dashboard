@@ -2,6 +2,7 @@
 
 #........................dashboardHeader.........................
 header <- dashboardHeader(
+
   
   # title ---
   title = "CIRSEA Group Project",
@@ -28,6 +29,10 @@ sidebar <- dashboardSidebar(
 
 #..........................dashboardBody.........................
 body <- dashboardBody(
+  
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "styles.css"),
+  ),
 
   # set theme later
   # fresh::use_theme("something.css"),

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200..700&display=swap');
+
+.skin-blue .main-header .navbar {
+  background-color: #38C6BC ;
+  color:  #FFFFFF /* white */ ;
+}
+
+.main-header .logo {
+ font-family: 'Oswald', regular;
+  color: #FFFFFF /* white */
+}
+
+.main-sidebar {
+  background-color:#1B4FBE; /* blue */
+  color:  #FFFFFF /* white */ ;
+  
+}
+
+.box-body {
+  background-color: #CA781C;
+  color: #38C6BC;
+}
+
