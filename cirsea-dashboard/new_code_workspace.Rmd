@@ -1,0 +1,123 @@
+
+# New data, so fixing tables
+
+```{r}
+library(here)
+library(janitor)
+library(tidyverse)
+library(dplyr)
+
+sensor_range_df <- read_csv("data/Sensor Range.csv") %>% clean_names()
+platform_range_df <- read_csv("data/Platform Range.csv") %>% clean_names()
+satellites <- read_csv("data/satellites.csv") %>% clean_names()
+characteristics <- read_csv("data/characteristics.csv") %>% clean_names()
+iuu_type_index <- read_csv("data/IUU Type Index.csv") %>% clean_names() %>% 
+  select(!detection_area) %>% 
+  select(!observable)
+
+```
+
+```{r}
+
+
+platform_range_vec <- platform_range_df[3, -1]/2 #divide by 2 so that the platform can return to deployment base
+platform_range_vec[4] <- platform_range_vec[4]*2 # excludes process for smart buoy
+platform_range_vec[7] <- platform_range_vec[7]*2 # excludes process for onshore command center
+platform_range_vec
+
+
+# Initialize area_df with the Index column
+area_df <- data.frame(index = sensor_range_df$index)
+pi <- pi
+
+# Multiply each sensor range by each value in platform_range_vec
+for (sensor in names(sensor_range_df)[-1]) {
+  for (platform in names(platform_range_vec)) {
+    column_name <- paste(sensor, "by", platform)
+    area_df[[column_name]] <- pi * (sensor_range_df[[sensor]] + platform_range_vec[[platform]])^2 #make the coverage area a circle  
+  }
+}
+
+# write.csv(area_df, file = "platform_sensor_coverage_area.csv", row.names = FALSE)
+
+merged_index_df <- merge(iuu_type_index, area_df, by.x = "granularity_index", by.y = "index")
+
+```
+
+```{r}
+# exclude the first column
+columns_to_bin <- names(area_df)[-1]
+
+#convert to numeric vector to cut 
+area_vec <- area_df %>%
+  select(columns_to_bin) %>%
+  unlist()
+
+#define number of bins
+num_bins <- 3
+
+#cut the numeric vector into equally sized bins
+area_bins <- cut_number(area_vec, n = num_bins)
+
+# Extract unique levels and convert to numeric
+unique_levels <- unique(as.character(area_bins))
+numeric_levels <- sort(as.numeric(gsub("\\[|\\(|,.*", "", unique_levels)))
+
+local_lower <- numeric_levels[1]
+local_upper <- numeric_levels[2]
+regional_lower <- numeric_levels[2]
+regional_upper <- numeric_levels[3]
+international_lower <- numeric_levels[3]
+
+# Create a data frame with bin index, lower, and upper ranges
+bin_ranges_df <- data.frame(
+  Bin = c("Local", "Regional", "High Seas"),
+  Lower = numeric_levels[1:num_bins],
+  Upper = c(numeric_levels[-1], Inf)
+)
+```
+
+
+### Platform + sensor characteristics dataframe
+```{r}
+# Create df for sensor_platform combinations 
+sensor_platform_combinations <- crossing(
+  sensor = colnames(sensor_range_df)[-1], 
+  platform = colnames(platform_range_df)[-1]
+)
+
+# Create a function to look up cost values based on sensor or platform
+get_cost <- function(value) {
+  cost <- characteristics %>%
+    filter(monitoring_method == value) %>%
+    pull(cost)
+  
+  if (length(cost) == 0) {  # No matching cost found
+    return(NA)  # Return NA to indicate missing cost
+  } else {
+    return(cost[1])  # Return the first matching cost if there are multiple (or just one)
+  }
+}
+
+cost_vec <- numeric(nrow(sensor_platform_combinations))
+
+for (i in seq_len(nrow(sensor_platform_combinations))) {
+  sensor_value <- sensor_platform_combinations$sensor[i]
+  platform_value <- sensor_platform_combinations$platform[i]
+  
+  sensor_cost <- get_cost(sensor_value)
+  platform_cost <- get_cost(platform_value)
+  
+  # Check for NA values explicitly and assign NA to cost_vec[i] if either cost is NA
+  if (is.na(sensor_cost) || is.na(platform_cost)) {
+    cost_vec[i] <- NA  # Assign NA directly if either cost is not available
+  } else {
+    #cost_vec[i] <- sensor_cost * platform_cost  # Perform multiplication if both costs are available
+    cost_vec[i] <- max(sensor_cost, platform_cost)
+  }
+}
+
+sensor_platform_combinations$total_cost <- cost_vec
+
+```
+

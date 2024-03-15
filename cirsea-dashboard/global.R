@@ -27,7 +27,7 @@ characteristics <- read_csv("data/characteristics.csv") %>% clean_names()
 #merged_index_df <- merge(iuu_type_index, platform_sensor_coverage_area_df, by.x = "granularity_index", by.y = "index")
 
 # LOADING NEWEST MERGED INDEX
-merged_index_df <- read_csv("data/new_merged_index_df.csv")
+merged_index_df <- read_csv("data/new_merged_index_df.csv") # need to re-code this
 
 iuu_type <- colnames(merged_index_df)[2:11]
 
