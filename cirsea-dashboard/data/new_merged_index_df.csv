@@ -1,31 +1,64 @@
 sensor_platform,Fishing out of season,Fishing in a prohibited zone,Dark Vessels (not broadcasting location via VMS/AIS),Transhipments,Gear-related offense,Vessel with false flag,Fishing without license,Underreporting of fishing effort,Underreporting of fishing catch,Fishing above quota,total_cost,total_cost_bins,data_type
-long_range_camera by usv,21642,21642,21642,12469,5809,5809,5809,4536,4536,4536,4,$$,"Image, Video"
-long_range_camera by aerial_drone,38013,38013,38013,25447,15394,15394,15394,13273,13273,13273,2,$,"Image, Video"
-long_range_camera by smart_buoy,8012,8012,8012,2922,346,346,346,95,95,95,2,$,"Image, Video"
-long_range_camera by manned_vessel,166190,166190,166190,138544,113411,113411,113411,107521,107521,107521,6,$$$,"Image, Video"
-long_range_camera by manned_aircraft,196350,196350,196350,166190,138544,138544,138544,132025,132025,132025,6,$$$,"Image, Video"
-long_range_camera by on_shore_command_center,8012,8012,8012,2922,346,346,346,95,95,95,6,$$$,"Image, Video"
-radio_frequency by usv,12469,12469,12469,3421,3421,3421,3421,3421,3421,3421,2,$,Location
-radio_frequency by aerial_drone,25447,25447,25447,11310,11310,11310,11310,11310,11310,11310,1,$,Location
-radio_frequency by smart_buoy,2922,2922,2922,1,1,1,1,1,1,1,1,$,Location
-radio_frequency by manned_vessel,138544,138544,138544,101788,101788,101788,101788,101788,101788,101788,3,$$,Location
-radio_frequency by manned_aircraft,166190,166190,166190,125664,125664,125664,125664,125664,125664,125664,3,$$,Location
-radio_frequency by on_shore_command_center,2922,2922,2922,1,1,1,1,1,1,1,3,$$,Location
-hydroacoustics by usv,7238,7238,7238,3421,3421,3421,3421,3421,3421,3421,4,$$,Location
-hydroacoustics by aerial_drone,17671,17671,17671,11310,11310,11310,11310,11310,11310,11310,2,$,Location
-hydroacoustics by smart_buoy,755,755,755,1,1,1,1,1,1,1,2,$,Location
-hydroacoustics by manned_vessel,119459,119459,119459,101788,101788,101788,101788,101788,101788,101788,6,$$$,Location
-hydroacoustics by manned_aircraft,145220,145220,145220,125664,125664,125664,125664,125664,125664,125664,6,$$$,Location
-hydroacoustics by on_shore_command_center,755,755,755,1,1,1,1,1,1,1,6,$$$,Location
-radar by usv,21642,21642,21642,3421,3421,3421,3421,3421,3421,3421,2,$,Location
-radar by aerial_drone,38013,38013,38013,11310,11310,11310,11310,11310,11310,11310,1,$,Location
-radar by smart_buoy,8012,8012,8012,1,1,1,1,1,1,1,1,$,Location
-radar by manned_vessel,166190,166190,166190,101788,101788,101788,101788,101788,101788,101788,3,$$,Location
-radar by manned_aircraft,196350,196350,196350,125664,125664,125664,125664,125664,125664,125664,3,$$,Location
-radar by on_shore_command_center,8012,8012,8012,1,1,1,1,1,1,1,3,$$,Location
-onboard_observer by usv,3632,3632,3632,3632,3632,3632,3632,3632,3632,3632,2,$,"Image, Video, Location, Eye-witness"
-onboard_observer by aerial_drone,11690,11690,11690,11690,11690,11690,11690,11690,11690,11690,1,$,"Image, Video, Location, Eye-witness"
-onboard_observer by smart_buoy,7,7,7,7,7,7,7,7,7,7,1,$,"Image, Video, Location, Eye-witness"
-onboard_observer by manned_vessel,102922,102922,102922,102922,102922,102922,102922,102922,102922,102922,3,$$,"Image, Video, Location, Eye-witness"
-onboard_observer by manned_aircraft,126923,126923,126923,126923,126923,126923,126923,126923,126923,126923,3,$$,"Image, Video, Location, Eye-witness"
-onboard_observer by on_shore_command_center,7,7,7,7,7,7,7,7,7,7,3,$$,"Image, Video, Location, Eye-witness"
+long_range_camera by usv,8825,8825,8825,5542,4301,4301,4301,3848,3848,3848,2,$$,"Image, Video"
+long_range_camera by small_aerial_drone,2827,2827,2827,1134,616,616,616,452,452,452,2,$$,"Image, Video"
+long_range_camera by large_aerial_drone,152053,152053,152053,137228,130741,130741,130741,128190,128190,128190,2,$$,"Image, Video"
+long_range_camera by smart_buoy,1385,1385,1385,314,79,79,79,28,28,28,2,$$,"Image, Video"
+long_range_camera by manned_vessel,4702814,4702814,4702814,4618632,4580619,4580619,4580619,4565457,4565457,4565457,3,$$$,"Image, Video"
+long_range_camera by manned_aircraft,12818955,12818955,12818955,12679722,12616686,12616686,12616686,12591516,12591516,12591516,3,$$$,"Image, Video"
+long_range_camera by on_shore_command_center,1385,1385,1385,314,79,79,79,28,28,28,3,$$$,"Image, Video"
+mid_range_camera by usv,3421,3421,3421,3421,3421,3421,3421,3421,3421,3421,2,$$,"Image, Video"
+mid_range_camera by small_aerial_drone,314,314,314,314,314,314,314,314,314,314,1,$,"Image, Video"
+mid_range_camera by large_aerial_drone,125664,125664,125664,125664,125664,125664,125664,125664,125664,125664,2,$$,"Image, Video"
+mid_range_camera by smart_buoy,3,3,3,3,3,3,3,3,3,3,1,$,"Image, Video"
+mid_range_camera by manned_vessel,4550321,4550321,4550321,4550321,4550321,4550321,4550321,4550321,4550321,4550321,3,$$$,"Image, Video"
+mid_range_camera by manned_aircraft,12566371,12566371,12566371,12566371,12566371,12566371,12566371,12566371,12566371,12566371,3,$$$,"Image, Video"
+mid_range_camera by on_shore_command_center,3,3,3,3,3,3,3,3,3,3,3,$$$,"Image, Video"
+cell_phone_camera by usv,3421,3421,3421,3421,3423,3423,3423,3422,3422,3422,2,$$,"Image, Video, Location"
+cell_phone_camera by small_aerial_drone,314,314,314,314,315,315,315,314,314,314,1,$,"Image, Video, Location"
+cell_phone_camera by large_aerial_drone,125664,125664,125664,125664,125675,125675,125675,125667,125667,125667,2,$$,"Image, Video, Location"
+cell_phone_camera by smart_buoy,3,3,3,3,3,3,3,3,3,3,1,$,"Image, Video, Location"
+cell_phone_camera by manned_vessel,4550321,4550321,4550321,4550321,4550389,4550389,4550389,4550344,4550344,4550344,3,$$$,"Image, Video, Location"
+cell_phone_camera by manned_aircraft,12566371,12566371,12566371,12566371,12566484,12566484,12566484,12566408,12566408,12566408,3,$$$,"Image, Video, Location"
+cell_phone_camera by on_shore_command_center,3,3,3,3,3,3,3,3,3,3,3,$$$,"Image, Video, Location"
+electronic_monitoring_system by usv,3421,3421,3421,3421,3422,3422,3422,3422,3422,3422,2,$$,"Image, Video, Location"
+electronic_monitoring_system by small_aerial_drone,314,314,314,314,315,315,315,315,315,315,1,$,"Image, Video, Location"
+electronic_monitoring_system by large_aerial_drone,125664,125664,125664,125664,125671,125671,125671,125671,125671,125671,2,$$,"Image, Video, Location"
+electronic_monitoring_system by smart_buoy,3,3,3,3,3,3,3,3,3,3,1,$,"Image, Video, Location"
+electronic_monitoring_system by manned_vessel,4550321,4550321,4550321,4550321,4550367,4550367,4550367,4550367,4550367,4550367,3,$$$,"Image, Video, Location"
+electronic_monitoring_system by manned_aircraft,12566371,12566371,12566371,12566371,12566446,12566446,12566446,12566446,12566446,12566446,3,$$$,"Image, Video, Location"
+electronic_monitoring_system by on_shore_command_center,3,3,3,3,3,3,3,3,3,3,3,$$$,"Image, Video, Location"
+radio_frequency by usv,12469,12469,12469,3421,3421,3421,3421,3421,3421,3421,2,$$,Location
+radio_frequency by small_aerial_drone,5027,5027,5027,314,314,314,314,314,314,314,1,$,Location
+radio_frequency by large_aerial_drone,166190,166190,166190,125664,125664,125664,125664,125664,125664,125664,2,$$,Location
+radio_frequency by smart_buoy,3019,3019,3019,3,3,3,3,3,3,3,1,$,Location
+radio_frequency by manned_vessel,4780003,4780003,4780003,4550321,4550321,4550321,4550321,4550321,4550321,4550321,3,$$$,Location
+radio_frequency by manned_aircraft,12946189,12946189,12946189,12566371,12566371,12566371,12566371,12566371,12566371,12566371,3,$$$,Location
+radio_frequency by on_shore_command_center,3019,3019,3019,3,3,3,3,3,3,3,3,$$$,Location
+hydroacoustics by usv,5027,5027,5027,3632,3421,3421,3421,3421,3421,3421,2,$$,Location
+hydroacoustics by small_aerial_drone,908,908,908,380,314,314,314,314,314,314,2,$$,Location
+hydroacoustics by large_aerial_drone,134614,134614,134614,126923,125664,125664,125664,125664,125664,125664,2,$$,Location
+hydroacoustics by smart_buoy,201,201,201,13,3,3,3,3,3,3,2,$$,Location
+hydroacoustics by manned_vessel,4603408,4603408,4603408,4557886,4550321,4550321,4550321,4550321,4550321,4550321,3,$$$,Location
+hydroacoustics by manned_aircraft,12654489,12654489,12654489,12578940,12566371,12566371,12566371,12566371,12566371,12566371,3,$$$,Location
+hydroacoustics by on_shore_command_center,201,201,201,13,3,3,3,3,3,3,3,$$$,Location
+highly_sensitive_hydroacoustics by usv,8171,8171,8171,6362,3421,3421,3421,3421,3421,3421,3,$$$,Location
+highly_sensitive_hydroacoustics by small_aerial_drone,2463,2463,2463,1521,314,314,314,314,314,314,3,$$$,Location
+highly_sensitive_hydroacoustics by large_aerial_drone,149301,149301,149301,141196,125664,125664,125664,125664,125664,125664,3,$$$,Location
+highly_sensitive_hydroacoustics by smart_buoy,1134,1134,1134,531,3,3,3,3,3,3,3,$$$,Location
+highly_sensitive_hydroacoustics by manned_vessel,4687452,4687452,4687452,4641515,4550321,4550321,4550321,4550321,4550321,4550321,3,$$$,Location
+highly_sensitive_hydroacoustics by manned_aircraft,12793583,12793583,12793583,12717619,12566371,12566371,12566371,12566371,12566371,12566371,3,$$$,Location
+highly_sensitive_hydroacoustics by on_shore_command_center,1134,1134,1134,531,3,3,3,3,3,3,3,$$$,Location
+radar by usv,21642,21642,21642,3421,3421,3421,3421,3421,3421,3421,2,$$,Location
+radar by small_aerial_drone,11310,11310,11310,314,314,314,314,314,314,314,1,$,Location
+radar by large_aerial_drone,196350,196350,196350,125664,125664,125664,125664,125664,125664,125664,2,$$,Location
+radar by smart_buoy,8171,8171,8171,3,3,3,3,3,3,3,1,$,Location
+radar by manned_vessel,4936266,4936266,4936266,4550321,4550321,4550321,4550321,4550321,4550321,4550321,3,$$$,Location
+radar by manned_aircraft,13202543,13202543,13202543,12566371,12566371,12566371,12566371,12566371,12566371,12566371,3,$$$,Location
+radar by on_shore_command_center,8171,8171,8171,3,3,3,3,3,3,3,3,$$$,Location
+onboard_observer by usv,3421,3421,3421,3421,3632,3632,3632,3632,3632,3632,2,$$,"Image, Video, Location, Eye-witness"
+onboard_observer by small_aerial_drone,314,314,314,314,380,380,380,380,380,380,1,$,"Image, Video, Location, Eye-witness"
+onboard_observer by large_aerial_drone,125664,125664,125664,125664,126923,126923,126923,126923,126923,126923,2,$$,"Image, Video, Location, Eye-witness"
+onboard_observer by smart_buoy,3,3,3,3,13,13,13,13,13,13,1,$,"Image, Video, Location, Eye-witness"
+onboard_observer by manned_vessel,4550321,4550321,4550321,4550321,4557886,4557886,4557886,4557886,4557886,4557886,3,$$$,"Image, Video, Location, Eye-witness"
+onboard_observer by manned_aircraft,12566371,12566371,12566371,12566371,12578940,12578940,12578940,12578940,12578940,12578940,3,$$$,"Image, Video, Location, Eye-witness"
+onboard_observer by on_shore_command_center,3,3,3,3,13,13,13,13,13,13,3,$$$,"Image, Video, Location, Eye-witness"

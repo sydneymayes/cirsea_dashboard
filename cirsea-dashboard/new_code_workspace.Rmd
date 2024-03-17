@@ -119,5 +119,31 @@ for (i in seq_len(nrow(sensor_platform_combinations))) {
 
 sensor_platform_combinations$total_cost <- cost_vec
 
+# write_csv(sensor_platform_combinations, "./data/sensor_platform_combinations_cost.csv")
+
+sensor_platform_combinations_cost_df <- read_csv("data/sensor_platform_combinations_cost.csv")
+sensor_platform_combinations_cost_df$sensor_platform <- with(sensor_platform_combinations_cost_df, paste(sensor, "by", platform))
+
+
+```
+
+
+```{r}
+index_tidy <- merged_index_df %>%
+  select(-granularity_index) %>% 
+  pivot_longer(cols = starts_with("long_range_camera by usv"):ends_with("highly_sensitive_hydroacoustics by manned_aircraft"), 
+               names_to = "sensor_platform", values_to = "value") %>%
+  pivot_wider(names_from = iuu_type, values_from = value)
+
+
+# now want to add on cost and data types
+# need to join the datasets!
+index_tidy_more <- index_tidy %>%
+  left_join(sensor_platform_combinations_df %>% 
+              select(sensor_platform, total_cost, total_cost_bins, data_type),
+            by = "sensor_platform")
+
+
+
 ```
 
