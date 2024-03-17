@@ -112,7 +112,7 @@ for (i in seq_len(nrow(sensor_platform_combinations))) {
   if (is.na(sensor_cost) || is.na(platform_cost)) {
     cost_vec[i] <- NA  # Assign NA directly if either cost is not available
   } else {
-    #cost_vec[i] <- sensor_cost * platform_cost  # Perform multiplication if both costs are available
+    # take the maximum cost if both costs available
     cost_vec[i] <- max(sensor_cost, platform_cost)
   }
 }

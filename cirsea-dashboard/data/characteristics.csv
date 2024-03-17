@@ -1,11 +1,16 @@
 ﻿Monitoring Method,Type,Cost,Expertise,Safety,Human?,Data Collected
 long_range_camera,Sensor,2,1,1,0,"Image, Video"
+mid_range_camera,Sensor,1,1,1,,"Image, Video"
+cell_phone_camera,Sensor,1,1,2,1,"Image, Video, Location"
+electronic_monitoring_system,Sensor,1,1,1,0,"Image, Video, Location"
 radio_frequency,Sensor,1,1,1,0,Location
 hydroacoustics,Sensor,2,3,1,0,Location
+highly_sensitive_hydroacoustics,Sensor,3,3,1,0,Location
 radar,Sensor,1,1,1,0,Location
 onboard_observer,Sensor,1,2,3,1,"Image, Video, Location, Eye-witness"
 usv,Platform,2,2,1,0,
-aerial_drone,Platform,1,2,1,0,
+small_aerial_drone,Platform,1,2,1,0,
+large_aerial_drone,Platform,2,2,1,0,
 smart_buoy,Platform,1,1,1,0,
 manned_vessel,Platform,3,3,2,1,
 manned_aircraft,Platform,3,3,2,1,

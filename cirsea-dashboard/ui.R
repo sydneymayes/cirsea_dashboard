@@ -105,11 +105,11 @@ body <- dashboardBody(
                               multiple = FALSE),
 
                   # section checkboxGroupButtons ----
-                  checkboxGroupButtons(inputId = 'range_input',
+                  radioGroupButtons(inputId = 'range_input',
                                        label = 'Step 2: Select your monitoring range:',
                                        choices = c("Local", "Regional", "High Seas"),
                                        selected = NULL,
-                                       individual = FALSE, justified = TRUE, size = 'sm',
+                                       individual = TRUE, justified = TRUE, size = 'sm',
                                        checkIcon = list(yes = icon("check"))
                                        
                   ),
