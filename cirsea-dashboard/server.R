@@ -31,12 +31,19 @@ server <- function(input, output) {
       cost_ranges <- cost_ranges_df %>%
         filter(Bin %in% user_cost) %>%
         summarise(Lower = first(Lower), Upper = first(Upper))
-      
+
       lower_limit_cost <- cost_ranges$Lower
       upper_limit_cost <- cost_ranges$Upper
-      
+
       numeric_costs <- unique(c(cost_ranges$Lower, cost_ranges$Upper))
       
+      
+      # cost_mapping <- setNames(c(1, 2, 3), c("$", "$$", "$$$"))
+      # numeric_user_costs <- cost_mapping[user_cost]
+      # 
+      # numeric_costs <- sensor_platform_combinations_cost_df %>%
+      #   filter(total_cost == numeric_user_costs)
+
       
       # Now trying for DATA INPUT ----------
       
