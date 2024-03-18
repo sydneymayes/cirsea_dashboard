@@ -27,7 +27,7 @@ characteristics <- read_csv("data/characteristics.csv") %>% clean_names()
 #merged_index_df <- merge(iuu_type_index, platform_sensor_coverage_area_df, by.x = "granularity_index", by.y = "index")
 
 # LOADING NEWEST MERGED INDEX
-merged_index_df <- read_csv("data/new_merged_index_df.csv") # updated this
+merged_index_df <- read_csv("data/merged_index_removed_bad_combos.csv") # updated this 3/18
 
 iuu_type <- colnames(merged_index_df)[2:11]
 
@@ -36,9 +36,12 @@ iuu_type <- colnames(merged_index_df)[2:11]
 bin_ranges_df <- read_csv("data/bin_ranges.csv")
 
 # load sensor platform combinations with cost column
-sensor_platform_combinations_cost_df <- read_csv("data/sensor_platform_combinations_cost.csv")
+# sensor_platform_combinations_cost_df <- read_csv("data/sensor_platform_removed_bad_pairings.csv")
 # merges sensor and platform, creating new combined_name column
 # sensor_platform_combinations_cost_df$sensor_platform <- with(sensor_platform_combinations_cost_df, paste(sensor, "by", platform))
 
 # Load cost ranges
 cost_ranges_df <- read_csv("data/cost_ranges.csv")
+
+# load combination matrix
+combination_matrix <- read_csv("data/combination_matrix.csv")

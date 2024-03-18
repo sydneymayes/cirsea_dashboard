@@ -126,6 +126,10 @@ sensor_platform_combinations$total_cost <- cost_vec
 # write_csv(sensor_platform_combinations, "./data/sensor_platform_combinations_cost.csv")
 
 sensor_platform_combinations_cost_df <- read_csv("data/sensor_platform_combinations_cost.csv")
+
+
+
+
 sensor_platform_combinations_cost_df$sensor_platform <- with(sensor_platform_combinations_cost_df, paste(sensor, "by", platform))
 
 
@@ -151,7 +155,50 @@ index_tidy_more <- index_tidy %>%
 index_tidy_more <- index_tidy_more %>% 
   mutate_if(is.numeric, round)
 
-#write_csv(index_tidy_more, "./new_merged_index_df.csv")
+
+
+```
+
+
+```{r}
+combination_matrix <- read_csv("data/combination_matrix.csv") %>% clean_names()
+
+# We want to get rid of the rows that have sensor + platform pairings with a zero as depicted in the combination matrix.
+
+zero_combinations <- which(combination_matrix == 0, arr.ind = TRUE)
+zero_combinations_named <- data.frame(
+  platform = rownames(combination_matrix)[zero_combinations[, 1]],
+  sensor = colnames(combination_matrix)[zero_combinations[, 2]])
+
+test <- as.numeric(zero_combinations_named$platform)
+to_replace <- combination_matrix$platform[test]
+
+zero_combinations_named$platform <- to_replace
+
+zero_combinations_named$sensor_platform <- with(zero_combinations_named, paste(sensor, "by", platform))
+
+zero_combinations_named <- zero_combinations_named %>% 
+  select(sensor_platform)
+
+# Now we filter out the bad combos
+# filtered_bad_pairings <- sensor_platform_combinations_cost_df %>%
+#   anti_join(zero_combinations_named, by = c("platform", "sensor"))
+
+# Write to csv
+#write_csv(filtered_bad_pairings, "./sensor_platform_removed_bad_pairings.csv")
+
+
+```
+
+
+```{r}
+# Get bad pairings out of merged_index aka index_tidy_more
+
+merged_index_removed_bad_combos <- index_tidy_more %>%
+  anti_join(zero_combinations_named, by = c("sensor_platform"))
+
+
+# write_csv(merged_index_removed_bad_combos, "./merged_index_removed_bad_combos.csv")
 
 ```
 
