@@ -18,6 +18,7 @@ server <- function(input, output) {
       user_data <- input$data_type_input
       # user_data <- "Location"
       
+      
       # Find the lower and upper limits for the selected range from bin_ranges_df
       limits <- bin_ranges_df %>%
         filter(Bin %in% user_area) %>%
@@ -82,6 +83,7 @@ server <- function(input, output) {
       if (!is.null(input$data_type_input)) {
         data <- data[grepl(user_data, data$data_type), ]
       }
+    
       data
       
     
@@ -221,6 +223,40 @@ server <- function(input, output) {
     }) # END renderUI
     
     
+    
+    
+    
+    output$satellite_output <- renderUI({
+      
+      Maxar <- any(grepl("Gear-related offense", input$iuu_type_input))
+      
+      
+      
+      ui_elements_2 <- list()
+      
+      # If 'long_range_camera' is found, add its content to the list
+      if (Maxar) {
+        #print("Long range camera found")
+        maxar_text <- "text/maxar_tool.md"
+        if(file.exists(maxar_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(maxar_text)))
+          
+        }
+      }
+      
+     
+      
+      #### Finally done with all conditions and now returning them----------------
+      
+      # Return all UI elements if any, otherwise return nothing (NULL)
+      if (length(ui_elements_2) > 0) {
+        do.call(tagList, ui_elements_2)
+      } else {
+        return(NULL)
+      }
+      
+      
+    }) # END renderUI
     
 
   

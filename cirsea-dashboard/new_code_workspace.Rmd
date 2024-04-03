@@ -42,6 +42,7 @@ for (sensor in names(sensor_range_df)[-1]) {
 
 merged_index_df <- merge(iuu_type_index, area_df, by.x = "granularity_index", by.y = "index")
 
+
 ```
 
 ```{r}
@@ -180,9 +181,6 @@ zero_combinations_named$sensor_platform <- with(zero_combinations_named, paste(s
 zero_combinations_named <- zero_combinations_named %>% 
   select(sensor_platform)
 
-# Now we filter out the bad combos
-# filtered_bad_pairings <- sensor_platform_combinations_cost_df %>%
-#   anti_join(zero_combinations_named, by = c("platform", "sensor"))
 
 # Write to csv
 #write_csv(filtered_bad_pairings, "./sensor_platform_removed_bad_pairings.csv")

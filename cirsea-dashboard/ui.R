@@ -151,6 +151,12 @@ body <- dashboardBody(
               box(width = 8,
               title = strong("Descriptions"),
               uiOutput(outputId = "text_output")
+              ), # end descriptions box
+              
+              # descriptions box
+              box(width = 8,
+                  title = strong("Satellites"),
+                  uiOutput(outputId = "satellite_output")
               ) # end descriptions box
               
               
