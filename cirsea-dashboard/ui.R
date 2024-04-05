@@ -85,7 +85,7 @@ body <- dashboardBody(
 
     ), # END about tabItem
 
-    # dashboard tabItem
+    # tool tabItem
     tabItem(tabName = "tool",
 
             # fluidRow ---
@@ -164,7 +164,62 @@ body <- dashboardBody(
 
             ) # END fluidRow
 
-    ) # END dashboard tabItem
+    ), # END tool tabItem
+    
+    
+    # IUU Types tab item
+    tabItem(tabName = "iuu_types",
+            
+            # how to use
+            fluidRow(
+              div("Click on an IUU Type to learn more.", style = "margin-bottom: 20px;")
+            ),
+            
+            # IUU type text fluidRow ----
+            fluidRow(
+              useShinyjs(),  # Initialize shinyjs
+              # # Testing out using tags to create a button with HTML content, including a line break
+              # tags$button(id = "Vessel with false flag",
+              #             style = "padding: 100px; font-size: 18px;",
+              #             type = "button",
+              #             class = "btn btn-default action-button",
+              #             icon("flag"), "Vessel with", br(), "false flag"),
+              # tags$button(id = "Underreporting of fishing effort",
+              #             style = "padding: 100px; font-size: 18px;",
+              #             type = "button",
+              #             class = "btn btn-default action-button",
+              #             icon("dumbbell"), "Underreporting of", br(), "fishing effort"),
+              # 
+              
+              
+
+              column(width = 12,
+                     # Define buttons for IUU types dynamically or statically here
+                     actionButton("Dark Vessels (not broadcasting location via VMS/AIS)", "Dark Vessels", icon = icon("moon"), style='padding:50px; font-size:120%'),
+                     actionButton("Fishing above quota","Fishing above quota", icon = icon("weight-scale"), style='padding:50px; font-size:120%'),
+                     actionButton("Fishing in a prohibited zone", "Fishing in a prohibited zone", icon = icon("ban"), style='padding:50px; font-size:120%'),
+                     actionButton("Fishing out of season", "Fishing out of season", icon = icon("earth-americas"), style='padding:50px; font-size:120%'),
+                     actionButton("Fishing without license", "Fishing without license", icon = icon("id-card"), style='padding:50px; font-size:120%'),
+                     actionButton("Gear-related offense", "Gear-related offense", icon = icon("gear"), style='padding:50px; font-size:120%'),
+                     actionButton("Transhipments", "Transhipments", icon = icon("ship"), style='padding:50px; font-size:120%'),
+                     actionButton("Underreporting of fishing catch", "Underreporting of fishing catch", icon = icon("fish"), style='padding:50px; font-size:120%'),
+                     actionButton("Underreporting of fishing effort", "Underreporting of fishing effort", icon = icon("dumbbell"), style='padding:50px; font-size:120%'),
+                     actionButton("Vessel with false flag", 'Vessel with false flag', icon = icon("flag"), style='padding:50px; font-size:120%')
+                     # Add more buttons as needed
+                     
+              )
+            ),
+            
+            fluidRow(
+              column(12, 
+                     uiOutput("iuu_text")) # Placeholder for displaying text based on the selected IUU type
+            ) # END IUU type text fluidRows
+            
+            
+          
+            
+            
+            ) # end IUU Types tab item
 
 
   ) #END tabItems
