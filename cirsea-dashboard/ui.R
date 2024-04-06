@@ -130,39 +130,57 @@ body <- dashboardBody(
                                      choices = c("Eye-witness", "Image", "Location", "Video"),
                                      selected = NULL)
 
-              ), # END input box
-
-
-              # tool box ---
+              ), #end first input box
+              
+              # output box for temporary MS
+                     
               box(width = 8,
-
+                  
                   title = strong("Recommended Monitoring Strategies"),
-
+                  
                   # data table output ---
                   dataTableOutput(outputId = "iuu_table_output") %>%
                     withSpinner(color = "skyblue", type = 1)
                   
-                 
+                     
+                     ), # END input box for satellites
+              
+              # descriptions box
+              box(width = 8,
+                  title = strong("Possible Monitoring Strategies"),
+                  uiOutput(outputId = "text_output")
+              ) # end descriptions box
+              ), # End fluidRow
+              
+             
+            # fluidRow 2 ---
+            fluidRow(
+
+              # input box satellites ---
+              
+              box(width = 4,
                   
-                
-              ), # END tool box
+                  title = tags$strong("Satellites"),
+                  
+                  # Free or not
+                  materialSwitch(
+                    inputId = "satellite_cost_input",
+                    label = "Free data", 
+                    value = FALSE,
+                    status = "primary"
+                  )
+              ), # end satellite input box
               
               # descriptions box
               box(width = 8,
-              title = strong("Descriptions"),
-              uiOutput(outputId = "text_output")
-              ), # end descriptions box
-              
-              # descriptions box
-              box(width = 8,
-                  title = strong("Satellites"),
+                  title = strong("Satellite Options"),
                   uiOutput(outputId = "satellite_output")
               ) # end descriptions box
-              
-              
+                
+              ), # END second fluid row
 
 
-            ) # END fluidRow
+   
 
     ), # END tool tabItem
     

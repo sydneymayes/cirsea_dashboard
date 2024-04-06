@@ -1,20 +1,12 @@
-SATELLITES,Granularity Index
-Maxar,4
-BlackSky,4
-MDA Radarsat,3
-MDA Radarsat,2
-MDA Radarsat,2
-Capella,2
-Capella,2
-Unseen Labs,1
-Iceye,2
-Iceye,2
-Airbus,
-Umbra,
-Planet,4
-Kleos,
-Ursa,
-Sentinel-1,2
-Sentinel-2,2
-Landsat 8 & 9,2
-VIIRS,1
+SATELLITES,Granularity Index,Cost,Type,Delivery
+Maxar,4,1,EO,1
+BlackSky,4,1,EO,1
+MDA Radarsat,2,1,SAR,0
+Capella,2,1,SAR (High Res),1
+Unseen Labs,1,1,RF,0
+Iceye,2,1,SAR,0
+Planet,4,1,EO,0
+Sentinel-1,2,0,SAR,0
+Sentinel-2,2,0,EO,0
+Landsat 8 & 9,2,0,EO,0
+VIIRS,1,0,EO,0
