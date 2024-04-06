@@ -98,7 +98,7 @@ body <- dashboardBody(
 
                   # IUU Type pickerinput ----
                   pickerInput(inputId = 'iuu_type_input',
-                              label = 'Step 1: Select IUU type(s):',
+                              label = 'Step 1: Select IUU type:',
                               choices = unique(iuu_type),
                               selected = unique(iuu_type)[1],
                               options = pickerOptions(actionsBox = TRUE),
@@ -132,17 +132,17 @@ body <- dashboardBody(
 
               ), #end first input box
               
-              # output box for temporary MS
+              # output box for temporary MS -- remove later
                      
               box(width = 8,
-                  
+
                   title = strong("Recommended Monitoring Strategies"),
-                  
+
                   # data table output ---
                   dataTableOutput(outputId = "iuu_table_output") %>%
                     withSpinner(color = "skyblue", type = 1)
-                  
-                     
+
+
                      ), # END input box for satellites
               
               # descriptions box
@@ -155,27 +155,50 @@ body <- dashboardBody(
              
             # fluidRow 2 ---
             fluidRow(
-
-              # input box satellites ---
               
               box(width = 4,
                   
                   title = tags$strong("Satellites"),
                   
+                  # IUU Type pickerinput ----
+                  pickerInput(inputId = 'iuu_type_satellites_input',
+                              label = 'Select IUU type:',
+                              choices = unique(iuu_type),
+                              selected = unique(iuu_type)[1],
+                              options = pickerOptions(actionsBox = TRUE),
+                              multiple = FALSE),
+                  
+                  
+                          
+                  # Satellite Type
+                  pickerInput(
+                    inputId = "satellite_type_input",
+                    label = "Satellite Type", 
+                    choices = c("EO", "SAR", "SAR (High Res)", "RF"),
+                    multiple = TRUE,
+                  ),
+                  
                   # Free or not
                   materialSwitch(
                     inputId = "satellite_cost_input",
-                    label = "Free data", 
+                    label = "Free Data", 
                     value = FALSE,
                     status = "primary"
+                  ),
+                  
+                  materialSwitch(
+                    inputId = "satellite_delivery_input",
+                    label = "Near Real-time Delivery", 
+                    value = FALSE,
+                    status = "success"
                   )
               ), # end satellite input box
               
-              # descriptions box
+              # satellite descriptions box
               box(width = 8,
                   title = strong("Satellite Options"),
                   uiOutput(outputId = "satellite_output")
-              ) # end descriptions box
+              ) # end satellite descriptions box
                 
               ), # END second fluid row
 

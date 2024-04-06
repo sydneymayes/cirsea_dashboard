@@ -93,11 +93,11 @@ server <- function(input, output) {
     
     ####### Output the filtered data table
     output$iuu_table_output <- renderDataTable({
-      filtered_iuu_data() %>% 
-        select(sensor_platform, data_type) %>% 
+      filtered_iuu_data() %>%
+        select(sensor_platform, data_type) %>%
         rename("Evidence Provided" = data_type,
                "Sensor + Platform" = sensor_platform)
-      
+
     }, options = list(pageLength = 10))
     
     
