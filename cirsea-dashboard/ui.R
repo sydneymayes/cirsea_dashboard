@@ -213,9 +213,10 @@ body <- dashboardBody(
             
             # how to use
             fluidRow(
-              div("Click on an IUU Type to learn more.", style = "margin-bottom: 20px;")
-            ),
-            
+              column(width = 12,
+              div("Click on an IUU Type to learn more.", style = "margin-bottom: 20px; padding:50x")
+            )),
+    
             # IUU type text fluidRow ----
             fluidRow(
               useShinyjs(),  # Initialize shinyjs
@@ -260,7 +261,69 @@ body <- dashboardBody(
           
             
             
-            ) # end IUU Types tab item
+            ), # end IUU Types tab item
+    
+    
+    # Monitoring Strategies tab item
+    tabItem(tabName = "monitoring_strategies",
+            # Sensors and how to use
+            fluidRow(
+              column(width = 12,
+              div("Click on a Monitoring Strategy to learn more.", style = "margin-bottom: 20px;"),
+              div("Sensors", style = "margin-bottom: 20px; font-weight: bold;", style = "margin-bottom: 20px;")
+              
+            )),
+            
+            # Sensors fluidRow ----
+            fluidRow(
+              
+              column(12,
+                     # Define buttons for sensors
+                     actionButton("hydroacoustics", "Hydroacoustics", icon = icon("ear-listen")),
+                     actionButton("long_range_camera", "Long Range Camera", icon = icon("camera")),
+                     actionButton("onboard_observer", "Onboard Observers", icon = icon("glasses")),
+                     actionButton("radar","Radar", icon = icon("satellite-dish")),
+                     actionButton("radio_frequency", "Radio Frequency", icon = icon("radio"))
+                     # Add more buttons as needed
+              )
+            ),
+            
+            fluidRow(
+              column(12,
+                     uiOutput("sensor_text")) # Placeholder for displaying text based on the selected IUU type
+            ), # END Sensors  fluidRows
+            
+            
+            # Platforms and how to use
+            fluidRow(
+              column(width = 12,
+              div("Platforms", style = "margin-bottom: 20px; margin-top: 20px; font-weight: bold;", style = "margin-bottom: 20px;")
+              
+            )),
+            
+            # Platforms fluidRow ----
+            fluidRow(
+              
+              column(12,
+                     # Define buttons for platforms
+                     actionButton("aerial_drone", "Aerial Drone", icon = icon("helicopter")),
+                     actionButton("manned_aircraft", "Manned Aircraft", icon = icon("plane")),
+                     actionButton("manned_vessel", "Manned Vessel", icon = icon("ship")),
+                     actionButton("on_shore_command_center", "Onshore Command Center", icon = icon("computer")),
+                     actionButton("smart_buoy", "Smart Buoy", icon = icon("ice-cream")),
+                     actionButton("usv","USV", icon = icon("water")),
+                     # Add more buttons as needed
+              )
+            ),
+            
+            fluidRow(
+              column(12, 
+                     uiOutput("platform_text")) # Placeholder for displaying text based on the selected IUU type
+            ) # END Platforms fluidRows
+            
+            
+            
+    ) # End Monitoring Strategies tab item
 
 
   ) #END tabItems
