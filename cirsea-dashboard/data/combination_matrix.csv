@@ -1,4 +1,4 @@
-platform,Long-range camera,Mid-range camera,Cell Phone Camera,Electronic Monitoring System,Radio Frequency,Hydroacoustics,Highly sensitive hydroacoustics,Radar,Onboard Observer
+platform,Long-range camera,Mid-range camera,Cell Phone Camera,Electronic Monitoring System,Radio Frequency,Hydroacoustics,Highly sensitive hydroacoustics,Radar,Observer
 usv,1,0,0,0,1,1,1,1,0
 small_aerial_drone,0,1,0,0,1,0,0,0,0
 large_aerial_drone,1,0,0,0,1,0,0,0,0
@@ -6,3 +6,4 @@ smart_buoy,0,0,0,0,1,1,1,1,0
 manned_vessel,1,1,0,0,1,1,1,1,1
 manned_aircraft,1,0,0,0,1,0,0,1,0
 on_shore_command_center,1,1,0,0,1,0,0,0,0
+onboard,0,0,1,1,1,0,0,1,1

@@ -141,7 +141,7 @@ sensor_platform_combinations_cost_df$sensor_platform <- with(sensor_platform_com
 ```{r}
 index_tidy <- merged_index_df %>%
   select(-granularity_index) %>% 
-  pivot_longer(cols = starts_with("long_range_camera by usv"):ends_with("onboard_observer by on_shore_command_center"), 
+  pivot_longer(cols = starts_with("long_range_camera by usv"):ends_with("hydroacoustics by onboard"), 
                names_to = "sensor_platform", values_to = "value") %>%
   pivot_wider(names_from = iuu_type, values_from = value)
 

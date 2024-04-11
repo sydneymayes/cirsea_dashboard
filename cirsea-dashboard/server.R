@@ -99,7 +99,7 @@ server <- function(input, output) {
                "Sensor + Platform" = sensor_platform)
 
     }, options = list(pageLength = 10))
-    
+
     
     ####### Output conditional text
     
@@ -107,6 +107,13 @@ server <- function(input, output) {
       
       long_range_camera <- any(grepl("long_range_camera", filtered_iuu_data()$sensor_platform))
       hydroacoustics <- any(grepl("hydroacoustics", filtered_iuu_data()$sensor_platform))
+      # need to add highly_sensitive_hydroacoustics
+      # need to add mid_range_camera
+      # need to change aerial_drone to large_aerial_drone and small_aerial_drone
+      # need to incorporate 'onboard' into the matrix as a platform
+      # are we separating out usv into different sizes...?
+      # need to add cell_phone_camera
+      # need to add electronic_monitoring_system  
       aerial_drone <- any(grepl("aerial_drone", filtered_iuu_data()$sensor_platform))
       onboard_observer <- any(grepl("onboard_observer", filtered_iuu_data()$sensor_platform))
       radar <- any(grepl("radar", filtered_iuu_data()$sensor_platform))
@@ -224,6 +231,69 @@ server <- function(input, output) {
     
     
     
+    #### TESTING SATELLITE FILTER
+    
+    filtered_sat_data <- reactive({
+      # Exit early if input not yet selected
+      # if(is.null(input$iuu_type_input) || is.null(input$range_input)) {
+      #   return(data.frame())
+      # }
+
+      user_iuu_type <- input$iuu_type_input
+
+      user_sat_cost <- input$sat_cost_input
+
+      user_sat_delivery <- input$sat_delivery_input
+      
+      
+    
+      selected_columns_sat <- c("satellites", "granularity_index", "cost", "delivery")
+      selected_sat_df <- satellites %>%
+        select(all_of(selected_columns_sat))
+      
+      # iuu_type_index %>% 
+      #   filter(iuu_type == user_iuu_type) %>% 
+      #   select(granularity_index)
+      
+      for (col_name in names(selected_sat_df)[3]) {
+        column_values <- selected_sat_df[[col_name]] # for each column name, determines all the column values
+        
+        within_range_indices <- which(column_values == 1) # not free
+        
+      }
+      
+      
+      for (col_name in names(selected_sat_df)[4]) {
+        column_values <- selected_sat_df[[col_name]] # for each column name, determines all the column values
+        
+        within_range_indices_2 <- which(column_values == 1) # near real time delivery
+        
+      }
+      
+      # Filter the dataframe to include only the rows with relevant values
+
+      
+      # is not null NOT WORKING
+      if (!is.null(input$sat_cost_input)) {
+        data <- selected_sat_df[within_range_indices, ]
+        #data <- selected_sat_df[selected_sat_df$cost == 1, ]
+      }
+      if (!is.null(input$sat_delivery_input)) {
+        data <- data[within_range_indices_2, ]
+      }
+    
+      data
+
+    })
+    
+    #### Test satellite table filter
+    
+    output$sat_table_output <- renderDataTable({
+      filtered_sat_data() 
+    }, options = list(pageLength = 10))
+    
+    
+    
     
     
     output$satellite_output <- renderUI({
@@ -234,7 +304,7 @@ server <- function(input, output) {
       
       ui_elements_2 <- list()
       
-      # If 'long_range_camera' is found, add its content to the list
+      # If       is found, add its content to the list
       if (Maxar) {
         #print("Long range camera found")
         maxar_text <- "text/maxar_tool.md"

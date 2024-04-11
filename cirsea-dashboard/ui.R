@@ -143,7 +143,7 @@ body <- dashboardBody(
                     withSpinner(color = "skyblue", type = 1)
 
 
-                     ), # END input box for satellites
+                     ), # END output
               
               # descriptions box
               box(width = 8,
@@ -161,38 +161,49 @@ body <- dashboardBody(
                   title = tags$strong("Satellites"),
                   
                   # IUU Type pickerinput ----
-                  pickerInput(inputId = 'iuu_type_satellites_input',
-                              label = 'Select IUU type:',
-                              choices = unique(iuu_type),
-                              selected = unique(iuu_type)[1],
-                              options = pickerOptions(actionsBox = TRUE),
-                              multiple = FALSE),
+                  # pickerInput(inputId = 'iuu_type_satellites_input',
+                  #             label = 'Select IUU type:',
+                  #             choices = unique(iuu_type),
+                  #             selected = unique(iuu_type)[1],
+                  #             options = pickerOptions(actionsBox = TRUE),
+                  #             multiple = FALSE),
                   
                   
                           
                   # Satellite Type
-                  pickerInput(
-                    inputId = "satellite_type_input",
-                    label = "Satellite Type", 
-                    choices = c("EO", "SAR", "SAR (High Res)", "RF"),
-                    multiple = TRUE,
-                  ),
+                  # pickerInput(
+                  #   inputId = "satellite_type_input",
+                  #   label = "Satellite Type", 
+                  #   choices = c("EO", "SAR", "SAR (High Res)", "RF"),
+                  #   multiple = TRUE,
+                  # ),
                   
                   # Free or not
                   materialSwitch(
-                    inputId = "satellite_cost_input",
+                    inputId = "sat_cost_input",
                     label = "Free Data", 
                     value = FALSE,
                     status = "primary"
                   ),
                   
                   materialSwitch(
-                    inputId = "satellite_delivery_input",
+                    inputId = "sat_delivery_input",
                     label = "Near Real-time Delivery", 
                     value = FALSE,
                     status = "success"
                   )
               ), # end satellite input box
+              
+              box(width = 8,
+                  
+                  title = strong("Satellite Options Table"),
+                  
+                  # data table output ---
+                  dataTableOutput(outputId = "sat_table_output") %>%
+                    withSpinner(color = "skyblue", type = 1)
+                  
+                  
+              ), # END output
               
               # satellite descriptions box
               box(width = 8,
