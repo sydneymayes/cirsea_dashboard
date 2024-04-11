@@ -248,16 +248,26 @@ body <- dashboardBody(
 
               column(width = 12,
                      # Define buttons for IUU types dynamically or statically here
-                     actionButton("Dark Vessels (not broadcasting location via VMS/AIS)", "Dark Vessels", icon = icon("moon"), style='padding:50px; font-size:120%'),
-                     actionButton("Fishing above quota","Fishing above quota", icon = icon("weight-scale"), style='padding:50px; font-size:120%'),
-                     actionButton("Fishing in a prohibited zone", "Fishing in a prohibited zone", icon = icon("ban"), style='padding:50px; font-size:120%'),
-                     actionButton("Fishing out of season", "Fishing out of season", icon = icon("earth-americas"), style='padding:50px; font-size:120%'),
-                     actionButton("Fishing without license", "Fishing without license", icon = icon("id-card"), style='padding:50px; font-size:120%'),
-                     actionButton("Gear-related offense", "Gear-related offense", icon = icon("gear"), style='padding:50px; font-size:120%'),
-                     actionButton("Transhipments", "Transhipments", icon = icon("ship"), style='padding:50px; font-size:120%'),
-                     actionButton("Underreporting of fishing catch", "Underreporting of fishing catch", icon = icon("fish"), style='padding:50px; font-size:120%'),
-                     actionButton("Underreporting of fishing effort", "Underreporting of fishing effort", icon = icon("dumbbell"), style='padding:50px; font-size:120%'),
-                     actionButton("Vessel with false flag", 'Vessel with false flag', icon = icon("flag"), style='padding:50px; font-size:120%')
+                     actionButton("Dark Vessels (not broadcasting location via VMS/AIS)", "Dark Vessels", 
+                                  icon = icon("moon"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Fishing above quota","Fishing above quota", 
+                                  icon = icon("weight-scale"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Fishing in a prohibited zone", "Fishing in a prohibited zone", 
+                                  icon = icon("ban"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Fishing out of season", "Fishing out of season", 
+                                  icon = icon("earth-americas"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Fishing without license", "Fishing without license", 
+                                  icon = icon("id-card"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Gear-related offense", "Gear-related offense", 
+                                  icon = icon("gear"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Transhipments", "Transhipments", 
+                                  icon = icon("ship"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Underreporting of fishing catch", "Underreporting of fishing catch", 
+                                  icon = icon("fish"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Underreporting of fishing effort", "Underreporting of fishing effort", 
+                                  icon = icon("dumbbell"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Vessel with false flag", 'Vessel with false flag', 
+                                  icon = icon("flag"), style='width:200px; height:150px; font-size:120%; white-space:normal;')
                      # Add more buttons as needed
                      
               )
@@ -285,16 +295,17 @@ body <- dashboardBody(
               
             )),
             
+            
             # Sensors fluidRow ----
             fluidRow(
               
               column(12,
                      # Define buttons for sensors
-                     actionButton("hydroacoustics", "Hydroacoustics", icon = icon("ear-listen")),
-                     actionButton("long_range_camera", "Long Range Camera", icon = icon("camera")),
-                     actionButton("onboard_observer", "Onboard Observers", icon = icon("glasses")),
-                     actionButton("radar","Radar", icon = icon("satellite-dish")),
-                     actionButton("radio_frequency", "Radio Frequency", icon = icon("radio"))
+                     actionButton("hydroacoustics", "Hydroacoustics", icon = icon("ear-listen"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("long_range_camera", "Long Range Camera", icon = icon("camera"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("onboard_observer", "Onboard Observers", icon = icon("glasses"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("radar","Radar", icon = icon("satellite-dish"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("radio_frequency", "Radio Frequency", icon = icon("radio"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;')
                      # Add more buttons as needed
               )
             ),
@@ -311,18 +322,33 @@ body <- dashboardBody(
               div("Platforms", style = "margin-bottom: 20px; margin-top: 20px; font-weight: bold;", style = "margin-bottom: 20px;")
               
             )),
+          
             
             # Platforms fluidRow ----
             fluidRow(
               
               column(12,
                      # Define buttons for platforms
-                     actionButton("aerial_drone", "Aerial Drone", icon = icon("helicopter")),
-                     actionButton("manned_aircraft", "Manned Aircraft", icon = icon("plane")),
-                     actionButton("manned_vessel", "Manned Vessel", icon = icon("ship")),
-                     actionButton("on_shore_command_center", "Onshore Command Center", icon = icon("computer")),
-                     actionButton("smart_buoy", "Smart Buoy", icon = icon("ice-cream")),
-                     actionButton("usv","USV", icon = icon("water")),
+                     actionButton("aerial_drone", 
+                                  HTML(paste("Aerial Drone<br>", 
+                                             icon("helicopter"))), 
+                                  style = 'width:200px; height:150px; font-size:120%; white-space: normal;'),
+                     actionButton("manned_aircraft", "Manned Aircraft", 
+                                  icon = icon("plane"), 
+                                  style = 'width:200px; height:150px; font-size:120%'),
+                     actionButton("manned_vessel", "Manned Vessel", 
+                                  icon = icon("ship"), 
+                                  style = 'width:200px; height:150px; font-size:120%'),
+                     actionButton("on_shore_command_center", 
+                                  HTML(paste("Onshore Command Center<br>", 
+                                            icon("computer"))), 
+                                  style = 'width:200px; height:150px; font-size:120%; white-space: normal;'),
+                     actionButton("smart_buoy", "Smart Buoy", 
+                                  icon = icon("ice-cream"), 
+                                  style = 'width:200px; height:150px; font-size:120%'),
+                     actionButton("usv","USV", icon = 
+                                    icon("water"), 
+                                  style = 'width:200px; height:150px; font-size:120%'),
                      # Add more buttons as needed
               )
             ),
