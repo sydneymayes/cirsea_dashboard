@@ -276,10 +276,18 @@ body <- dashboardBody(
             fluidRow(
               column(12, 
                      uiOutput("iuu_text")) # Placeholder for displaying text based on the selected IUU type
-            ) # END IUU type text fluidRows
+            ), # END IUU type text fluidRows
             
             
-          
+            
+            ###### Might need to do something like this to render images for buttons
+            
+            # fluidRow(
+            #   column(12, 
+            #          imageOutput("iuu_image")) # Placeholder for displaying text based on the selected IUU type
+            # ), # END IUU type image fluidrow
+            # 
+            # 
             
             
             ), # end IUU Types tab item

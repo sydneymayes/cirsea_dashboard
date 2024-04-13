@@ -1,5 +1,6 @@
 server <- function(input, output) {
   
+  
     # FILTER IUU DATA
     filtered_iuu_data <- reactive({
       # Exit early if input not yet selected
@@ -326,19 +327,24 @@ server <- function(input, output) {
 
  
     ### IUU TYPE TAB --------------------------------------
+ 
     
     # Dark Vessels
     observeEvent(input$'Dark Vessels (not broadcasting location via VMS/AIS)', {
       output$iuu_text <- renderUI({
         includeMarkdown("text/dark_vessels.md")
       })
+
     })
+    
+    
     
     # Fishing above quota
     observeEvent(input$`Fishing above quota`, {
       output$iuu_text <- renderUI({
         includeMarkdown("text/fishing_quota.md")
       })
+      
     })
     
     # Fishing in a prohibited zone
@@ -396,6 +402,10 @@ server <- function(input, output) {
         includeMarkdown("text/false_flag.md")
       })
     })
+    
+    
+
+
     
     
     
