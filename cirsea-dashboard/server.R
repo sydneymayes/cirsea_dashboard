@@ -253,36 +253,53 @@ server <- function(input, output) {
       #   filter(iuu_type == user_iuu_type) %>% 
       #   select(granularity_index)
       
-      for (col_name in names(selected_sat_df)[3]) {
-        column_values <- selected_sat_df[[col_name]] # for each column name, determines all the column values
-        
-        within_range_indices <- which(column_values == 1) # not free
-        
-      }
-      
-      
-      for (col_name in names(selected_sat_df)[4]) {
-        column_values <- selected_sat_df[[col_name]] # for each column name, determines all the column values
-        
-        within_range_indices_2 <- which(column_values == 1) # near real time delivery
-        
-      }
+      # for (col_name in names(selected_sat_df)[3]) {
+      #   column_values <- selected_sat_df[[col_name]] # for each column name, determines all the column values
+      #   
+      #   within_range_indices <- which(column_values == 1) # not free
+      #   
+      # }
+      # 
+      # 
+      # for (col_name in names(selected_sat_df)[4]) {
+      #   column_values <- selected_sat_df[[col_name]] # for each column name, determines all the column values
+      #   
+      #   within_range_indices_2 <- which(column_values == 1) # near real time delivery
+      #   
+      # }
       
       # Filter the dataframe to include only the rows with relevant values
 
       
       # is not null NOT WORKING
-      if (!is.null(input$sat_cost_input)) {
-        data <- selected_sat_df[within_range_indices, ]
-        #data <- selected_sat_df[selected_sat_df$cost == 1, ]
-      }
-      if (!is.null(input$sat_delivery_input)) {
-        data <- data[within_range_indices_2, ]
-      }
+      # if (!is.null(input$sat_cost_input)) {
+      #   data <- selected_sat_df[within_range_indices, ]
+      #   #data <- selected_sat_df[selected_sat_df$cost == 1, ]
+      # }
+      # if (!is.null(input$sat_delivery_input)) {
+      #   data <- data[within_range_indices_2, ]
+      # }
+      # 
+      # data
     
-      data
+      
+      if (input$sat_cost_input) {
+        # Filter dataset for rows where Column1 is 1
+        data <- selected_sat_df
+        data[data$cost == 1, ]
+      } else {
+        # If switch is off, show full dataset
+        selected_sat_df
+      }
+      
 
     })
+
+    
+    
+     
+    
+    
     
     #### Test satellite table filter
     
