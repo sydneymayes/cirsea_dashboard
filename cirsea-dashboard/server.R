@@ -38,7 +38,7 @@ server <- function(input, output) {
 
       numeric_costs <- unique(c(cost_ranges$Lower, cost_ranges$Upper))
       
-      
+      ##### Previous code for when costs were multiplied to increase magnitude
       # cost_mapping <- setNames(c(1, 2, 3), c("$", "$$", "$$$"))
       # numeric_user_costs <- cost_mapping[user_cost]
       # 
@@ -214,9 +214,6 @@ server <- function(input, output) {
       
       
       
-      
-      
-      
       #### Finally done with all conditions and now returning them----------------
       
       # Return all UI elements if any, otherwise return nothing (NULL)
@@ -293,9 +290,7 @@ server <- function(input, output) {
     }, options = list(pageLength = 10))
     
     
-    
-    
-    
+  
     output$satellite_output <- renderUI({
       
       Maxar <- any(grepl("Gear-related offense", input$iuu_type_input))
@@ -329,11 +324,165 @@ server <- function(input, output) {
     }) # END renderUI
     
 
+ 
+    ### IUU TYPE TAB --------------------------------------
+    
+    # Dark Vessels
+    observeEvent(input$'Dark Vessels (not broadcasting location via VMS/AIS)', {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/dark_vessels.md")
+      })
+    })
+    
+    # Fishing above quota
+    observeEvent(input$`Fishing above quota`, {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/fishing_quota.md")
+      })
+    })
+    
+    # Fishing in a prohibited zone
+    observeEvent(input$'Fishing in a prohibited zone', {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/fishing_prohibited_zone.md")
+      })
+    })
+    
+    # Fishing out of season
+    observeEvent(input$'Fishing out of season', {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/fishing_season.md")
+      })
+    })
+    
+    # Fishing without license
+    observeEvent(input$'Fishing without license', {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/fishing_no_license.md")
+      })
+    })
+    
+    # Gear-related Offense
+    observeEvent(input$'Gear-related offense', {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/gear_offense.md")
+      })
+    })
+    
+    # Transhipments
+    observeEvent(input$Transhipments, {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/transhipments.md")
+      })
+    })
+    
+    # Underreporting of fishing catch
+    observeEvent(input$'Underreporting of fishing catch', {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/underreporting_catch.md")
+      })
+    })
+    
+    # Underreporting of fishing effort
+    observeEvent(input$'Underreporting of fishing effort', {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/underreporting_effort.md")
+      })
+    })
+    
+    # Vessel with false flag
+    observeEvent(input$'Vessel with false flag', {
+      output$iuu_text <- renderUI({
+        includeMarkdown("text/false_flag.md")
+      })
+    })
+    
+    
+    
+    ### Monitioring Methods TAB --------------------------------------
+    
+    ### Sensors -------------
+    
+    # Hydroacoustics
+    observeEvent(input$hydroacoustics, {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/hydroacoustics.md")
+      })
+    })
+    
+    # Long Range Camera
+    observeEvent(input$long_range_camera, {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/long_range_camera.md")
+      })
+    })
+    
+    # Onboard Observer
+    observeEvent(input$onboard_observer, {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/onboard_observer.md")
+      })
+    })
+    
+    # Radar
+    observeEvent(input$radar, {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/radar.md")
+      })
+    })
+    
+    
+    # Radio Frequency
+    observeEvent(input$radio_frequency, {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/radio_frequency.md")
+      })
+    })
+    
+    ## Platforms ---------
+    
+    # Aerial drone
+    observeEvent(input$aerial_drone, {
+      output$platform_text <- renderUI({
+        includeMarkdown("text/aerial_drone.md")
+      })
+    })
+    
+    # Manned Aircraft
+    observeEvent(input$manned_aircraft, {
+      output$platform_text <- renderUI({
+        includeMarkdown("text/manned_aircraft.md")
+      })
+    })
+    
+    # Manned Vessel
+    observeEvent(input$manned_vessel, {
+      output$platform_text <- renderUI({
+        includeMarkdown("text/manned_vessel.md")
+      })
+    })
+    
+    # Onshore Command Center
+    observeEvent(input$on_shore_command_center, {
+      output$platform_text <- renderUI({
+        includeMarkdown("text/on_shore_command_center.md")
+      })
+    })
+    
+    # Smart Buoy
+    observeEvent(input$smart_buoy, {
+      output$platform_text <- renderUI({
+        includeMarkdown("text/smart_buoy.md")
+      })
+    })
+    
+    # USV
+    observeEvent(input$usv, {
+      output$platform_text <- renderUI({
+        includeMarkdown("text/usv.md")
+      })
+    })
+    
+     
   
-  
-  
-  
-  
-  
-  
-}
+} #END SERVER
