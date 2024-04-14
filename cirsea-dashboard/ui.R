@@ -20,7 +20,8 @@ sidebar <- dashboardSidebar(
     menuItem(text = "About", tabName = "about", icon = icon("star")), #tabName is our id
     menuItem(text = "IUU Tool", tabName = "tool", icon = icon("gear")),
     menuItem(text = "IUU Types", tabName = "iuu_types", icon = icon("fish")),
-    menuItem(text = "Monitoring Strategies", tabName = "monitoring_strategies", icon = icon("magnifying-glass"))
+    menuItem(text = "Monitoring Strategies", tabName = "monitoring_strategies", icon = icon("magnifying-glass")),
+    menuItem(text = "Additional Resources", tabName = "resources", icon = icon("book"))
     
   ) # END sidebarMenu
   
@@ -164,7 +165,16 @@ body <- dashboardBody(
 
                   # data table output ---
                   dataTableOutput(outputId = "iuu_table_output") %>%
+                    withSpinner(color = "skyblue", type = 1),
+                  
+                  # div for satellites
+                  div(
+                    
+                  h4("Satellite Data Table", style = "margin-top: 30px; font-weight: bold;"),
+                  # data table output for satellites ---
+                  dataTableOutput(outputId = "sat_table_output") %>%
                     withSpinner(color = "skyblue", type = 1)
+                  ) # end div
 
 
                      ), # END output
@@ -172,29 +182,16 @@ body <- dashboardBody(
               # descriptions box
               box(width = 8,
                   title = strong("Possible Monitoring Strategies"),
-                  uiOutput(outputId = "text_output")
+                  uiOutput(outputId = "text_output"),
+                  
+                  
+                  # div for satellite widgets
+                  div(
+                    h4("Satellite Options:", style = "margin-top: 30px; font-weight: bold;"),
+                    uiOutput(outputId = "satellite_output")
+                  )
+                  
               ), # end descriptions box
-              
-              
-
-              
-              box(width = 8,
-                  
-                  title = strong("Satellite Options Table"),
-                  
-                  # data table output ---
-                  dataTableOutput(outputId = "sat_table_output") %>%
-                    withSpinner(color = "skyblue", type = 1)
-                  
-                  
-              ), # END output
-              
-              # satellite descriptions box
-              box(width = 8,
-                  title = strong("Satellite Options"),
-                  uiOutput(outputId = "satellite_output")
-              ) # end satellite descriptions box
-              
               
               
               
@@ -206,9 +203,7 @@ body <- dashboardBody(
             #   
             #  
             #   ), # END second fluid row
-            # 
-            # 
-            # 
+            
 
     ), # END tool tabItem
     
@@ -362,7 +357,14 @@ body <- dashboardBody(
             
             
             
-    ) # End Monitoring Strategies tab item
+    ),# End Monitoring Strategies tab item
+    
+    
+    
+    # Additional Resourses tab item
+    tabItem(tabName = "resources",
+            
+    ) # END RESOURCES TAB ITEM
 
 
   ) #END tabItems
