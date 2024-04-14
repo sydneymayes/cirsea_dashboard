@@ -9,6 +9,7 @@ server <- function(input, output) {
       }
       
       # Get the selected iuu_type and range from user input
+      # Note, I did this just to test the logic at first
       user_iuu_type <- input$iuu_type_input
       user_area <- input$range_input
       # user_area <- "Local" for example
@@ -30,6 +31,7 @@ server <- function(input, output) {
       
       
       # DOING A SIMILAR THING FOR COSTS -------------
+      # Note, there is a simpler way to do this, but I just modified the old code we had for speed
       cost_ranges <- cost_ranges_df %>%
         filter(Bin %in% user_cost) %>%
         summarise(Lower = first(Lower), Upper = first(Upper))
@@ -47,34 +49,24 @@ server <- function(input, output) {
       #   filter(total_cost == numeric_user_costs)
 
       
-      # Now trying for DATA INPUT ----------
-      
-      
       # Filter merged_index_df for the selected iuu_type
       
+      # selecting relevant columns of our merged_index_df, including the user's iuu type choice
       selected_columns <- c("sensor_platform", input$iuu_type_input, "total_cost", "total_cost_bins", "data_type")
       selected_iuu_type_df <- merged_index_df %>%
         select(all_of(selected_columns))
       
-      
-      # Initialize an empty list to store indices that meet the criteria
-      
-      # relevant_row_indices <- list()
-      
+      # determining the values in the columns so that we can filter ranges
       for (col_name in names(selected_iuu_type_df)[2:(length(selected_iuu_type_df)-3)]) {
         column_values <- selected_iuu_type_df[[col_name]] # for each column name, determines all the column values
         
-        # Identify row indices where values are within the specified range
-        
+      # determining row indices where values are within the specified range
         within_range_indices <- which(column_values >= lower_limit & column_values <= upper_limit) 
-        
       }
       
       # Filter the dataframe to include only the rows with relevant values
       
-      # This is working below
-      
-      
+      # filtering by range, cost, and data type
       if (!is.null(input$range_input)) {
         data <- selected_iuu_type_df[within_range_indices, ]
       }
@@ -91,6 +83,8 @@ server <- function(input, output) {
     })
     
     # build table
+    # note that we won't show the table in our final version,
+    # but having it appear is very helpful for making sure things are filtering logically
     
     ####### Output the filtered data table
     output$iuu_table_output <- renderDataTable({
@@ -103,7 +97,9 @@ server <- function(input, output) {
 
     
     ####### Output conditional text
+    # Can probably make this more efficient through a function?
     
+    # these are the options sensor and platform options (make sure all have been added)
     output$text_output <- renderUI({
       
       long_range_camera <- any(grepl("long_range_camera", filtered_iuu_data()$sensor_platform))
@@ -125,6 +121,10 @@ server <- function(input, output) {
       smart_buoy <- any(grepl("smart_buoy", filtered_iuu_data()$sensor_platform))
       usv <- any(grepl("usv", filtered_iuu_data()$sensor_platform))
       
+      
+      
+      # want to display just the user selections, these are all the conditions
+      # NOTE: ADD THE REST!!
       
       ui_elements <- list()
       
@@ -230,56 +230,55 @@ server <- function(input, output) {
     
     
     ###### SATELLITE FILTERING ---------------------------------------
+    # filtering the satellite data by the granularity of selected iuu type, by cost, and by delivery
     
     filtered_sat_data <- reactive({
-      #Exit early if input not yet selected
+      # Exit early if input not yet selected
       if(is.null(input$iuu_type_input) || is.null(input$range_input)) {
         return(data.frame())
       }
       
-      
-      # determine the granularity of user selected iuu
-      # get_granularity_index <- function(user_iuu_type) {
-      #   iuu_type_index %>%
-      #     filter(iuu_type == user_iuu_type) %>%
-      #     select(granularity_index) %>%
-      #     pull()
-      # }
-      
+      # determining the granularity of iuu selection
       granularity <- iuu_type_index %>%
           filter(iuu_type == input$iuu_type_input) 
       
       get_granularity_index <- granularity$granularity_index
 
-      
+      # this might not have been necessary, but was following the same logic as above
       selected_columns_sat <- c("satellites", "granularity_index", "cost", "delivery")
       selected_sat_df <- satellites %>%
         select(all_of(selected_columns_sat))
       
       
+      # determining all the granularity values
       for (col_name in names(selected_sat_df)[2]) {
         column_values <- selected_sat_df[[col_name]] # for each column name, determines all the column values
         
-        # Identify row indices where values are within the specified range
+      # Identify row indices where values match the selected iuu type's granularity
         
-        within_selection <- which(column_values == get_granularity_index) 
+        same_granularity <- which(column_values == get_granularity_index) 
         
       }
       
-      #data <- selected_sat_df
+      # filtering the satellite data by iuu type/granularity, cost, and delivery
+      # Note, again this data table won't be shown in the UI ultimately, but is very helpful for
+      # ensuring output is correct and logic is sound
       
       if (!is.null(input$iuu_type_input)) {
+        # there was also probably an easier way to do this but trial and error got me here
         # data <- data[data$granularity_index == get_granularity_index, ]
-        data <- selected_sat_df[within_selection, ]
+        data <- selected_sat_df[same_granularity, ]
       }
       
       if (input$sat_cost_input) {
         # Filter dataset for rows where cost is 1
+        # This means that when switch is flipped, free options will appear
         data <- data[data$cost == 1, ]
       } 
       
       if (input$sat_delivery_input) {
         # Filter dataset for rows where delivery is 1
+        # This means that when switch is flipped, near-time delivery options will appear
         data <- data[data$delivery == 1, ]
       } 
       
@@ -288,15 +287,15 @@ server <- function(input, output) {
     })
 
     
-    
-     
-    #### Test satellite table filter
+    #### Satellite table filter
+    # To remove late, but helpful to check output filtering
     
     output$sat_table_output <- renderDataTable({
       filtered_sat_data() 
     }, options = list(pageLength = 10))
     
     
+    # STILL NEED TO WORK ON TEXT OUTPUT
   
     output$satellite_output <- renderUI({
       
@@ -342,7 +341,6 @@ server <- function(input, output) {
       })
 
     })
-    
     
     
     # Fishing above quota
