@@ -288,7 +288,7 @@ server <- function(input, output) {
 
     
     #### Satellite table filter
-    # To remove late, but helpful to check output filtering
+    # To remove later, but helpful to check output filtering
     
     output$sat_table_output <- renderDataTable({
       filtered_sat_data() 
@@ -299,21 +299,46 @@ server <- function(input, output) {
   
     output$satellite_output <- renderUI({
       
-      Maxar <- any(grepl("Gear-related offense", input$iuu_type_input))
-      
+      maxar <- any(grepl("Maxar", filtered_sat_data()$satellites))
+      blacksky <- any(grepl("BlackSky", filtered_sat_data()$satellites))
+      mda_radarsat <- any(grepl("MDA Radarsat", filtered_sat_data()$satellites))
+      capella <- any(grepl("Capella", filtered_sat_data()$satellites))
       
       
       ui_elements_2 <- list()
       
-      # If       is found, add its content to the list
-      if (Maxar) {
-        #print("Long range camera found")
+      # If Maxar is an option, add its info to the list
+      if (maxar) {
         maxar_text <- "text/maxar_tool.md"
         if(file.exists(maxar_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(maxar_text)))
-          
         }
       }
+      
+      # If Blacksky is an option, add its info to list, etc.
+      if (blacksky) {
+        blacksky_text <- "text/blacksky_tool.md"
+        if(file.exists(blacksky_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(blacksky_text)))
+        }
+      }
+      
+      if (mda_radarsat) {
+        mda_radarsat_text <- "text/mda_radarsat_tool.md"
+        if(file.exists(mda_radarsat_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(mda_radarsat_text)))
+        }
+      }
+      
+      if (capella) {
+        capella_text <- "text/capella_tool.md"
+        if(file.exists(capella_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(capella_text)))
+        }
+      }
+      
+      
+      
       
      
       

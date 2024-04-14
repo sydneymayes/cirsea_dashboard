@@ -1,3 +1,3 @@
-##### **Maxar**
+##### **BlackSky**
 
 *Description here:* 
