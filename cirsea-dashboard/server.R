@@ -229,41 +229,49 @@ server <- function(input, output) {
     
     
     
-    #### TESTING SATELLITE FILTER
+    ###### SATELLITE FILTERING ---------------------------------------
     
     filtered_sat_data <- reactive({
-      # Exit early if input not yet selected
-      # if(is.null(input$iuu_type_input) || is.null(input$range_input)) {
-      #   return(data.frame())
+      #Exit early if input not yet selected
+      if(is.null(input$iuu_type_input) || is.null(input$range_input)) {
+        return(data.frame())
+      }
+      
+      
+      # determine the granularity of user selected iuu
+      # get_granularity_index <- function(user_iuu_type) {
+      #   iuu_type_index %>%
+      #     filter(iuu_type == user_iuu_type) %>%
+      #     select(granularity_index) %>%
+      #     pull()
       # }
-
-      user_iuu_type <- input$iuu_type_input
-
-      user_sat_cost <- input$sat_cost_input
-
-      user_sat_delivery <- input$sat_delivery_input
       
+      granularity <- iuu_type_index %>%
+          filter(iuu_type == input$iuu_type_input) 
       
-    
+      get_granularity_index <- granularity$granularity_index
+
+      
       selected_columns_sat <- c("satellites", "granularity_index", "cost", "delivery")
       selected_sat_df <- satellites %>%
         select(all_of(selected_columns_sat))
       
-      # iuu_type_index %>% 
-      #   filter(iuu_type == user_iuu_type) %>% 
-      #   select(granularity_index)
-    
       
-      # if (input$sat_cost_input) {
-      #   # Filter dataset for rows where Column1 is 1
-      #   data <- selected_sat_df
-      #   data[data$cost == 1, ]
-      # } else {
-      #   # If switch is off, show full dataset
-      #   selected_sat_df
-      # }
+      for (col_name in names(selected_sat_df)[2]) {
+        column_values <- selected_sat_df[[col_name]] # for each column name, determines all the column values
+        
+        # Identify row indices where values are within the specified range
+        
+        within_selection <- which(column_values == get_granularity_index) 
+        
+      }
       
-      data <- selected_sat_df
+      #data <- selected_sat_df
+      
+      if (!is.null(input$iuu_type_input)) {
+        # data <- data[data$granularity_index == get_granularity_index, ]
+        data <- selected_sat_df[within_selection, ]
+      }
       
       if (input$sat_cost_input) {
         # Filter dataset for rows where cost is 1
@@ -282,9 +290,6 @@ server <- function(input, output) {
     
     
      
-    
-    
-    
     #### Test satellite table filter
     
     output$sat_table_output <- renderDataTable({
