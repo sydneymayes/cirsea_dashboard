@@ -128,7 +128,31 @@ body <- dashboardBody(
                   checkboxGroupInput(inputId = "data_type_input",
                                      label = 'Filter by data interest(s):',
                                      choices = c("Eye-witness", "Image", "Location", "Video"),
-                                     selected = NULL)
+                                     selected = NULL),
+                  
+                  
+                  # div for satellite widgets
+                  div(
+                    h5("Satellite Specifications:", style = "margin-top: 20px; font-weight: bold;"),
+                    
+                    # Free or not
+                    materialSwitch(
+                      inputId = "sat_cost_input",
+                      label = "Free Data", 
+                      value = FALSE,
+                      status = "primary"
+                    ),
+                    
+                    materialSwitch(
+                      inputId = "sat_delivery_input",
+                      label = "Near Real-time Delivery", 
+                      value = FALSE,
+                      status = "success"
+                    )
+                  )
+                  
+                  
+                  
 
               ), #end first input box
               
@@ -149,50 +173,10 @@ body <- dashboardBody(
               box(width = 8,
                   title = strong("Possible Monitoring Strategies"),
                   uiOutput(outputId = "text_output")
-              ) # end descriptions box
-              ), # End fluidRow
+              ), # end descriptions box
               
-             
-            # fluidRow 2 ---
-            fluidRow(
               
-              box(width = 4,
-                  
-                  title = tags$strong("Satellites"),
-                  
-                  # IUU Type pickerinput ----
-                  # pickerInput(inputId = 'iuu_type_satellites_input',
-                  #             label = 'Select IUU type:',
-                  #             choices = unique(iuu_type),
-                  #             selected = unique(iuu_type)[1],
-                  #             options = pickerOptions(actionsBox = TRUE),
-                  #             multiple = FALSE),
-                  
-                  
-                          
-                  # Satellite Type
-                  # pickerInput(
-                  #   inputId = "satellite_type_input",
-                  #   label = "Satellite Type", 
-                  #   choices = c("EO", "SAR", "SAR (High Res)", "RF"),
-                  #   multiple = TRUE,
-                  # ),
-                  
-                  # Free or not
-                  materialSwitch(
-                    inputId = "sat_cost_input",
-                    label = "Free Data", 
-                    value = FALSE,
-                    status = "primary"
-                  ),
-                  
-                  materialSwitch(
-                    inputId = "sat_delivery_input",
-                    label = "Near Real-time Delivery", 
-                    value = FALSE,
-                    status = "success"
-                  )
-              ), # end satellite input box
+
               
               box(width = 8,
                   
@@ -210,11 +194,21 @@ body <- dashboardBody(
                   title = strong("Satellite Options"),
                   uiOutput(outputId = "satellite_output")
               ) # end satellite descriptions box
-                
-              ), # END second fluid row
-
-
-   
+              
+              
+              
+              
+              ), # End fluidRow
+              
+             
+            # # fluidRow 2 ---
+            # fluidRow(
+            #   
+            #  
+            #   ), # END second fluid row
+            # 
+            # 
+            # 
 
     ), # END tool tabItem
     
