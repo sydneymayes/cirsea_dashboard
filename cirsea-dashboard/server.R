@@ -100,7 +100,7 @@ server <- function(input, output) {
     # Can probably make this more efficient through a function?
     
     # these are the options sensor and platform options (make sure all have been added)
-    output$text_output <- renderUI({
+    output$sensor_platform_output <- renderUI({
       
       long_range_camera <- any(grepl("long_range_camera", filtered_iuu_data()$sensor_platform))
       hydroacoustics <- any(grepl("hydroacoustics", filtered_iuu_data()$sensor_platform))
@@ -120,6 +120,11 @@ server <- function(input, output) {
       on_shore_command_center <- any(grepl("on_shore_command_center", filtered_iuu_data()$sensor_platform))
       smart_buoy <- any(grepl("smart_buoy", filtered_iuu_data()$sensor_platform))
       usv <- any(grepl("usv", filtered_iuu_data()$sensor_platform))
+      # if no pairings
+      no_pairings <- (nrow(filtered_iuu_data()) == 0)
+      
+      
+    
       
       
       
@@ -213,6 +218,16 @@ server <- function(input, output) {
         }
       }
       
+  
+      # if no pairings
+      if (no_pairings) {
+        no_pairings_text <- "text/no_pairings_tool.md"
+        if(file.exists(no_pairings_text)) {
+          # ui_elements <- append(ui_elements, list(includeMarkdown(no_pairings_text)))
+        }
+      }
+    
+  
       
       
       #### Finally done with all conditions and now returning them----------------
@@ -311,7 +326,7 @@ server <- function(input, output) {
       sentinel_2 <- any(grepl("Sentinel-2", filtered_sat_data()$satellites))
       landsat_8_9 <- any(grepl("Landsat 8 & 9", filtered_sat_data()$satellites))
       viirs <- any(grepl("VIIRS", filtered_sat_data()$satellites))
-      # adding a file to indicate the condition when no satellite options appear
+      # adding a file to indicate the condition when no satellite options appear 
       no_satellites <- (nrow(filtered_sat_data()) == 0)
       
       
