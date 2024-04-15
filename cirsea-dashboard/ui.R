@@ -185,12 +185,16 @@ body <- dashboardBody(
               # descriptions box
               box(width = 8,
                   title = strong("Possible Monitoring Strategies"),
-                  uiOutput(outputId = "text_output"),
-                  
+                 
+                  div(
+                    h4("Sensor and Platform Pairings:", style = "margin-top: 10px; margin-bottom: 20px; font-weight: bold;"),
+                    uiOutput(outputId = "sensor_platform_output")
+                  ),
+                   
                   
                   # div for satellite widgets
                   div(
-                    h4("Satellite Options:", style = "margin-top: 30px; font-weight: bold;"),
+                    h4("Satellite Options:", style = "margin-top: 30px; margin-bottom:20px; font-weight: bold;"),
                     uiOutput(outputId = "satellite_output")
                   )
                   

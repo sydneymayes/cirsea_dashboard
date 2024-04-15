@@ -1,0 +1,1 @@
+**No sensor and platform pairing options available.**
