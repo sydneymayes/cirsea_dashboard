@@ -1,3 +1,8 @@
+/* link stylesheet (goes in UI)
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "styles.css"),
+  )*/
+
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200..700&display=swap');
 
 .skin-blue .main-header .navbar {
@@ -20,4 +25,21 @@
   background-color: #f1f2f3;
   color: black;
 }
+
+
+.btn-default {
+    background-color: #1B4FBE;
+    color: #FFFFFF;
+    border-color: black;
+}
+
+
+
+
+
+
+
+
+
+
 
