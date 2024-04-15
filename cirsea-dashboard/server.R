@@ -295,7 +295,7 @@ server <- function(input, output) {
     }, options = list(pageLength = 10))
     
     
-    # STILL NEED TO WORK ON TEXT OUTPUT
+    # Still need to add text descriptions
   
     output$satellite_output <- renderUI({
       
@@ -303,6 +303,13 @@ server <- function(input, output) {
       blacksky <- any(grepl("BlackSky", filtered_sat_data()$satellites))
       mda_radarsat <- any(grepl("MDA Radarsat", filtered_sat_data()$satellites))
       capella <- any(grepl("Capella", filtered_sat_data()$satellites))
+      unseen_labs <- any(grepl("Unseen Labs", filtered_sat_data()$satellites))
+      iceye <- any(grepl("Iceye", filtered_sat_data()$satellites))
+      planet <- any(grepl("Planet", filtered_sat_data()$satellites))
+      sentinel_1 <- any(grepl("Sentinel-1", filtered_sat_data()$satellites))
+      sentinel_2 <- any(grepl("Sentinel-2", filtered_sat_data()$satellites))
+      landsat_8_9 <- any(grepl("Landsat 8 & 9", filtered_sat_data()$satellites))
+      viirs <- any(grepl("VIIRS", filtered_sat_data()$satellites))
       
       
       ui_elements_2 <- list()
@@ -334,6 +341,55 @@ server <- function(input, output) {
         capella_text <- "text/capella_tool.md"
         if(file.exists(capella_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(capella_text)))
+        }
+      }
+      
+      if (unseen_labs) {
+        unseen_labs_text <- "text/unseen_labs_tool.md"
+        if(file.exists(unseen_labs_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(unseen_labs_text)))
+        }
+      }
+      
+      if (iceye) {
+        iceye_text <- "text/iceye_tool.md"
+        if(file.exists(iceye_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(iceye_text)))
+        }
+      }
+      
+      if (planet) {
+        planet_text <- "text/planet_tool.md"
+        if(file.exists(planet_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(planet_text)))
+        }
+      }
+      
+      if (sentinel_1) {
+        sentinel_1_text <- "text/sentinel_1_tool.md"
+        if(file.exists(sentinel_1_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(sentinel_1_text)))
+        }
+      }
+      
+      if (sentinel_2) {
+        sentinel_2_text <- "text/sentinel_2_tool.md"
+        if(file.exists(sentinel_2_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(sentinel_2_text)))
+        }
+      }
+      
+      if (landsat_8_9) {
+        landsat_8_9_text <- "text/landsat_8_9_tool.md"
+        if(file.exists(landsat_8_9_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(landsat_8_9_text)))
+        }
+      }
+      
+      if (viirs) {
+        viirs_text <- "text/viirs_tool.md"
+        if(file.exists(viirs_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(viirs_text)))
         }
       }
       
