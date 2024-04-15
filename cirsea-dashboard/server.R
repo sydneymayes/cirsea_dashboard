@@ -294,6 +294,7 @@ server <- function(input, output) {
       filtered_sat_data() 
     }, options = list(pageLength = 10))
     
+
     
     # Still need to add text descriptions
   
@@ -310,6 +311,8 @@ server <- function(input, output) {
       sentinel_2 <- any(grepl("Sentinel-2", filtered_sat_data()$satellites))
       landsat_8_9 <- any(grepl("Landsat 8 & 9", filtered_sat_data()$satellites))
       viirs <- any(grepl("VIIRS", filtered_sat_data()$satellites))
+      # adding a file to indicate the condition when no satellite options appear
+      no_satellites <- (nrow(filtered_sat_data()) == 0)
       
       
       ui_elements_2 <- list()
@@ -390,6 +393,15 @@ server <- function(input, output) {
         viirs_text <- "text/viirs_tool.md"
         if(file.exists(viirs_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(viirs_text)))
+        }
+      }
+      
+      
+      # If no satellite options available, indicate this
+      if (no_satellites) {
+        no_satellites_text <- "text/no_satellites_tool.md"
+        if(file.exists(no_satellites_text)) {
+          ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(no_satellites_text)))
         }
       }
       

@@ -174,7 +174,9 @@ body <- dashboardBody(
                   h4("Satellite Data Table", style = "margin-top: 30px; font-weight: bold;"),
                   # data table output for satellites ---
                   dataTableOutput(outputId = "sat_table_output") %>%
-                    withSpinner(color = "skyblue", type = 1)
+                    withSpinner(color = "skyblue", type = 1),
+                  # if there is no sat data
+                  textOutput("no_data_message")
                   ) # end div
 
 
