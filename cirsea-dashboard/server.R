@@ -361,7 +361,7 @@ server <- function(input, output) {
     
     # Dark Vessels
     observeEvent(input$'Dark Vessels (not broadcasting location via VMS/AIS)', {
-      output$iuu_text <- renderUI({
+      output$iuu_text <- renderUI({ 
         includeMarkdown("text/dark_vessels.md")
       })
 

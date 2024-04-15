@@ -21,7 +21,8 @@ sidebar <- dashboardSidebar(
     menuItem(text = "IUU Tool", tabName = "tool", icon = icon("gear")),
     menuItem(text = "IUU Types", tabName = "iuu_types", icon = icon("fish")),
     menuItem(text = "Monitoring Strategies", tabName = "monitoring_strategies", icon = icon("magnifying-glass")),
-    menuItem(text = "Additional Resources", tabName = "resources", icon = icon("book"))
+    menuItem(text = "Additional Resources", tabName = "resources", icon = icon("book")),
+    menuItem(text = "Methodology", tabName = "methodology", icon = icon("asterisk"))
     
   ) # END sidebarMenu
   
@@ -50,7 +51,7 @@ body <- dashboardBody(
                    box(width = NULL,
 
                        title = tagList(icon("fish"),
-                                       strong("About the project")),
+                                       strong("About The Project")),
                        includeMarkdown("text/about.md"),
                        tags$img(src = "cirsea_2.webp",
                                 alt = "Logo image",
@@ -72,7 +73,7 @@ body <- dashboardBody(
                      box(width = NULL,
 
                          title = tagList(icon("book"),
-                                         strong("Methodology")),
+                                         strong("Instructions")),
                          includeMarkdown("text/methodology.md")
 
                      ) # end citation box
@@ -237,26 +238,46 @@ body <- dashboardBody(
 
               column(width = 12,
                      # Define buttons for IUU types dynamically or statically here
-                     actionButton("Dark Vessels (not broadcasting location via VMS/AIS)", "Dark Vessels", 
-                                  icon = icon("moon"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Fishing above quota","Fishing above quota", 
-                                  icon = icon("weight-scale"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Fishing in a prohibited zone", "Fishing in a prohibited zone", 
-                                  icon = icon("ban"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Fishing out of season", "Fishing out of season", 
-                                  icon = icon("earth-americas"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Fishing without license", "Fishing without license", 
-                                  icon = icon("id-card"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Gear-related offense", "Gear-related offense", 
-                                  icon = icon("gear"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Transhipments", "Transhipments", 
-                                  icon = icon("ship"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Underreporting of fishing catch", "Underreporting of fishing catch", 
-                                  icon = icon("fish"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Underreporting of fishing effort", "Underreporting of fishing effort", 
-                                  icon = icon("dumbbell"), style='width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("Vessel with false flag", 'Vessel with false flag', 
-                                  icon = icon("flag"), style='width:200px; height:150px; font-size:120%; white-space:normal;')
+                     actionButton("Dark Vessels (not broadcasting location via VMS/AIS)", 
+                                  HTML(paste(icon("moon"),
+                                             "<br>Dark Vessels")), 
+                                  style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Fishing above quota",
+                                  HTML(paste(icon("weight-scale"), 
+                                             "<br>Fishing above quota")), 
+                                  style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Fishing in a prohibited zone", 
+                                  HTML(paste(icon("ban"), 
+                                             "<br>Fishing in a prohibited zone")), 
+                                 style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Fishing out of season", 
+                                  HTML(paste(icon("earth-americas"), 
+                                             "<br>Fishing out of season")), 
+                                 style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Fishing without license", 
+                                  HTML(paste(icon("id-card"), 
+                                             "<br>Fishing without license")), 
+                                 style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Gear-related offense", 
+                                  HTML(paste(icon("gear"), 
+                                             "<br>Gear-related offense")), 
+                                 style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Transhipments", 
+                                  HTML(paste(icon("ship"),
+                                             "<br>Transhipments")), 
+                                 style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Underreporting of fishing catch", 
+                                  HTML(paste(icon("fish"),
+                                             "<br>Underreporting of fishing catch")), 
+                                  style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Underreporting of fishing effort", 
+                                  HTML(paste(icon("dumbbell"),
+                                             "<br>Underreporting of fishing effort")), 
+                                  style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Vessel with false flag", 
+                                  HTML(paste(icon("flag"),
+                                             '<br>Vessel with false flag')), 
+                                 style='width:200px; height:150px; font-size:120%; white-space:normal;')
                      # Add more buttons as needed
                      
               )
@@ -298,11 +319,26 @@ body <- dashboardBody(
               
               column(12,
                      # Define buttons for sensors
-                     actionButton("hydroacoustics", "Hydroacoustics", icon = icon("ear-listen"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("long_range_camera", "Long Range Camera", icon = icon("camera"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("onboard_observer", "Onboard Observers", icon = icon("glasses"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("radar","Radar", icon = icon("satellite-dish"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
-                     actionButton("radio_frequency", "Radio Frequency", icon = icon("radio"), style = 'width:200px; height:150px; font-size:120%; white-space:normal;')
+                     actionButton("hydroacoustics", 
+                                  HTML(paste(icon("ear-listen"),
+                                             "<br>Hydroacoustics")), 
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("long_range_camera", 
+                                  HTML(paste(icon("camera"),
+                                             "<br>Long Range Camera")), 
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("onboard_observer", 
+                                  HTML(paste(icon("glasses"),
+                                             "<br>Onboard Observers")), 
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("radar",
+                                  HTML(paste(icon("satellite-dish"),
+                                             "<br>Radar")), 
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("radio_frequency", 
+                                  HTML(paste(icon("radio"),
+                                             "<br>Radio Frequency")),
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;')
                      # Add more buttons as needed
               )
             ),
@@ -361,10 +397,16 @@ body <- dashboardBody(
     
     
     
-    # Additional Resourses tab item
+    # Additional Resources tab item
     tabItem(tabName = "resources",
             
-    ) # END RESOURCES TAB ITEM
+    ), # END RESOURCES TAB ITEM
+    
+    
+    # Methodology tab item
+    tabItem(tabName = "methodology",
+            
+    ) # END METHODOLOGY TAB ITEM
 
 
   ) #END tabItems
