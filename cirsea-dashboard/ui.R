@@ -270,7 +270,7 @@ body <- dashboardBody(
                                  style='width:200px; height:150px; font-size:120%; white-space:normal;'),
                      actionButton("Transhipments", 
                                   HTML(paste(icon("ship"),
-                                             "<br>Transhipments")), 
+                                             "<br>Illegal Transhipments")), 
                                  style='width:200px; height:150px; font-size:120%; white-space:normal;'),
                      actionButton("Underreporting of fishing catch", 
                                   HTML(paste(icon("fish"),
@@ -283,7 +283,19 @@ body <- dashboardBody(
                      actionButton("Vessel with false flag", 
                                   HTML(paste(icon("flag"),
                                              '<br>Vessel with false flag')), 
-                                 style='width:200px; height:150px; font-size:120%; white-space:normal;')
+                                 style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Prohibited Species", 
+                                  HTML(paste(icon("fish-fins"),
+                                             '<br>Fishing for prohibited species')), 
+                                  style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Bycatch", 
+                                  HTML(paste(icon("shrimp"),
+                                             '<br>Illegal bycatch and discard')), 
+                                  style='width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Reporting", 
+                                  HTML(paste(icon("book"),
+                                             '<br>Noncompliance with reporting requirements')), 
+                                  style='width:200px; height:150px; font-size:120%; white-space:normal;')
                      # Add more buttons as needed
                      
               )
@@ -331,7 +343,7 @@ body <- dashboardBody(
                                   style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
                      actionButton("long_range_camera", 
                                   HTML(paste(icon("camera"),
-                                             "<br>Long Range Camera")), 
+                                             "<br>Cameras")), 
                                   style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
                      actionButton("onboard_observer", 
                                   HTML(paste(icon("glasses"),
@@ -344,7 +356,19 @@ body <- dashboardBody(
                      actionButton("radio_frequency", 
                                   HTML(paste(icon("radio"),
                                              "<br>Radio Frequency")),
-                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;')
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("AIS/VMS", 
+                                  HTML(paste(icon("radio"),
+                                             "<br>AIS and VMS")),
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Electronic Monitoring Systems", 
+                                  HTML(paste(icon("radio"),
+                                             "<br>Electronic Monitoring Systems")),
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
+                     actionButton("Satellites", 
+                                  HTML(paste(icon("radio"),
+                                             "<br>Satellites")),
+                                  style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
                      # Add more buttons as needed
               )
             ),
