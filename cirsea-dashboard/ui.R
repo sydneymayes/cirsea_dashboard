@@ -313,6 +313,7 @@ body <- dashboardBody(
     # Monitoring Strategies tab item
     tabItem(tabName = "monitoring_strategies",
             # Sensors and how to use
+            # Add new boxes in this section to structure like IUU types
             fluidRow(
               column(width = 12,
               div("Click on a Monitoring Strategy to learn more.", style = "margin-bottom: 20px;"),
@@ -324,7 +325,7 @@ body <- dashboardBody(
             # Sensors fluidRow ----
             fluidRow(
               
-              column(12,
+              box(width = 4,
                      # Define buttons for sensors
                      actionButton("hydroacoustics", 
                                   HTML(paste(icon("ear-listen"),
@@ -359,14 +360,15 @@ body <- dashboardBody(
                                              "<br>Satellites")),
                                   style = 'width:200px; height:150px; font-size:120%; white-space:normal;'),
                      # Add more buttons as needed
-              )
-            ),
+              ),
+           
             
-            fluidRow(
-              column(12,
+      
+            
+              box(width = 8,
                      uiOutput("sensor_text")) # Placeholder for displaying text based on the selected IUU type
             ), # END Sensors  fluidRows
-            
+    
             
             # Platforms and how to use
             fluidRow(
@@ -379,7 +381,7 @@ body <- dashboardBody(
             # Platforms fluidRow ----
             fluidRow(
               
-              column(12,
+              box(width = 4,
                      # Define buttons for platforms
                      actionButton("aerial_drone", 
                                   HTML(paste(icon("helicopter"),
@@ -406,11 +408,11 @@ body <- dashboardBody(
                                              "<br>USV")), 
                                   style = 'width:200px; height:150px; font-size:120%'),
                      # Add more buttons as needed
-              )
-            ),
+              ),
+           
             
-            fluidRow(
-              column(12, 
+            
+              box(width = 8, 
                      uiOutput("platform_text")) # Placeholder for displaying text based on the selected IUU type
             ) # END Platforms fluidRows
             
