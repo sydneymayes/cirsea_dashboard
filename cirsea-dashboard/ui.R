@@ -242,7 +242,8 @@ body <- dashboardBody(
               
               
 
-              column(width = 12,
+             # Make a box for the IUU type buttons
+              box(width = 4,
                      # Define buttons for IUU types dynamically or statically here
                      actionButton("Dark Vessels (not broadcasting location via VMS/AIS)", 
                                   HTML(paste(icon("moon"),
@@ -298,26 +299,14 @@ body <- dashboardBody(
                                   style='width:200px; height:150px; font-size:120%; white-space:normal;')
                      # Add more buttons as needed
                      
-              )
-            ),
+              ), # end box for iuu type buttons
             
-            fluidRow(
-              column(12, 
-                     uiOutput("iuu_text")) # Placeholder for displaying text based on the selected IUU type
-            ), # END IUU type text fluidRows
-            
-            
-            
-            ###### Might need to do something like this to render images for buttons
-            
-            # fluidRow(
-            #   column(12, 
-            #          imageOutput("iuu_image")) # Placeholder for displaying text based on the selected IUU type
-            # ), # END IUU type image fluidrow
-            # 
-            # 
-            
-            
+            # Make a box for the IUU Type Text
+              box(width = 8,
+                     uiOutput("iuu_text"), # Placeholder for displaying text based on the selected IUU type
+              ) # End box for iuu type text
+        
+            ) # End fluid row
             ), # end IUU Types tab item
     
     
