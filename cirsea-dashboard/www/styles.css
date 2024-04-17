@@ -3,35 +3,56 @@
     tags$link(rel = "stylesheet", type = "text/css", href = "styles.css"),
   )*/
 
+
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200..700&display=swap');
 
 .skin-blue .main-header .navbar {
-  background-color: #38C6BC ;
-  color:  #FFFFFF /* white */ ;
+  background-color: #083462;
+  color:  #E7F6FC;
 }
 
-.main-header .logo {
+.skin-blue .main-header .logo {
  font-family: 'Oswald', regular;
-  color: #FFFFFF /* white */
+ background-color: #E7F6FC;
+  color: #083462;
+  font-size: 40px;
 }
-
-.main-sidebar {
-  background-color:#1B4FBE; /* blue */
-  color:  #FFFFFF /* white */ ;
-  
-}
-
-.box-body {
-  background-color: #f1f2f3;
-  color: black;
-}
-
 
 .btn-default {
-    background-color: #38C6BC;
-    color: #FFFFFF;
-    border-color: #FFFFFF;
+    background-color: #1172B9;
+    color: #FAC104;
+    border-color: #E7F6FC;
 }
+
+.skin-blue .main-sidebar {
+  color: #E7F6FC;
+  background-color: #083462;
+  border-color: #083462;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.skin-blue .main-sidebar .btn:active {
+  color: #E7F6FC;
+  background-color: #083462;
+  border-color: #083462;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+
+.skin-blue .main-sidebar .btn:hover {
+  color: #FAC104; /* Text color when clicked or focused */
+  background-color: #01C8BB; /* Background color when clicked or focused */
+  border-color: #01C8BB; /* Border color when clicked or focused */
+}
+
+
+.box-body {
+  background-color: #E7F6FC;
+  color: #00221C;
+}
+
+
+
 
 
 
