@@ -293,7 +293,7 @@ server <- function(input, output) {
       if (input$sat_cost_input) {
         # Filter dataset for rows where cost is 1
         # This means that when switch is flipped, free options will appear
-        data <- data[data$cost == 1, ]
+        data <- data[data$cost == 0, ]
       } 
       
       if (input$sat_delivery_input) {
