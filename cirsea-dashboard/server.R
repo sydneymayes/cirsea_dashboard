@@ -123,7 +123,8 @@ server <- function(input, output) {
       # if no pairings
       no_pairings <- (nrow(filtered_iuu_data()) == 0)
       
-      
+      #### Packages text
+      mid_range_camera_by_small_aerial_drone <- any(grepl("mid_range_camera by small_aerial_drone", filtered_iuu_data()$sensor_platform))
       
       # PAIRINGS TEXT INSTEAD?
       
@@ -138,92 +139,102 @@ server <- function(input, output) {
       
       ui_elements <- list()
       
-      # If 'long_range_camera' is found, add its content to the list
-      if (long_range_camera) {
-        #print("Long range camera found")
-        long_range_camera_text <- "text/long_range_camera_tool.md"
-        if(file.exists(long_range_camera_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_text)))
+      ### Adding packaged pairings text --------------------------
+      if (mid_range_camera_by_small_aerial_drone) {
+        mid_range_camera_by_small_aerial_drone_text <- "text/pairings/mid_range_camera_by_small_aerial_dronetool.md"
+        if(file.exists(mid_range_camera_by_small_aerial_drone_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(mid_range_camera_by_small_aerial_drone_text)))
           
         }
       }
       
-      # # # If 'aerial_drone' is found, add its content to the list
-      if (aerial_drone) {
-        aerial_drone_text <- "text/aerial_drone_tool.md"
-        if(file.exists(aerial_drone_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(aerial_drone_text)))
-        }
-      }
-      
-      
-      # If 'hydroacoustics' is found, add its content to the list
-      if (hydroacoustics) {
-        hydroacoustics_text <- "text/hydroacoustics_tool.md"
-        if(file.exists(hydroacoustics_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(hydroacoustics_text)))
-        }
-      }
-      
-      # If 'onboard observer' is found, add its content to the list
-      if (onboard_observer) {
-        onboard_observer_text <- "text/onboard_observer_tool.md"
-        if(file.exists(onboard_observer_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(onboard_observer_text)))
-        }
-      }
-      
-      # If 'radar' is found, add its content to the list
-      if (radar) {
-        radar_text <- "text/radar_tool.md"
-        if(file.exists(radar_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(radar_text)))
-        }
-      }
-      
-      if (radio_frequency) {
-        radio_frequency_text <- "text/radio_frequency_tool.md"
-        if(file.exists(radio_frequency_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_text)))
-        }
-      }
-      
-      if (manned_aircraft) {
-        manned_aircraft_text <- "text/manned_aircraft_tool.md"
-        if(file.exists(manned_aircraft_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(manned_aircraft_text)))
-        }
-      }
-      
-      if (manned_vessel) {
-        manned_vessel_text <- "text/manned_vessel_tool.md"
-        if(file.exists(manned_vessel_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(manned_vessel_text)))
-        }
-      }
-      
-      if (on_shore_command_center) {
-        on_shore_command_center_text <- "text/on_shore_command_center_tool.md"
-        if(file.exists(on_shore_command_center_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(on_shore_command_center_text)))
-        }
-      }
-      
-      if (smart_buoy) {
-        smart_buoy_text <- "text/smart_buoy_tool.md"
-        if(file.exists(smart_buoy_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(smart_buoy_text)))
-        }
-      }
-      
-      if (usv) {
-        usv_text <- "text/usv_tool.md"
-        if(file.exists(usv_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(usv_text)))
-        }
-      }
-      
-  
+      ### Previous individual unpaired text files 
+      # If 'long_range_camera' is found, add its content to the list -------
+      # if (long_range_camera) {
+      #   #print("Long range camera found")
+      #   long_range_camera_text <- "text/long_range_camera_tool.md"
+      #   if(file.exists(long_range_camera_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_text)))
+      #     
+      #   }
+      # }
+      # 
+      # # # # If 'aerial_drone' is found, add its content to the list
+      # if (aerial_drone) {
+      #   aerial_drone_text <- "text/aerial_drone_tool.md"
+      #   if(file.exists(aerial_drone_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(aerial_drone_text)))
+      #   }
+      # }
+      # 
+      # 
+      # # If 'hydroacoustics' is found, add its content to the list
+      # if (hydroacoustics) {
+      #   hydroacoustics_text <- "text/hydroacoustics_tool.md"
+      #   if(file.exists(hydroacoustics_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(hydroacoustics_text)))
+      #   }
+      # }
+      # 
+      # # If 'onboard observer' is found, add its content to the list
+      # if (onboard_observer) {
+      #   onboard_observer_text <- "text/onboard_observer_tool.md"
+      #   if(file.exists(onboard_observer_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(onboard_observer_text)))
+      #   }
+      # }
+      # 
+      # # If 'radar' is found, add its content to the list
+      # if (radar) {
+      #   radar_text <- "text/radar_tool.md"
+      #   if(file.exists(radar_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(radar_text)))
+      #   }
+      # }
+      # 
+      # if (radio_frequency) {
+      #   radio_frequency_text <- "text/radio_frequency_tool.md"
+      #   if(file.exists(radio_frequency_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_text)))
+      #   }
+      # }
+      # 
+      # if (manned_aircraft) {
+      #   manned_aircraft_text <- "text/manned_aircraft_tool.md"
+      #   if(file.exists(manned_aircraft_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(manned_aircraft_text)))
+      #   }
+      # }
+      # 
+      # if (manned_vessel) {
+      #   manned_vessel_text <- "text/manned_vessel_tool.md"
+      #   if(file.exists(manned_vessel_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(manned_vessel_text)))
+      #   }
+      # }
+      # 
+      # if (on_shore_command_center) {
+      #   on_shore_command_center_text <- "text/on_shore_command_center_tool.md"
+      #   if(file.exists(on_shore_command_center_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(on_shore_command_center_text)))
+      #   }
+      # }
+      # 
+      # if (smart_buoy) {
+      #   smart_buoy_text <- "text/smart_buoy_tool.md"
+      #   if(file.exists(smart_buoy_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(smart_buoy_text)))
+      #   }
+      # }
+      # 
+      # if (usv) {
+      #   usv_text <- "text/usv_tool.md"
+      #   if(file.exists(usv_text)) {
+      #     ui_elements <- append(ui_elements, list(includeMarkdown(usv_text)))
+      #   }
+      # }
+      # 
+      # 
       # if no pairings
       if (no_pairings) {
         no_pairings_text <- "text/no_pairings_tool.md"
