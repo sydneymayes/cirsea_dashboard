@@ -11,9 +11,7 @@ sensor_range_df <- read_csv("data/Sensor Range.csv") %>% clean_names()
 platform_range_df <- read_csv("data/Platform Range.csv") %>% clean_names()
 satellites <- read_csv("data/satellites.csv") %>% clean_names()
 characteristics <- read_csv("data/characteristics.csv") %>% clean_names()
-iuu_type_index <- read_csv("data/IUU Type Index.csv") %>% clean_names() %>% 
-  select(!detection_area) %>% 
-  select(!observable)
+iuu_type_index <- read_csv("data/IUU Type Index.csv") %>% clean_names()
 
 ```
 
@@ -21,8 +19,9 @@ iuu_type_index <- read_csv("data/IUU Type Index.csv") %>% clean_names() %>%
 
 
 platform_range_vec <- platform_range_df[3, -1]/2 #divide by 2 so that the platform can return to deployment base
-platform_range_vec[4] <- platform_range_vec[4]*2 # excludes process for smart buoy
-platform_range_vec[7] <- platform_range_vec[7]*2 # excludes process for onshore command center
+platform_range_vec[5] <- platform_range_vec[5]*2 # excludes process for smart buoy
+platform_range_vec[8] <- platform_range_vec[8]*2 # excludes process for onshore command center
+platform_range_vec[8] <- platform_range_vec[9]*2 # excludes process for onboard
 platform_range_vec
 
 
@@ -77,7 +76,7 @@ bin_ranges_df <- data.frame(
   Upper = c(numeric_levels[-1], Inf)
 )
 
-# fix the bin ranges based on new data
+# fix the bin ranges based on new data -- UPDATE A SAVED VERSION OF THIS FILE IF CHANGES ARE MADE -------------
 # write_csv(bin_ranges_df, "./bin_ranges.csv")
 ```
 
@@ -124,14 +123,22 @@ for (i in seq_len(nrow(sensor_platform_combinations))) {
 sensor_platform_combinations$total_cost <- cost_vec
 
 
+
+
 # write_csv(sensor_platform_combinations, "./data/sensor_platform_combinations_cost.csv")
 
-sensor_platform_combinations_cost_df <- read_csv("data/sensor_platform_combinations_cost.csv")
+# sensor_platform_combinations_cost_df <- read_csv("data/sensor_platform_combinations_cost.csv")
 
 
+# sensor_platform_combinations_cost_df$sensor_platform <- with(sensor_platform_combinations_cost_df, paste(sensor, "by", platform))
 
+sensor_platform_combinations$sensor_platform <- with(sensor_platform_combinations, paste(sensor, "by", platform))
 
-sensor_platform_combinations_cost_df$sensor_platform <- with(sensor_platform_combinations_cost_df, paste(sensor, "by", platform))
+# going to save this and manually add data_type by sensor (WRITE CODE LATER)
+# write_csv(sensor_platform_combinations, "./data/sensor_platform_combinations_data_type.csv")
+
+sensor_platform_combinations_df <- read_csv("data/sensor_platform_combinations_data_type.csv")
+
 
 
 
@@ -141,7 +148,7 @@ sensor_platform_combinations_cost_df$sensor_platform <- with(sensor_platform_com
 ```{r}
 index_tidy <- merged_index_df %>%
   select(-granularity_index) %>% 
-  pivot_longer(cols = starts_with("long_range_camera by usv"):ends_with("hydroacoustics by onboard"), 
+  pivot_longer(cols = starts_with("long_range_camera by small_usv"):ends_with("observer by onboard"), 
                names_to = "sensor_platform", values_to = "value") %>%
   pivot_wider(names_from = iuu_type, values_from = value)
 
@@ -149,8 +156,8 @@ index_tidy <- merged_index_df %>%
 # now want to add on cost and data types
 # need to join the datasets!
 index_tidy_more <- index_tidy %>%
-  left_join(sensor_platform_combinations_cost_df %>% 
-              select(sensor_platform, total_cost, total_cost_bins, data_type),
+  left_join(sensor_platform_combinations_df %>% 
+              select(sensor_platform, total_cost, data_type),
             by = "sensor_platform")
 
 index_tidy_more <- index_tidy_more %>% 
