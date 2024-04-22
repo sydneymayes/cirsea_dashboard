@@ -189,10 +189,10 @@ server <- function(input, output) {
         }
       }
       
-      if (long_range_camera_by_usv) {
-        long_range_camera_by_usv_text <- "text/pairings/long_range_camera_by_usv_tool.md"
-        if(file.exists(long_range_camera_by_usv_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_by_usv_text)))
+      if (long_range_camera_by_small_usv) {
+        long_range_camera_by_small_usv_text <- "text/pairings/long_range_camera_by_small_usv_tool.md"
+        if(file.exists(long_range_camera_by_small_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_by_small_usv_text)))
 
         }
       }
