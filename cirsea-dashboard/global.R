@@ -16,8 +16,7 @@ library(shinyjs)
 # load data
 sensor_range_df <- read_csv("data/Sensor Range.csv") %>% clean_names()
 platform_range_df <- read_csv("data/Platform Range.csv") %>% clean_names()
-iuu_type_index <- read_csv("data/IUU Type Index.csv") %>% clean_names() %>% 
-  select(!detection_area)
+iuu_type_index <- read_csv("data/IUU Type Index.csv") %>% clean_names() 
 satellites <- read_csv("data/satellites.csv") %>% clean_names()
 characteristics <- read_csv("data/characteristics.csv") %>% clean_names()
 

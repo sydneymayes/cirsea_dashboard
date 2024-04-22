@@ -52,12 +52,12 @@ server <- function(input, output) {
       # Filter merged_index_df for the selected iuu_type
       
       # selecting relevant columns of our merged_index_df, including the user's iuu type choice
-      selected_columns <- c("sensor_platform", input$iuu_type_input, "total_cost", "total_cost_bins", "data_type")
+      selected_columns <- c("sensor_platform", input$iuu_type_input, "total_cost", "data_type")
       selected_iuu_type_df <- merged_index_df %>%
         select(all_of(selected_columns))
       
       # determining the values in the columns so that we can filter ranges
-      for (col_name in names(selected_iuu_type_df)[2:(length(selected_iuu_type_df)-3)]) {
+      for (col_name in names(selected_iuu_type_df)[2:(length(selected_iuu_type_df)-2)]) {
         column_values <- selected_iuu_type_df[[col_name]] # for each column name, determines all the column values
         
       # determining row indices where values are within the specified range
