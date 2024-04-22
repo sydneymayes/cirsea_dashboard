@@ -126,7 +126,8 @@ server <- function(input, output) {
       
       #### PAIRINGS (instead of individual)
       
-      long_range_camera_by_usv <- any(grepl("long_range_camera by usv", filtered_iuu_data()$sensor_platform))
+      long_range_camera_by_small_usv <- any(grepl("long_range_camera by small usv", filtered_iuu_data()$sensor_platform))
+      long_range_camera_by_large_usv <- any(grepl("long_range_camera by large usv", filtered_iuu_data()$sensor_platform))
       long_range_camera_by_large_aerial_drone <- any(grepl("long_range_camera by large_aerial_drone", filtered_iuu_data()$sensor_platform))
       long_range_camera_by_manned_vessel <- any(grepl(any(grepl("long_range_camera by large_aerial_drone", filtered_iuu_data()$sensor_platform)), filtered_iuu_data()$sensor_platform))
       long_range_camera_by_manned_aircraft <- any(grepl(any(grepl("long_range_camera by manned_aircraft", filtered_iuu_data()$sensor_platform)), filtered_iuu_data()$sensor_platform))
@@ -136,30 +137,42 @@ server <- function(input, output) {
       mid_range_camera_by_small_aerial_drone <- any(grepl("mid_range_camera by small_aerial_drone", filtered_iuu_data()$sensor_platform))
       mid_range_camera_by_manned_vessel <- any(grepl("mid_range_camera by manned_vessel", filtered_iuu_data()$sensor_platform))
       mid_range_camera_by_on_shore_command_center <- any(grepl("mid_range_camera by on_shore_command_center", filtered_iuu_data()$sensor_platform))
+      
+      
+      cell_phone_camera_by_onboard <- any(grepl("cell_phone_camera by onboard", filtered_iuu_data()$sensor_platform))
 
-      radio_frequency_by_usv <- any(grepl("radio_frequency by usv", filtered_iuu_data()$sensor_platform))
+      electronic_monitoring_system_by_onboard <- any(grepl("electronic_monitoring_system by onboard", filtered_iuu_data()$sensor_platform))
+
+      radio_frequency_by_small_usv <- any(grepl("radio_frequency by small usv", filtered_iuu_data()$sensor_platform))
+      radio_frequency_by_large_usv <- any(grepl("radio_frequency by large usv", filtered_iuu_data()$sensor_platform))
       radio_frequency_by_small_aerial_drone <- any(grepl("radio_frequency by small_aerial_drone", filtered_iuu_data()$sensor_platform))
       radio_frequency_by_large_aerial_drone <- any(grepl("radio_frequency by large_aerial_drone", filtered_iuu_data()$sensor_platform))
       radio_frequency_by_smart_buoy <- any(grepl("radio_frequency by smart_buoy", filtered_iuu_data()$sensor_platform))
       radio_frequency_by_manned_vessel <- any(grepl("radio_frequency by manned_vessel", filtered_iuu_data()$sensor_platform))
       radio_frequency_by_manned_aircraft <- any(grepl("radio_frequency by manned_aircraft", filtered_iuu_data()$sensor_platform))
       radio_frequency_by_on_shore_command_center <- any(grepl("radio_frequency by on_shore_command_center", filtered_iuu_data()$sensor_platform))
-
-      hydroacoustics_by_usv <- any(grepl("hydroacoustics by usv", filtered_iuu_data()$sensor_platform))
+      radio_frequency_by_onboard <- any(grepl("radio_frequency by onboard", filtered_iuu_data()$sensor_platform))
+      
+      hydroacoustics_by_small_usv <- any(grepl("hydroacoustics by small usv", filtered_iuu_data()$sensor_platform))
+      hydroacoustics_by_large_usv <- any(grepl("hydroacoustics by large usv", filtered_iuu_data()$sensor_platform))
       hydroacoustics_by_smart_buoy <- any(grepl("hydroacoustics by smart_buoy", filtered_iuu_data()$sensor_platform))
       hydroacoustics_by_manned_vessel <- any(grepl("hydroacoustics by manned_vessel", filtered_iuu_data()$sensor_platform))
 
-      highly_sensitive_hydroacoustics_by_usv <- any(grepl("highly_sensitive_hydroacoustics by usv", filtered_iuu_data()$sensor_platform))
+      highly_sensitive_hydroacoustics_by_small_usv <- any(grepl("highly_sensitive_hydroacoustics by small usv", filtered_iuu_data()$sensor_platform))
+      highly_sensitive_hydroacoustics_by_large_usv <- any(grepl("highly_sensitive_hydroacoustics by large usv", filtered_iuu_data()$sensor_platform))
       highly_sensitive_hydroacoustics_by_smart_buoy <- any(grepl("highly_sensitive_hydroacoustics_by_smart_buoy", filtered_iuu_data()$sensor_platform))
       highly_sensitive_hydroacoustics_by_manned_vessel <- any(grepl("highly_sensitive_hydroacoustics by manned_vessel", filtered_iuu_data()$sensor_platform))
 
-      radar_by_usv <- any(grepl("radar by usv", filtered_iuu_data()$sensor_platform))
+      radar_by_small_usv <- any(grepl("radar by small usv", filtered_iuu_data()$sensor_platform))
+      radar_by_large_usv <- any(grepl("radar by large usv", filtered_iuu_data()$sensor_platform))
       radar_by_smart_buoy <- any(grepl("radar by smart_buoy", filtered_iuu_data()$sensor_platform))
       radar_by_manned_vessel <- any(grepl("radar by manned_vessel", filtered_iuu_data()$sensor_platform))
       radar_by_manned_aircraft <- any(grepl("radar by manned_aircraft", filtered_iuu_data()$sensor_platform))
+      radar_by_onboard <- any(grepl("radar by onboard", filtered_iuu_data()$sensor_platform))
 
-      onboard_observer_by_manned_vessel <- any(grepl("onboard_observer by manned_vessel", filtered_iuu_data()$sensor_platform))
-
+      observer_by_manned_vessel <- any(grepl("observer by manned_vessel", filtered_iuu_data()$sensor_platform))
+      observer_by_onboard <- any(grepl("observer by onboard", filtered_iuu_data()$sensor_platform))
+      
       
       # PAIRINGS TEXT -- found in text/pairings
       # want to display just the user selections, these are all the conditions
