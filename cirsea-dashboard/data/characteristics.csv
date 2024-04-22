@@ -7,11 +7,13 @@ radio_frequency,Sensor,1,1,1,0,Location
 hydroacoustics,Sensor,2,3,1,0,Location
 highly_sensitive_hydroacoustics,Sensor,3,3,1,0,Location
 radar,Sensor,1,1,1,0,Location
-onboard_observer,Sensor,1,2,3,1,"Image, Video, Location, Eye-witness"
-usv,Platform,2,2,1,0,
+observer,Sensor,1,2,3,1,"Image, Video, Location, Eye-witness"
+small_usv,Platform,1,2,1,0,
+large_usv,Platform,2,2,1,0,
 small_aerial_drone,Platform,1,2,1,0,
 large_aerial_drone,Platform,2,2,1,0,
 smart_buoy,Platform,1,1,1,0,
 manned_vessel,Platform,3,3,2,1,
 manned_aircraft,Platform,3,3,2,1,
 on_shore_command_center,Platform,3,3,1,1,
+onboard,Platform,1,2,3,1,

@@ -1,0 +1,82 @@
+sensor,platform,total_cost,sensor_platform,data_type
+cell_phone_camera,large_aerial_drone,2,cell_phone_camera by large_aerial_drone,"Image, Video, Location"
+cell_phone_camera,large_usv,2,cell_phone_camera by large_usv,"Image, Video, Location"
+cell_phone_camera,manned_aircraft,3,cell_phone_camera by manned_aircraft,"Image, Video, Location"
+cell_phone_camera,manned_vessel,3,cell_phone_camera by manned_vessel,"Image, Video, Location"
+cell_phone_camera,on_shore_command_center,3,cell_phone_camera by on_shore_command_center,"Image, Video, Location"
+cell_phone_camera,onboard,NA,cell_phone_camera by onboard,"Image, Video, Location"
+cell_phone_camera,small_aerial_drone,1,cell_phone_camera by small_aerial_drone,"Image, Video, Location"
+cell_phone_camera,small_usv,1,cell_phone_camera by small_usv,"Image, Video, Location"
+cell_phone_camera,smart_buoy,1,cell_phone_camera by smart_buoy,"Image, Video, Location"
+electronic_monitoring_system,large_aerial_drone,2,electronic_monitoring_system by large_aerial_drone,"Image, Video, Location"
+electronic_monitoring_system,large_usv,2,electronic_monitoring_system by large_usv,"Image, Video, Location"
+electronic_monitoring_system,manned_aircraft,3,electronic_monitoring_system by manned_aircraft,"Image, Video, Location"
+electronic_monitoring_system,manned_vessel,3,electronic_monitoring_system by manned_vessel,"Image, Video, Location"
+electronic_monitoring_system,on_shore_command_center,3,electronic_monitoring_system by on_shore_command_center,"Image, Video, Location"
+electronic_monitoring_system,onboard,NA,electronic_monitoring_system by onboard,"Image, Video, Location"
+electronic_monitoring_system,small_aerial_drone,1,electronic_monitoring_system by small_aerial_drone,"Image, Video, Location"
+electronic_monitoring_system,small_usv,1,electronic_monitoring_system by small_usv,"Image, Video, Location"
+electronic_monitoring_system,smart_buoy,1,electronic_monitoring_system by smart_buoy,"Image, Video, Location"
+highly_sensitive_hydroacoustics,large_aerial_drone,3,highly_sensitive_hydroacoustics by large_aerial_drone,Location
+highly_sensitive_hydroacoustics,large_usv,3,highly_sensitive_hydroacoustics by large_usv,Location
+highly_sensitive_hydroacoustics,manned_aircraft,3,highly_sensitive_hydroacoustics by manned_aircraft,Location
+highly_sensitive_hydroacoustics,manned_vessel,3,highly_sensitive_hydroacoustics by manned_vessel,Location
+highly_sensitive_hydroacoustics,on_shore_command_center,3,highly_sensitive_hydroacoustics by on_shore_command_center,Location
+highly_sensitive_hydroacoustics,onboard,NA,highly_sensitive_hydroacoustics by onboard,Location
+highly_sensitive_hydroacoustics,small_aerial_drone,3,highly_sensitive_hydroacoustics by small_aerial_drone,Location
+highly_sensitive_hydroacoustics,small_usv,3,highly_sensitive_hydroacoustics by small_usv,Location
+highly_sensitive_hydroacoustics,smart_buoy,3,highly_sensitive_hydroacoustics by smart_buoy,Location
+hydroacoustics,large_aerial_drone,2,hydroacoustics by large_aerial_drone,Location
+hydroacoustics,large_usv,2,hydroacoustics by large_usv,Location
+hydroacoustics,manned_aircraft,3,hydroacoustics by manned_aircraft,Location
+hydroacoustics,manned_vessel,3,hydroacoustics by manned_vessel,Location
+hydroacoustics,on_shore_command_center,3,hydroacoustics by on_shore_command_center,Location
+hydroacoustics,onboard,NA,hydroacoustics by onboard,Location
+hydroacoustics,small_aerial_drone,2,hydroacoustics by small_aerial_drone,Location
+hydroacoustics,small_usv,2,hydroacoustics by small_usv,Location
+hydroacoustics,smart_buoy,2,hydroacoustics by smart_buoy,Location
+long_range_camera,large_aerial_drone,2,long_range_camera by large_aerial_drone,"Image, Video"
+long_range_camera,large_usv,2,long_range_camera by large_usv,"Image, Video"
+long_range_camera,manned_aircraft,3,long_range_camera by manned_aircraft,"Image, Video"
+long_range_camera,manned_vessel,3,long_range_camera by manned_vessel,"Image, Video"
+long_range_camera,on_shore_command_center,3,long_range_camera by on_shore_command_center,"Image, Video"
+long_range_camera,onboard,NA,long_range_camera by onboard,"Image, Video"
+long_range_camera,small_aerial_drone,2,long_range_camera by small_aerial_drone,"Image, Video"
+long_range_camera,small_usv,2,long_range_camera by small_usv,"Image, Video"
+long_range_camera,smart_buoy,2,long_range_camera by smart_buoy,"Image, Video"
+mid_range_camera,large_aerial_drone,2,mid_range_camera by large_aerial_drone,"Image, Video"
+mid_range_camera,large_usv,2,mid_range_camera by large_usv,"Image, Video"
+mid_range_camera,manned_aircraft,3,mid_range_camera by manned_aircraft,"Image, Video"
+mid_range_camera,manned_vessel,3,mid_range_camera by manned_vessel,"Image, Video"
+mid_range_camera,on_shore_command_center,3,mid_range_camera by on_shore_command_center,"Image, Video"
+mid_range_camera,onboard,NA,mid_range_camera by onboard,"Image, Video"
+mid_range_camera,small_aerial_drone,1,mid_range_camera by small_aerial_drone,"Image, Video"
+mid_range_camera,small_usv,1,mid_range_camera by small_usv,"Image, Video"
+mid_range_camera,smart_buoy,1,mid_range_camera by smart_buoy,"Image, Video"
+observer,large_aerial_drone,NA,observer by large_aerial_drone,"Image, Video, Location, Eye-witness"
+observer,large_usv,NA,observer by large_usv,"Image, Video, Location, Eye-witness"
+observer,manned_aircraft,NA,observer by manned_aircraft,"Image, Video, Location, Eye-witness"
+observer,manned_vessel,NA,observer by manned_vessel,"Image, Video, Location, Eye-witness"
+observer,on_shore_command_center,NA,observer by on_shore_command_center,"Image, Video, Location, Eye-witness"
+observer,onboard,NA,observer by onboard,"Image, Video, Location, Eye-witness"
+observer,small_aerial_drone,NA,observer by small_aerial_drone,"Image, Video, Location, Eye-witness"
+observer,small_usv,NA,observer by small_usv,"Image, Video, Location, Eye-witness"
+observer,smart_buoy,NA,observer by smart_buoy,"Image, Video, Location, Eye-witness"
+radar,large_aerial_drone,2,radar by large_aerial_drone,Location
+radar,large_usv,2,radar by large_usv,Location
+radar,manned_aircraft,3,radar by manned_aircraft,Location
+radar,manned_vessel,3,radar by manned_vessel,Location
+radar,on_shore_command_center,3,radar by on_shore_command_center,Location
+radar,onboard,NA,radar by onboard,Location
+radar,small_aerial_drone,1,radar by small_aerial_drone,Location
+radar,small_usv,1,radar by small_usv,Location
+radar,smart_buoy,1,radar by smart_buoy,Location
+radio_frequency,large_aerial_drone,2,radio_frequency by large_aerial_drone,Location
+radio_frequency,large_usv,2,radio_frequency by large_usv,Location
+radio_frequency,manned_aircraft,3,radio_frequency by manned_aircraft,Location
+radio_frequency,manned_vessel,3,radio_frequency by manned_vessel,Location
+radio_frequency,on_shore_command_center,3,radio_frequency by on_shore_command_center,Location
+radio_frequency,onboard,NA,radio_frequency by onboard,Location
+radio_frequency,small_aerial_drone,1,radio_frequency by small_aerial_drone,Location
+radio_frequency,small_usv,1,radio_frequency by small_usv,Location
+radio_frequency,smart_buoy,1,radio_frequency by smart_buoy,Location
