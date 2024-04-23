@@ -160,27 +160,27 @@ body <- dashboardBody(
               
               # Output box for temporary MS -- REMOVE LATER
                      
-              box(width = 8,
-
-                  title = strong("Recommended Monitoring Strategies"),
-
-                  # data table output ---
-                  dataTableOutput(outputId = "iuu_table_output") %>%
-                    withSpinner(color = "skyblue", type = 1),
-
-                  # div for satellites
-                  div(
-
-                  h4("Satellite Data Table", style = "margin-top: 30px; font-weight: bold;"),
-                  # data table output for satellites ---
-                  dataTableOutput(outputId = "sat_table_output") %>%
-                    withSpinner(color = "skyblue", type = 1),
-                  # if there is no sat data
-                  textOutput("no_data_message")
-                  ) # end div
-
-
-                     ), # END output box
+              # box(width = 8,
+              # 
+              #     title = strong("Recommended Monitoring Strategies"),
+              # 
+              #     # data table output ---
+              #     dataTableOutput(outputId = "iuu_table_output") %>%
+              #       withSpinner(color = "skyblue", type = 1),
+              # 
+              #     # div for satellites
+              #     div(
+              # 
+              #     h4("Satellite Data Table", style = "margin-top: 30px; font-weight: bold;"),
+              #     # data table output for satellites ---
+              #     dataTableOutput(outputId = "sat_table_output") %>%
+              #       withSpinner(color = "skyblue", type = 1),
+              #     # if there is no sat data
+              #     textOutput("no_data_message")
+              #     ) # end div
+              # 
+              # 
+              #        ), # END output box
 
               # descriptions box
               box(width = 8,

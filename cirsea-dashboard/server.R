@@ -102,25 +102,6 @@ server <- function(input, output) {
     # these are the options sensor and platform options (make sure all have been added)
     output$sensor_platform_output <- renderUI({
       
-      # long_range_camera <- any(grepl("long_range_camera", filtered_iuu_data()$sensor_platform))
-      # hydroacoustics <- any(grepl("hydroacoustics", filtered_iuu_data()$sensor_platform))
-      # # need to add highly_sensitive_hydroacoustics
-      # # need to add mid_range_camera
-      # # need to change aerial_drone to large_aerial_drone and small_aerial_drone
-      # # need to incorporate 'onboard' into the matrix as a platform
-      # # are we separating out usv into different sizes...?
-      # # need to add cell_phone_camera
-      # # need to add electronic_monitoring_system  
-      # aerial_drone <- any(grepl("aerial_drone", filtered_iuu_data()$sensor_platform))
-      # onboard_observer <- any(grepl("onboard_observer", filtered_iuu_data()$sensor_platform))
-      # radar <- any(grepl("radar", filtered_iuu_data()$sensor_platform))
-      # radio_frequency <- any(grepl("radio_frequency", filtered_iuu_data()$sensor_platform))
-      # manned_aircraft <- any(grepl("manned_aircraft", filtered_iuu_data()$sensor_platform))
-      # manned_vessel <- any(grepl("manned_vessel", filtered_iuu_data()$sensor_platform))
-      # on_shore_command_center <- any(grepl("on_shore_command_center", filtered_iuu_data()$sensor_platform))
-      # smart_buoy <- any(grepl("smart_buoy", filtered_iuu_data()$sensor_platform))
-      # usv <- any(grepl("usv", filtered_iuu_data()$sensor_platform))
-      
       # if no pairings
       no_pairings <- (nrow(filtered_iuu_data()) == 0)
       
@@ -133,7 +114,6 @@ server <- function(input, output) {
       long_range_camera_by_manned_aircraft <- any(grepl(any(grepl("long_range_camera by manned_aircraft", filtered_iuu_data()$sensor_platform)), filtered_iuu_data()$sensor_platform))
       long_range_camera_by_on_shore_command_center <- any(grepl("long_range_camera by on_shore_command_center", filtered_iuu_data()$sensor_platform))
 
-      #
       mid_range_camera_by_small_aerial_drone <- any(grepl("mid_range_camera by small_aerial_drone", filtered_iuu_data()$sensor_platform))
       mid_range_camera_by_manned_vessel <- any(grepl("mid_range_camera by manned_vessel", filtered_iuu_data()$sensor_platform))
       mid_range_camera_by_on_shore_command_center <- any(grepl("mid_range_camera by on_shore_command_center", filtered_iuu_data()$sensor_platform))
@@ -176,8 +156,7 @@ server <- function(input, output) {
       
       # PAIRINGS TEXT -- found in text/pairings
       # want to display just the user selections, these are all the conditions
-      # NOTE: ADD THE REST!!
-      
+ 
       ui_elements <- list()
       
       ### Adding packaged pairings text -------------------------
@@ -458,98 +437,7 @@ server <- function(input, output) {
           ui_elements <- append(ui_elements, list(includeMarkdown(no_pairings_text)))
         }
       }
-      
-      ### Previous individual unpaired text files 
-      # If 'long_range_camera' is found, add its content to the list -------
-      # if (long_range_camera) {
-      #   #print("Long range camera found")
-      #   long_range_camera_text <- "text/long_range_camera_tool.md"
-      #   if(file.exists(long_range_camera_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_text)))
-      #     
-      #   }
-      # }
-      # 
-      # # # # If 'aerial_drone' is found, add its content to the list
-      # if (aerial_drone) {
-      #   aerial_drone_text <- "text/aerial_drone_tool.md"
-      #   if(file.exists(aerial_drone_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(aerial_drone_text)))
-      #   }
-      # }
-      # 
-      # 
-      # # If 'hydroacoustics' is found, add its content to the list
-      # if (hydroacoustics) {
-      #   hydroacoustics_text <- "text/hydroacoustics_tool.md"
-      #   if(file.exists(hydroacoustics_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(hydroacoustics_text)))
-      #   }
-      # }
-      # 
-      # # If 'onboard observer' is found, add its content to the list
-      # if (onboard_observer) {
-      #   onboard_observer_text <- "text/onboard_observer_tool.md"
-      #   if(file.exists(onboard_observer_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(onboard_observer_text)))
-      #   }
-      # }
-      # 
-      # # If 'radar' is found, add its content to the list
-      # if (radar) {
-      #   radar_text <- "text/radar_tool.md"
-      #   if(file.exists(radar_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(radar_text)))
-      #   }
-      # }
-      # 
-      # if (radio_frequency) {
-      #   radio_frequency_text <- "text/radio_frequency_tool.md"
-      #   if(file.exists(radio_frequency_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_text)))
-      #   }
-      # }
-      # 
-      # if (manned_aircraft) {
-      #   manned_aircraft_text <- "text/manned_aircraft_tool.md"
-      #   if(file.exists(manned_aircraft_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(manned_aircraft_text)))
-      #   }
-      # }
-      # 
-      # if (manned_vessel) {
-      #   manned_vessel_text <- "text/manned_vessel_tool.md"
-      #   if(file.exists(manned_vessel_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(manned_vessel_text)))
-      #   }
-      # }
-      # 
-      # if (on_shore_command_center) {
-      #   on_shore_command_center_text <- "text/on_shore_command_center_tool.md"
-      #   if(file.exists(on_shore_command_center_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(on_shore_command_center_text)))
-      #   }
-      # }
-      # 
-      # if (smart_buoy) {
-      #   smart_buoy_text <- "text/smart_buoy_tool.md"
-      #   if(file.exists(smart_buoy_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(smart_buoy_text)))
-      #   }
-      # }
-      # 
-      # if (usv) {
-      #   usv_text <- "text/usv_tool.md"
-      #   if(file.exists(usv_text)) {
-      #     ui_elements <- append(ui_elements, list(includeMarkdown(usv_text)))
-      #   }
-      # }
-      # 
-      # 
-  
-    
-  
-      
+
       
       #### Finally done with all conditions and now returning them----------------
       
@@ -562,6 +450,8 @@ server <- function(input, output) {
       
       
     }) # END renderUI
+    
+    
     
     
     
@@ -742,11 +632,7 @@ server <- function(input, output) {
       }
       
       
-      
-      
-     
-      
-      #### Finally done with all conditions and now returning them----------------
+      #### Finally done with all satllite conditions and now returning them----------------
       
       # Return all UI elements if any, otherwise return nothing (NULL)
       if (length(ui_elements_2) > 0) {
@@ -759,14 +645,15 @@ server <- function(input, output) {
     }) # END renderUI
     
 
+    
+    
  
     ### IUU TYPE TAB --------------------------------------
  
-    
     # Dark Vessels
     observeEvent(input$'Dark Vessels (not broadcasting location via VMS/AIS)', {
       output$iuu_text <- renderUI({ 
-        includeMarkdown("text/dark_vessels.md")
+        includeMarkdown("text/iuuf_tab/dark_vessels.md")
       })
 
     })
@@ -775,7 +662,7 @@ server <- function(input, output) {
     # Fishing above quota
     observeEvent(input$`Fishing above quota`, {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/fishing_quota.md")
+        includeMarkdown("text/iuuf_tab/fishing_quota.md")
       })
       
     })
@@ -783,56 +670,56 @@ server <- function(input, output) {
     # Fishing in a prohibited zone
     observeEvent(input$'Fishing in a prohibited zone', {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/fishing_prohibited_zone.md")
+        includeMarkdown("text/iuuf_tab/fishing_prohibited_zone.md")
       })
     })
     
     # Fishing out of season
     observeEvent(input$'Fishing out of season', {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/fishing_season.md")
+        includeMarkdown("text/iuuf_tab/fishing_season.md")
       })
     })
     
     # Fishing without license
     observeEvent(input$'Fishing without license', {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/fishing_no_license.md")
+        includeMarkdown("text/iuuf_tab/fishing_no_license.md")
       })
     })
     
     # Gear-related Offense
     observeEvent(input$'Gear-related offense', {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/gear_offense.md")
+        includeMarkdown("text/iuuf_tab/gear_offense.md")
       })
     })
     
     # Transhipments
     observeEvent(input$Transhipments, {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/transhipments.md")
+        includeMarkdown("text/iuuf_tab/transhipments.md")
       })
     })
     
     # Underreporting of fishing catch
     observeEvent(input$'Underreporting of fishing catch', {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/underreporting_catch.md")
+        includeMarkdown("text/iuuf_tab/underreporting_catch.md")
       })
     })
     
     # Underreporting of fishing effort
     observeEvent(input$'Underreporting of fishing effort', {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/underreporting_effort.md")
+        includeMarkdown("text/iuuf_tab/underreporting_effort.md")
       })
     })
     
     # Vessel with false flag
     observeEvent(input$'Vessel with false flag', {
       output$iuu_text <- renderUI({
-        includeMarkdown("text/false_flag.md")
+        includeMarkdown("text/iuuf_tab/false_flag.md")
       })
     })
     
