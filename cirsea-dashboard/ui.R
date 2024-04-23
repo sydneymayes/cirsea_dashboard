@@ -2,7 +2,7 @@
 
 #........................dashboardHeader.........................
 header <- dashboardHeader(
-
+  
   
   # title ---
   title = "CIRSEA Group Project",
@@ -35,21 +35,21 @@ body <- dashboardBody(
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "styles.css"),
   ),
-
+  
   # set theme later
   # fresh::use_theme("something.css"),
-
+  
   # tabItems ----
   tabItems(
-
+    
     tabItem(tabName = "about",
-
+            
             # left-hand column ----
             column(width = 6,
-
+                   
                    # background info box ---
                    box(width = NULL,
-
+                       
                        title = tagList(icon("fish"),
                                        strong("About The Project")),
                        includeMarkdown("text/about.md"),
@@ -57,47 +57,47 @@ body <- dashboardBody(
                                 alt = "Logo image",
                                 style = "max-width: 100%;") # often will just need to look up how to write the css
                        
-
+                       
                    ) #END background box # takes on width of the column when set to null
-
+                   
             ), # END column
-
-
+            
+            
             # right-hand column ---
             column(width = 6,
-
+                   
                    # first fluid row ----
                    fluidRow(
-
+                     
                      # citation box ----
                      box(width = NULL,
-
+                         
                          title = tagList(icon("book"),
                                          strong("Instructions")),
                          includeMarkdown("text/methodology.md")
-
+                         
                      ) # end citation box
-
-
+                     
+                     
                    ) # END first fluidRow
-
-
+                   
+                   
             ) # END right hand column
-
-
+            
+            
     ), # END about tabItem
-
+    
     # tool tabItem
     tabItem(tabName = "tool",
-
+            
             # fluidRow ---
             fluidRow(
-
+              
               # input box ---
               box(width = 4,
-
+                  
                   title = tags$strong("IUU type and monitoring criteria:"),
-
+                  
                   # IUU Type pickerinput ----
                   pickerInput(inputId = 'iuu_type_input',
                               label = 'Step 1: Select IUU type:',
@@ -105,17 +105,17 @@ body <- dashboardBody(
                               selected = unique(iuu_type)[1],
                               options = pickerOptions(actionsBox = TRUE),
                               multiple = FALSE),
-
+                  
                   # section checkboxGroupButtons ----
                   radioGroupButtons(inputId = 'range_input',
-                                       label = 'Step 2: Select your monitoring range:',
-                                       choices = c("Local", "Regional", "High Seas"),
-                                       selected = NULL,
-                                       individual = TRUE, justified = TRUE, size = 'sm',
-                                       checkIcon = list(yes = icon("check"))
-                                       
+                                    label = 'Step 2: Select your monitoring range:',
+                                    choices = c("Local", "Regional", "High Seas"),
+                                    selected = NULL,
+                                    individual = TRUE, justified = TRUE, size = 'sm',
+                                    checkIcon = list(yes = icon("check"))
+                                    
                   ),
-
+                  
                   # section checkboxGroupButtons
                   checkboxGroupButtons(inputId = 'cost_input',
                                        label = 'Filter by cost preference(s):',
@@ -155,11 +155,11 @@ body <- dashboardBody(
                   
                   
                   
-
+                  
               ), #end first input box
               
               # Output box for temporary MS -- REMOVE LATER
-                     
+              
               # box(width = 8,
               # 
               #     title = strong("Recommended Monitoring Strategies"),
@@ -181,16 +181,16 @@ body <- dashboardBody(
               # 
               # 
               #        ), # END output box
-
+              
               # descriptions box
               box(width = 8,
                   title = strong("Possible Monitoring Strategies"),
-                 
+                  
                   div(
                     h4("Sensor and Platform Pairings:", style = "margin-top: 10px; margin-bottom: 20px; font-weight: bold;"),
                     uiOutput(outputId = "sensor_platform_output")
                   ),
-                   
+                  
                   
                   # div for satellite widgets
                   div(
@@ -202,16 +202,16 @@ body <- dashboardBody(
               
               
               
-              ), # End fluidRow
-              
-             
+            ), # End fluidRow
+            
+            
             # # fluidRow 2 ---
             # fluidRow(
             #   
             #  
             #   ), # END second fluid row
             
-
+            
     ), # END tool tabItem
     
     
@@ -221,9 +221,9 @@ body <- dashboardBody(
             # how to use
             fluidRow(
               column(width = 12,
-              div("Click on an IUU fishing type to learn more", style = "margin-bottom: 20px; padding:50x; font-size: 24px;")
-            )),
-    
+                     div("Click on an IUU fishing type to learn more", style = "margin-bottom: 20px; padding:50x; font-size: 24px;")
+              )),
+            
             # IUU type text fluidRow ----
             fluidRow(
               useShinyjs(),  # Initialize shinyjs
@@ -239,32 +239,32 @@ body <- dashboardBody(
               #             class = "btn btn-default action-button",
               #             icon("dumbbell"), "Underreporting of", br(), "fishing effort"),
               # 
-            
               
-
-             # Make a box for the IUU type buttons
+              
+              
+              # Make a box for the IUU type buttons
               box(width = 5, style = "display: flex; flex-wrap: wrap; justify-content: center;",
-                     # Define buttons for IUU types dynamically or statically here
-                   actionButton("Fishing out of season", 
-                                  HTML(paste(icon("earth-americas"), 
-                                             "<br>Fishing out of season")), 
-                                 style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                   actionButton("Fishing in a prohibited zone", 
-                                  HTML(paste(icon("ban"), 
-                                             "<br>Fishing in a prohibited zone")), 
-                                 style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                   actionButton("Fishing above quota",
-                                  HTML(paste(icon("weight-scale"), 
-                                             "<br>Fishing above quota")), 
-                                  style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                   actionButton("Underreporting of fishing catch", 
-                                  HTML(paste(icon("fish"),
-                                             "<br>Underreporting of fishing catch")), 
-                                  style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                   actionButton("Underreporting of fishing effort", 
-                                  HTML(paste(icon("dumbbell"),
-                                             "<br>Underreporting of fishing effort")), 
-                                  style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  # Define buttons for IUU types dynamically or statically here
+                  actionButton("Fishing out of season", 
+                               HTML(paste(icon("earth-americas"), 
+                                          "<br>Fishing out of season")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Fishing in a prohibited zone", 
+                               HTML(paste(icon("ban"), 
+                                          "<br>Fishing in a prohibited zone")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Fishing above quota",
+                               HTML(paste(icon("weight-scale"), 
+                                          "<br>Fishing above quota")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Underreporting of fishing catch", 
+                               HTML(paste(icon("fish"),
+                                          "<br>Underreporting of fishing catch")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Underreporting of fishing effort", 
+                               HTML(paste(icon("dumbbell"),
+                                          "<br>Underreporting of fishing effort")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
                   actionButton("Prohibited Species", 
                                HTML(paste(icon("fish-fins"),
                                           '<br>Fishing for prohibited species')), 
@@ -273,44 +273,44 @@ body <- dashboardBody(
                                HTML(paste(icon("shrimp"),
                                           '<br>Illegal bycatch and discard')), 
                                style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                   actionButton("Gear-related offense", 
-                                  HTML(paste(icon("gear"), 
-                                             "<br>Gear-related offense")), 
-                                 style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                   actionButton("Fishing without license", 
-                                  HTML(paste(icon("id-card"), 
-                                             "<br>Fishing without license")), 
-                                 style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                   actionButton("Transhipments", 
-                                  HTML(paste(icon("ship"),
-                                             "<br>Illegal Transhipments")), 
-                                 style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                   actionButton("Dark Vessels (not broadcasting location via VMS/AIS)", 
-                                  HTML(paste(icon("moon"),
-                                             "<br>Dark Vessels")), 
-                                  style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                     actionButton("Vessel with false flag", 
-                                  HTML(paste(icon("flag"),
-                                             '<br>Vessel with false flag')), 
-                                 style='width:200px; height:100px; font-size:120%; white-space:normal;'),
-                     actionButton("Reporting", 
-                                  HTML(paste(icon("book"),
-                                             '<br>Noncompliance with reporting requirements')), 
-                                  style='width:400px; height:100px; font-size:120%; white-space:normal;')
-                     # Add more buttons as needed
-                     
+                  actionButton("Gear-related offense", 
+                               HTML(paste(icon("gear"), 
+                                          "<br>Gear-related offense")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Fishing without license", 
+                               HTML(paste(icon("id-card"), 
+                                          "<br>Fishing without license")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Transhipments", 
+                               HTML(paste(icon("ship"),
+                                          "<br>Illegal Transhipments")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Dark Vessels (not broadcasting location via VMS/AIS)", 
+                               HTML(paste(icon("moon"),
+                                          "<br>Dark Vessels")), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Vessel with false flag", 
+                               HTML(paste(icon("flag"),
+                                          '<br>Vessel with false flag')), 
+                               style='width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Reporting", 
+                               HTML(paste(icon("book"),
+                                          '<br>Noncompliance with reporting requirements')), 
+                               style='width:400px; height:100px; font-size:120%; white-space:normal;')
+                  # Add more buttons as needed
+                  
               ), # end box for iuu type buttons
-           
-            # Make a box for the IUU Type Text
+              
+              # Make a box for the IUU Type Text
               box(width = 7,
-                     uiOutput("iuu_text"), # Placeholder for displaying text based on the selected IUU type
+                  uiOutput("iuu_text"), # Placeholder for displaying text based on the selected IUU type
                   tags$img(src = "boat_1.jpeg",
                            alt = "boats",
                            style = "max-width: 100%;") 
               ) # End box for iuu type text
-        
+              
             ) # End fluid row
-            ), # end IUU Types tab item
+    ), # end IUU Types tab item
     
     
     # Monitoring Strategies tab item
@@ -319,118 +319,106 @@ body <- dashboardBody(
             # Add new boxes in this section to structure like IUU types
             fluidRow(
               column(width = 12,
-              div("Click on a monitoring strategy to learn more", style = "margin-bottom: 20px; font-size: 24px;"),
-              div("Sensors", style = "margin-bottom: 20px; font-weight: bold;", style = "margin-bottom: 20px; font-size: 20px;")
-              
-            )),
+                     div("Click on a monitoring strategy to learn more", style = "margin-bottom: 20px; font-size: 24px;"),
+                     div("Sensors", style = "margin-bottom: 20px; font-weight: bold;", style = "margin-bottom: 20px; font-size: 20px;")
+                     
+              )),
             
             
             # Sensors fluidRow ----
             fluidRow(
               
               box(width = 5,style = "display: flex; flex-wrap: wrap; justify-content: center;",
-                     # Define buttons for sensors
-                     actionButton("AIS/VMS", 
-                                  HTML(paste(icon("location-crosshairs"),
-                                             "<br>AIS and VMS")),
-                                  style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
-                     actionButton("long_range_camera", 
-                                  HTML(paste(icon("camera"),
-                                             "<br>Cameras")), 
-                                  style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
-                     actionButton("Electronic Monitoring Systems", 
-                                  HTML(paste(icon("video"),
-                                             "<br>Electronic Monitoring Systems")),
-                                  style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
-                    actionButton("Satellites", 
-                                  HTML(paste(icon("satellite"),
-                                             "<br>Satellites")),
-                                  style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
-                     actionButton("hydroacoustics", 
-                                  HTML(paste(icon("ear-listen"),
-                                             "<br>Hydroacoustics")), 
-                                  style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
-                     actionButton("radio_frequency", 
-                                  HTML(paste(icon("radio"),
-                                             "<br>Radio Frequency")),
-                                  style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
-                     actionButton("onboard_observer", 
-                                  HTML(paste(icon("glasses"),
-                                             "<br>Onboard Observers")), 
-                                  style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
-                     actionButton("radar",
-                                  HTML(paste(icon("satellite-dish"),
-                                             "<br>Radar")), 
-                                  style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
-                    
-                     # Add more buttons as needed
+                  # Define buttons for sensors
+                  actionButton("AIS/VMS", 
+                               HTML(paste(icon("location-crosshairs"),
+                                          "<br>AIS and VMS")),
+                               style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("long_range_camera", 
+                               HTML(paste(icon("camera"),
+                                          "<br>Cameras")), 
+                               style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Electronic Monitoring Systems", 
+                               HTML(paste(icon("video"),
+                                          "<br>Electronic Monitoring Systems")),
+                               style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("Satellites", 
+                               HTML(paste(icon("satellite"),
+                                          "<br>Satellites")),
+                               style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("hydroacoustics", 
+                               HTML(paste(icon("ear-listen"),
+                                          "<br>Hydroacoustics")), 
+                               style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("radio_frequency", 
+                               HTML(paste(icon("radio"),
+                                          "<br>Radio Frequency")),
+                               style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("onboard_observer", 
+                               HTML(paste(icon("glasses"),
+                                          "<br>Onboard Observers")), 
+                               style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  actionButton("radar",
+                               HTML(paste(icon("satellite-dish"),
+                                          "<br>Radar")), 
+                               style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  
+                  # Add more buttons as needed
               ),
-           
-           
               
-      
-            
+              
+              
+              
               box(width = 7,
-                     uiOutput("sensor_text"), # Placeholder for displaying text based on the selected sensor
-                  tags$img(src = "mermaids.jpg", # swap out this pic
-                           alt = "mermaids",
-                           style = "max-width: 100%;")
-                  )# end box for sensor text
+                  uiOutput("sensor_text")) # Placeholder for displaying text based on the selected IUU type
             ), # END Sensors  fluidRows
-    
+            
             
             # Platforms and how to use
             fluidRow(
               column(width = 12, 
-              div("Platforms", style = "margin-bottom: 20px; margin-top: 20px; font-weight: bold;", style = "margin-bottom: 20px; font-size: 20px;")
-              
-            )),
-          
+                     div("Platforms", style = "margin-bottom: 20px; margin-top: 20px; font-weight: bold;", style = "margin-bottom: 20px; font-size: 20px;")
+                     
+              )),
+            
             
             # Platforms fluidRow ----
             fluidRow(
               
               box(width = 5, style = "display: flex; flex-wrap: wrap; justify-content: center;",
-                     # Define buttons for platforms
-                     actionButton("aerial_drone", 
-                                  HTML(paste(icon("helicopter"),
-                                             "<br>UAV<br>")), 
-                                  style = 'width:200px; height:100px; font-size:120%; white-space: normal;'),
-                    actionButton("usv",
-                                  HTML(paste(icon("water"),
-                                             "<br>USV")), 
-                                  style = 'width:200px; height:100px; font-size:120%'),
-                     actionButton("manned_aircraft", 
-                                  HTML(paste(icon("plane"), 
-                                             "<br>Manned Aircraft")), 
-                                  style = 'width:200px; height:100px; font-size:120%'),
-                     actionButton("manned_vessel", 
-                                  HTML(paste(icon("ship"),
-                                             "<br>Manned Vessel")), 
-                                  style = 'width:200px; height:100px; font-size:120%'),
-                     actionButton("smart_buoy", 
-                                  HTML(paste(icon("code-commit"),
-                                             "<br>Smart Buoy")), 
-                                  style = 'width:200px; height:100px; font-size:120%'),
-                     actionButton("on_shore_command_center", 
-                                  HTML(paste(icon("computer"),
-                                             "<br>Onshore Command Center")), 
-                                  style = 'width:200px; height:100px; font-size:120%; white-space: normal;'),
-                    
-                     # Add more buttons as needed
+                  # Define buttons for platforms
+                  actionButton("aerial_drone", 
+                               HTML(paste(icon("helicopter"),
+                                          "<br>UAV<br>")), 
+                               style = 'width:200px; height:100px; font-size:120%; white-space: normal;'),
+                  actionButton("usv",
+                               HTML(paste(icon("water"),
+                                          "<br>USV")), 
+                               style = 'width:200px; height:100px; font-size:120%'),
+                  actionButton("manned_aircraft", 
+                               HTML(paste(icon("plane"), 
+                                          "<br>Manned Aircraft")), 
+                               style = 'width:200px; height:100px; font-size:120%'),
+                  actionButton("manned_vessel", 
+                               HTML(paste(icon("ship"),
+                                          "<br>Manned Vessel")), 
+                               style = 'width:200px; height:100px; font-size:120%'),
+                  actionButton("smart_buoy", 
+                               HTML(paste(icon("code-commit"),
+                                          "<br>Smart Buoy")), 
+                               style = 'width:200px; height:100px; font-size:120%'),
+                  actionButton("on_shore_command_center", 
+                               HTML(paste(icon("computer"),
+                                          "<br>Onshore Command Center")), 
+                               style = 'width:200px; height:100px; font-size:120%; white-space: normal;'),
+                  
+                  # Add more buttons as needed
               ),
-           
-            
               
               
-            
+              
               box(width = 7, 
-                     uiOutput("platform_text"),
-                  uiOutput("sensor_text"), # Placeholder for displaying text based on the selected sensor
-                  tags$img(src = "mermaids.jpg", # swap out this pic
-                           alt = "mermaids",
-                           style = "max-width: 100%;")
-                  ) # end box
+                  uiOutput("platform_text")) # Placeholder for displaying text based on the selected IUU type
             ) # END Platforms fluidRows
             
             
@@ -449,10 +437,10 @@ body <- dashboardBody(
     tabItem(tabName = "methodology",
             
     ) # END METHODOLOGY TAB ITEM
-
-
+    
+    
   ) #END tabItems
-
+  
 )
 
 
