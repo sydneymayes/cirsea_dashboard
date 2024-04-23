@@ -19,36 +19,40 @@
 }
 
 .btn-default {
+    font-family: "Cardo", ital;
     background-color: #1172B9;
     color: #FAC104;
     border-color: #E7F6FC;
 }
 
 .skin-blue .main-sidebar {
+  font-family: "Cardo", ital;
   color: #E7F6FC;
   background-color: #083462;
   border-color: #083462;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-size: 19px;
 }
 
 .skin-blue .main-sidebar .btn:active {
   color: #E7F6FC;
-  background-color: #083462;
-  border-color: #083462;
+  background-color: #FAC104;
+  border-color: #FAC104;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-
+/* Override .skin-blue hover styles */
 .skin-blue .main-sidebar .btn:hover {
-  color: #FAC104; /* Text color when clicked or focused */
-  background-color: #01C8BB; /* Background color when clicked or focused */
-  border-color: #01C8BB; /* Border color when clicked or focused */
+  color: #FAC104; /* Text color when hovered */
+  background-color: #01C8BB; /* Background color when hovered */
+  border-color: #01C8BB; /* Border color when hovered */
 }
 
 
 .box-body {
   background-color: #E7F6FC;
   color: #00221C;
+  
 }
 
 
