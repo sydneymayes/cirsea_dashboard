@@ -1,3 +1,2 @@
 ##### **BlackSky**
 
-*Description here:* 

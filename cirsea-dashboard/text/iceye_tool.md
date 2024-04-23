@@ -1,3 +1,0 @@
-##### **Iceye**
-
-*Description here:* 

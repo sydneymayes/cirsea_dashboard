@@ -1,3 +1,0 @@
-##### **Capella**
-
-*Description here:* 

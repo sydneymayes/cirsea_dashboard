@@ -655,7 +655,7 @@ server <- function(input, output) {
       
       # If Maxar is an option, add its info to the list
       if (maxar) {
-        maxar_text <- "text/maxar_tool.md"
+        maxar_text <- "text/satellites/maxar_tool.md"
         if(file.exists(maxar_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(maxar_text)))
         }
@@ -663,70 +663,70 @@ server <- function(input, output) {
       
       # If Blacksky is an option, add its info to list, etc.
       if (blacksky) {
-        blacksky_text <- "text/blacksky_tool.md"
+        blacksky_text <- "text/satellites/blacksky_tool.md"
         if(file.exists(blacksky_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(blacksky_text)))
         }
       }
       
       if (mda_radarsat) {
-        mda_radarsat_text <- "text/mda_radarsat_tool.md"
+        mda_radarsat_text <- "text/satellites/mda_radarsat_tool.md"
         if(file.exists(mda_radarsat_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(mda_radarsat_text)))
         }
       }
       
       if (capella) {
-        capella_text <- "text/capella_tool.md"
+        capella_text <- "text/satellites/capella_tool.md"
         if(file.exists(capella_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(capella_text)))
         }
       }
       
       if (unseen_labs) {
-        unseen_labs_text <- "text/unseen_labs_tool.md"
+        unseen_labs_text <- "text/satellites/unseen_labs_tool.md"
         if(file.exists(unseen_labs_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(unseen_labs_text)))
         }
       }
       
       if (iceye) {
-        iceye_text <- "text/iceye_tool.md"
+        iceye_text <- "text/satellites/iceye_tool.md"
         if(file.exists(iceye_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(iceye_text)))
         }
       }
       
       if (planet) {
-        planet_text <- "text/planet_tool.md"
+        planet_text <- "text/satellites/planet_tool.md"
         if(file.exists(planet_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(planet_text)))
         }
       }
       
       if (sentinel_1) {
-        sentinel_1_text <- "text/sentinel_1_tool.md"
+        sentinel_1_text <- "text/satellites/sentinel_1_tool.md"
         if(file.exists(sentinel_1_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(sentinel_1_text)))
         }
       }
       
       if (sentinel_2) {
-        sentinel_2_text <- "text/sentinel_2_tool.md"
+        sentinel_2_text <- "text/satellites/sentinel_2_tool.md"
         if(file.exists(sentinel_2_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(sentinel_2_text)))
         }
       }
       
       if (landsat_8_9) {
-        landsat_8_9_text <- "text/landsat_8_9_tool.md"
+        landsat_8_9_text <- "text/satellites/landsat_8_9_tool.md"
         if(file.exists(landsat_8_9_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(landsat_8_9_text)))
         }
       }
       
       if (viirs) {
-        viirs_text <- "text/viirs_tool.md"
+        viirs_text <- "text/satellites/viirs_tool.md"
         if(file.exists(viirs_text)) {
           ui_elements_2 <- append(ui_elements_2, list(includeMarkdown(viirs_text)))
         }

@@ -1,3 +1,0 @@
-##### **MDA Radarsat**
-
-*Description here:* 

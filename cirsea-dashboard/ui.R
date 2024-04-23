@@ -180,7 +180,7 @@ body <- dashboardBody(
                   ) # end div
 
 
-                     ), # END output
+                     ), # END output box
 
               # descriptions box
               box(width = 8,

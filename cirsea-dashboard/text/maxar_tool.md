@@ -1,3 +1,0 @@
-##### **Maxar**
-
-*Description here:* 
