@@ -180,23 +180,156 @@ server <- function(input, output) {
       
       ui_elements <- list()
       
-      ### Adding packaged pairings text --------------------------
-      if (mid_range_camera_by_small_aerial_drone) {
-        mid_range_camera_by_small_aerial_drone_text <- "text/pairings/mid_range_camera_by_small_aerial_drone_tool.md"
-        if(file.exists(mid_range_camera_by_small_aerial_drone_text)) {
-          ui_elements <- append(ui_elements, list(includeMarkdown(mid_range_camera_by_small_aerial_drone_text)))
-          
-        }
-      }
+      ### Adding packaged pairings text -------------------------
       
+      ### Long range camera pairings
       if (long_range_camera_by_small_usv) {
         long_range_camera_by_small_usv_text <- "text/pairings/long_range_camera_by_small_usv_tool.md"
         if(file.exists(long_range_camera_by_small_usv_text)) {
           ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_by_small_usv_text)))
-
+        }
+      }
+      
+      if (long_range_camera_by_large_usv) {
+        long_range_camera_by_large_usv_text <- "text/pairings/long_range_camera_by_large_usv_tool.md"
+        if(file.exists(long_range_camera_by_large_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_by_large_usv_text)))
+        }
+      }
+      
+      if (long_range_camera_by_large_aerial_drone) {
+        long_range_camera_by_large_aerial_drone_text <- "text/pairings/long_range_camera_by_large_aerial_drone_tool.md"
+        if(file.exists(long_range_camera_by_large_aerial_drone_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_by_large_aerial_drone_text)))
+        }
+      }
+      
+      if (long_range_camera_by_manned_vessel) {
+        long_range_camera_by_manned_vessel_text <- "text/pairings/long_range_camera_by_manned_vessel_tool.md"
+        if(file.exists(long_range_camera_by_manned_vessel_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_by_manned_vessel_text)))
+        }
+      }
+      
+      if (long_range_camera_by_manned_aircraft) {
+        long_range_camera_by_manned_aircraft_text <- "text/pairings/long_range_camera_by_manned_aircraft_tool.md"
+        if(file.exists(long_range_camera_by_manned_aircraft_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_by_manned_aircraft_text)))
+        }
+      }
+      
+      if (long_range_camera_by_on_shore_command_center) {
+        long_range_camera_by_on_shore_command_center_text <- "text/pairings/long_range_camera_by_on_shore_command_center_tool.md"
+        if(file.exists(long_range_camera_by_on_shore_command_center_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(long_range_camera_by_on_shore_command_center_text)))
+        }
+      }
+      
+      ### Mid-range camera pairings
+      if (mid_range_camera_by_small_aerial_drone) {
+        mid_range_camera_by_small_aerial_drone_text <- "text/pairings/mid_range_camera_by_small_aerial_drone_tool.md"
+        if(file.exists(mid_range_camera_by_small_aerial_drone_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(mid_range_camera_by_small_aerial_drone_text)))
+        }
+      }
+      
+      if (mid_range_camera_by_manned_vessel) {
+        mid_range_camera_by_manned_vessel_text <- "text/pairings/mid_range_camera_by_manned_vessel_tool.md"
+        if(file.exists(mid_range_camera_by_manned_vessel_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(mid_range_camera_by_manned_vessel_text)))
+        }
+      }
+      
+      if (mid_range_camera_by_on_shore_command_center) {
+        mid_range_camera_by_on_shore_command_center_text <- "text/pairings/mid_range_camera_by_on_shore_command_center_tool.md"
+        if(file.exists(mid_range_camera_by_on_shore_command_center_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(mid_range_camera_by_on_shore_command_center_text)))
+        }
+      }
+      
+      ### Cell-phone camera pairing
+      if (cell_phone_camera_by_onboard) {
+        cell_phone_camera_by_onboard_text <- "text/pairings/cell_phone_camera_by_onboard_tool.md"
+        if(file.exists(cell_phone_camera_by_onboard_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(cell_phone_camera_by_onboard_text)))
+        }
+      }
+      
+      ### EMS pairing 
+      if (electronic_monitoring_system_by_onboard) {
+        electronic_monitoring_system_by_onboard_text <- "text/pairings/electronic_monitoring_system_by_onboard_tool.md"
+        if(file.exists(electronic_monitoring_system_by_onboard_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(electronic_monitoring_system_by_onboard_text)))
+        }
+      }
+      
+      
+      ### Radio frequency pairings
+   
+      if (radio_frequency_by_small_usv) {
+        radio_frequency_by_small_usv_text <- "text/pairings/radio_frequency_by_small_usv_tool.md"
+        if(file.exists(radio_frequency_by_small_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_small_usv_text)))
+        }
+      }
+      
+      if (radio_frequency_by_large_usv) {
+        radio_frequency_by_large_usv_text <- "text/pairings/radio_frequency_by_large_usv_tool.md"
+        if(file.exists(radio_frequency_by_large_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_large_usv_text)))
+        }
+      }
+      
+      if (radio_frequency_by_small_aerial_drone) {
+        radio_frequency_by_small_aerial_drone_text <- "text/pairings/radio_frequency_by_small_aerial_drone_tool.md"
+        if(file.exists(radio_frequency_by_small_aerial_drone_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_small_aerial_drone_text)))
+        }
+      }
+      
+      if (radio_frequency_by_large_aerial_drone) {
+        radio_frequency_by_large_aerial_drone_text <- "text/pairings/radio_frequency_by_large_aerial_drone_tool.md"
+        if(file.exists(radio_frequency_by_large_aerial_drone_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_large_aerial_drone_text)))
+        }
+      }
+      
+      if (radio_frequency_by_smart_buoy) {
+        radio_frequency_by_smart_buoy_text <- "text/pairings/radio_frequency_by_smart_buoy_tool.md"
+        if(file.exists(radio_frequency_by_smart_buoy_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_smart_buoy_text)))
+        }
+      }
+      
+      if (radio_frequency_by_manned_vessel) {
+        radio_frequency_by_manned_vessel_text <- "text/pairings/radio_frequency_by_manned_vessel_tool.md"
+        if(file.exists(radio_frequency_by_manned_vessel_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_manned_vessel_text)))
+        }
+      }
+      
+      if (radio_frequency_by_manned_aircraft) {
+        radio_frequency_by_manned_aircraft_text <- "text/pairings/radio_frequency_by_manned_aircraft_tool.md"
+        if(file.exists(radio_frequency_by_manned_aircraft_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_manned_aircraft_text)))
+        }
+      }
+      
+      if (radio_frequency_by_on_shore_command_center) {
+        radio_frequency_by_on_shore_command_center_text <- "text/pairings/radio_frequency_by_on_shore_command_center_tool.md"
+        if(file.exists(radio_frequency_by_on_shore_command_center_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_on_shore_command_center_text)))
+        }
+      }
+      
+      if (radio_frequency_by_onboard) {
+        radio_frequency_by_onboard_text <- "text/pairings/radio_frequency_by_onboard_tool.md"
+        if(file.exists(radio_frequency_by_onboard_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radio_frequency_by_onboard_text)))
         }
       }
 
+      
       
       
       
@@ -291,7 +424,7 @@ server <- function(input, output) {
       if (no_pairings) {
         no_pairings_text <- "text/no_pairings_tool.md"
         if(file.exists(no_pairings_text)) {
-          # ui_elements <- append(ui_elements, list(includeMarkdown(no_pairings_text)))
+           ui_elements <- append(ui_elements, list(includeMarkdown(no_pairings_text)))
         }
       }
     
