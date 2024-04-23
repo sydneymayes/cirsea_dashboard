@@ -366,11 +366,16 @@ body <- dashboardBody(
                      # Add more buttons as needed
               ),
            
-            
+           
+              
       
             
               box(width = 7,
-                     uiOutput("sensor_text")) # Placeholder for displaying text based on the selected IUU type
+                     uiOutput("sensor_text"), # Placeholder for displaying text based on the selected sensor
+                  tags$img(src = "mermaids.jpg", # swap out this pic
+                           alt = "mermaids",
+                           style = "max-width: 100%;")
+                  )# end box for sensor text
             ), # END Sensors  fluidRows
     
             
@@ -416,9 +421,16 @@ body <- dashboardBody(
               ),
            
             
+              
+              
             
               box(width = 7, 
-                     uiOutput("platform_text")) # Placeholder for displaying text based on the selected IUU type
+                     uiOutput("platform_text"),
+                  uiOutput("sensor_text"), # Placeholder for displaying text based on the selected sensor
+                  tags$img(src = "mermaids.jpg", # swap out this pic
+                           alt = "mermaids",
+                           style = "max-width: 100%;")
+                  ) # end box
             ) # END Platforms fluidRows
             
             
