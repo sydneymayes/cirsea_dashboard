@@ -330,8 +330,134 @@ server <- function(input, output) {
       }
 
       
+      ### Hydroacoustics pairings
+
+      if (hydroacoustics_by_small_usv) {
+        hydroacoustics_by_small_usv_text <- "text/pairings/hydroacoustics_by_small_usv_tool.md"
+        if(file.exists(hydroacoustics_by_small_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(hydroacoustics_by_small_usv_text)))
+        }
+      }
+      
+      if (hydroacoustics_by_large_usv) {
+        hydroacoustics_by_large_usv_text <- "text/pairings/hydroacoustics_by_large_usv_tool.md"
+        if(file.exists(hydroacoustics_by_large_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(hydroacoustics_by_large_usv_text)))
+        }
+      }
+      
+      if (hydroacoustics_by_smart_buoy) {
+        hydroacoustics_by_smart_buoy_text <- "text/pairings/hydroacoustics_by_smart_buoy_tool.md"
+        if(file.exists(hydroacoustics_by_smart_buoy_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(hydroacoustics_by_smart_buoy_text)))
+        }
+      }
+      
+      if (hydroacoustics_by_manned_vessel) {
+        hydroacoustics_by_manned_vessel_text <- "text/pairings/hydroacoustics_by_manned_vessel_tool.md"
+        if(file.exists(hydroacoustics_by_manned_vessel_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(hydroacoustics_by_manned_vessel_text)))
+        }
+      }
       
       
+      
+      if (highly_sensitive_hydroacoustics_by_small_usv) {
+        highly_sensitive_hydroacoustics_by_small_usv_text <- "text/pairings/highly_sensitive_hydroacoustics_by_small_usv_tool.md"
+        if(file.exists(highly_sensitive_hydroacoustics_by_small_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(highly_sensitive_hydroacoustics_by_small_usv_text)))
+        }
+      }
+      
+      if (highly_sensitive_hydroacoustics_by_large_usv) {
+        highly_sensitive_hydroacoustics_by_large_usv_text <- "text/pairings/highly_sensitive_hydroacoustics_by_large_usv_tool.md"
+        if(file.exists(highly_sensitive_hydroacoustics_by_large_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(highly_sensitive_hydroacoustics_by_large_usv_text)))
+        }
+      }
+      
+      if (highly_sensitive_hydroacoustics_by_smart_buoy) {
+        highly_sensitive_hydroacoustics_by_smart_buoy_text <- "text/pairings/highly_sensitive_hydroacoustics_by_smart_buoy_tool.md"
+        if(file.exists(highly_sensitive_hydroacoustics_by_smart_buoy_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(highly_sensitive_hydroacoustics_by_smart_buoy_text)))
+        }
+      }
+      
+      if (highly_sensitive_hydroacoustics_by_manned_vessel) {
+        highly_sensitive_hydroacoustics_by_manned_vessel_text <- "text/pairings/highly_sensitive_hydroacoustics_by_manned_vessel_tool.md"
+        if(file.exists(highly_sensitive_hydroacoustics_by_manned_vessel_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(highly_sensitive_hydroacoustics_by_manned_vessel_text)))
+        }
+      }
+      
+      
+      ### Radar pairings
+     
+      if (radar_by_small_usv) {
+        radar_by_small_usv_text <- "text/pairings/radar_by_small_usv_tool.md"
+        if(file.exists(radar_by_small_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radar_by_small_usv_text)))
+        }
+      }
+      
+      if (radar_by_large_usv) {
+        radar_by_large_usv_text <- "text/pairings/radar_by_large_usv_tool.md"
+        if(file.exists(radar_by_large_usv_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radar_by_large_usv_text)))
+        }
+      }
+      
+      if (radar_by_smart_buoy) {
+        radar_by_smart_buoy_text <- "text/pairings/radar_by_smart_buoy_tool.md"
+        if(file.exists(radar_by_smart_buoy_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radar_by_smart_buoy_text)))
+        }
+      }
+      
+      if (radar_by_manned_vessel) {
+        radar_by_manned_vessel_text <- "text/pairings/radar_by_manned_vessel_tool.md"
+        if(file.exists(radar_by_manned_vessel_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radar_by_manned_vessel_text)))
+        }
+      }
+      
+      if (radar_by_manned_aircraft) {
+        radar_by_manned_aircraft_text <- "text/pairings/radar_manned_aircraft_tool.md"
+        if(file.exists(radar_by_manned_aircraft_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radar_by_manned_aircraft_text)))
+        }
+      }
+      
+      if (radar_by_onboard) {
+        radar_by_onboard_text <- "text/pairings/radar_by_onboard_tool.md"
+        if(file.exists(radar_by_onboard_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(radar_by_onboard_text)))
+        }
+      }
+      
+      ### Observer pairings
+  
+      if (observer_by_manned_vessel) {
+        observer_by_manned_vessel_text <- "text/pairings/observer_by_manned_vessel_tool.md"
+        if(file.exists(observer_by_manned_vessel_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(observer_by_manned_vessel_text)))
+        }
+      }
+      
+      if (observer_by_onboard) {
+        observer_by_onboard_text <- "text/pairings/observer_by_onboard_tool.md"
+        if(file.exists(observer_by_onboard_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(observer_by_onboard_text)))
+        }
+      }
+      
+      ### If no pairings
+      if (no_pairings) {
+        no_pairings_text <- "text/no_pairings_tool.md"
+        if(file.exists(no_pairings_text)) {
+          ui_elements <- append(ui_elements, list(includeMarkdown(no_pairings_text)))
+        }
+      }
       
       ### Previous individual unpaired text files 
       # If 'long_range_camera' is found, add its content to the list -------
@@ -420,13 +546,7 @@ server <- function(input, output) {
       # }
       # 
       # 
-      # if no pairings
-      if (no_pairings) {
-        no_pairings_text <- "text/no_pairings_tool.md"
-        if(file.exists(no_pairings_text)) {
-           ui_elements <- append(ui_elements, list(includeMarkdown(no_pairings_text)))
-        }
-      }
+  
     
   
       
