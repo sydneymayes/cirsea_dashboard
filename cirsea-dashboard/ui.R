@@ -45,7 +45,7 @@ body <- dashboardBody(
     tabItem(tabName = "about",
             
             # left-hand column ----
-            column(width = 6,
+            column(width = 12,
                    
                    # background info box ---
                    box(width = NULL,
@@ -53,7 +53,7 @@ body <- dashboardBody(
                        title = tagList(icon("fish"),
                                        strong("About The Project")),
                        includeMarkdown("text/about.md"),
-                       tags$img(src = "cirsea_2.webp",
+                       tags$img(src = "1.png",
                                 alt = "Logo image",
                                 style = "max-width: 100%;") # often will just need to look up how to write the css
                        
@@ -62,27 +62,7 @@ body <- dashboardBody(
                    
             ), # END column
             
-            
-            # right-hand column ---
-            column(width = 6,
-                   
-                   # first fluid row ----
-                   fluidRow(
-                     
-                     # citation box ----
-                     box(width = NULL,
-                         
-                         title = tagList(icon("book"),
-                                         strong("Instructions")),
-                         includeMarkdown("text/methodology.md")
-                         
-                     ) # end citation box
-                     
-                     
-                   ) # END first fluidRow
-                   
-                   
-            ) # END right hand column
+          
             
             
     ), # END about tabItem
@@ -158,7 +138,8 @@ body <- dashboardBody(
                   
               ), #end first input box
               
-              # Output box for temporary MS -- REMOVE LATER
+              # Output box for temporary MS -- 
+              ### DON'T DELETE THIS CODE BECAUSE IT IS HELPFUL TO VISUALIZE TABLE TO DEBUG
               
               # box(width = 8,
               # 
@@ -350,6 +331,7 @@ body <- dashboardBody(
                                HTML(paste(icon("ear-listen"),
                                           "<br>Hydroacoustics")), 
                                style = 'width:200px; height:100px; font-size:120%; white-space:normal;'),
+                  
                   actionButton("radio_frequency", 
                                HTML(paste(icon("radio"),
                                           "<br>Radio Frequency")),
@@ -366,12 +348,13 @@ body <- dashboardBody(
                   # Add more buttons as needed
               ),
               
-              
-              
+
               
               box(width = 7,
                   uiOutput("sensor_text")) # Placeholder for displaying text based on the selected IUU type
             ), # END Sensors  fluidRows
+            
+           
             
             
             # Platforms and how to use

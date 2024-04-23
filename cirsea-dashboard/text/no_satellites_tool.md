@@ -1,1 +1,1 @@
-**No satellite options available.**
+*No satellite options available.*

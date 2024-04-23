@@ -724,8 +724,7 @@ server <- function(input, output) {
     })
     
     
-
-
+    
     
     
     
@@ -733,12 +732,21 @@ server <- function(input, output) {
     
     ### Sensors -------------
     
+    # AIS and VMS
+    observeEvent(input$"AIS/VMS", {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/monitoring_tab/ais_vms.md")
+      })
+    })
+    
+    
     # Hydroacoustics
     observeEvent(input$hydroacoustics, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/hydroacoustics.md")
+        includeMarkdown("text/monitoring_tab/hydroacoustics.md")
       })
     })
+    
     
     # Long Range Camera
     observeEvent(input$long_range_camera, {
