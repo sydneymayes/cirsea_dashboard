@@ -6,6 +6,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Oswald:wght@200..700&display=swap');
 
+.skin-blue .body {
+  font-family: 'Oswald', regular;
+}
+
 .skin-blue .main-header .navbar {
   background-color: #083462;
   color:  #E7F6FC;
@@ -16,6 +20,10 @@
  background-color: #E7F6FC;
   color: #083462;
   font-size: 40px;
+}
+
+.skin-blue .box-header .box-title {
+  font-family: 'Oswald', regular;
 }
 
 .btn-default {

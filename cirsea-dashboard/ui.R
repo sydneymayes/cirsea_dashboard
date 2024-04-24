@@ -51,7 +51,7 @@ body <- dashboardBody(
                    box(width = NULL,
                        
                        title = tagList(icon("fish"),
-                                       strong("About The Project")),
+                                      strong("About The Project")),
                        includeMarkdown("text/about.md"),
                        tags$img(src = "1.png",
                                 alt = "Logo image",
