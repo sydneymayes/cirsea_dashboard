@@ -649,9 +649,13 @@ server <- function(input, output) {
     
  
     ### IUU TYPE TAB --------------------------------------
- 
+    
+    # picture displayed initially
+    picVisible3 <- reactiveVal(TRUE)
+    
     # Dark Vessels
     observeEvent(input$'Dark Vessels (not broadcasting location via VMS/AIS)', {
+      picVisible3(FALSE) # when clicked, pic disappears
       output$iuu_text <- renderUI({ 
         includeMarkdown("text/iuuf_tab/dark_vessels.md")
       })
@@ -661,6 +665,7 @@ server <- function(input, output) {
     
     # Fishing above quota
     observeEvent(input$`Fishing above quota`, {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/fishing_quota.md")
       })
@@ -669,6 +674,7 @@ server <- function(input, output) {
     
     # Fishing in a prohibited zone
     observeEvent(input$'Fishing in a prohibited zone', {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/fishing_prohibited_zone.md")
       })
@@ -676,6 +682,7 @@ server <- function(input, output) {
     
     # Fishing out of season
     observeEvent(input$'Fishing out of season', {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/fishing_season.md")
       })
@@ -683,6 +690,7 @@ server <- function(input, output) {
     
     # Fishing without license
     observeEvent(input$'Fishing without license', {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/fishing_no_license.md")
       })
@@ -690,6 +698,7 @@ server <- function(input, output) {
     
     # Gear-related Offense
     observeEvent(input$'Gear-related offense', {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/gear_offense.md")
       })
@@ -697,6 +706,7 @@ server <- function(input, output) {
     
     # Transhipments
     observeEvent(input$Transhipments, {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/transhipments.md")
       })
@@ -704,6 +714,7 @@ server <- function(input, output) {
     
     # Underreporting of fishing catch
     observeEvent(input$'Underreporting of fishing catch', {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/underreporting_catch.md")
       })
@@ -711,6 +722,7 @@ server <- function(input, output) {
     
     # Underreporting of fishing effort
     observeEvent(input$'Underreporting of fishing effort', {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/underreporting_effort.md")
       })
@@ -718,12 +730,20 @@ server <- function(input, output) {
     
     # Vessel with false flag
     observeEvent(input$'Vessel with false flag', {
+      picVisible3(FALSE)
       output$iuu_text <- renderUI({
         includeMarkdown("text/iuuf_tab/false_flag.md")
       })
     })
     
     
+    # TESTING IMAGE OUTPUT
+    output$picture_iuu <- renderUI({
+      if (picVisible3()) {
+        # Show image before the button is clicked
+        img(src = "IUU_1.jpeg", style = "width:100%; height:auto;")
+      }
+    })
     
     
     
@@ -742,12 +762,14 @@ server <- function(input, output) {
     })
     
     observeEvent(input$"Electronic Monitoring Systems", {
+      picVisible(FALSE)
       output$sensor_text <- renderUI({
         includeMarkdown("text/monitoring_tab/ems.md")
       })
     })
     
     observeEvent(input$"Satellites", {
+      picVisible(FALSE)
       output$sensor_text <- renderUI({
         includeMarkdown("text/monitoring_tab/satellites.md")
       })
@@ -756,6 +778,7 @@ server <- function(input, output) {
     
     # Hydroacoustics
     observeEvent(input$hydroacoustics, {
+      picVisible(FALSE)
       output$sensor_text <- renderUI({
         includeMarkdown("text/monitoring_tab/hydroacoustics.md")
       })
@@ -764,6 +787,7 @@ server <- function(input, output) {
     
     # Long Range Camera
     observeEvent(input$long_range_camera, {
+      picVisible(FALSE)
       output$sensor_text <- renderUI({
         includeMarkdown("text/monitoring_tab/long_range_camera.md")
       })
@@ -771,6 +795,7 @@ server <- function(input, output) {
     
     # Onboard Observer
     observeEvent(input$onboard_observer, {
+      picVisible(FALSE)
       output$sensor_text <- renderUI({
         includeMarkdown("text/monitoring_tab/onboard_observer.md")
       })
@@ -778,6 +803,7 @@ server <- function(input, output) {
     
     # Radar
     observeEvent(input$radar, {
+      picVisible(FALSE)
       output$sensor_text <- renderUI({
         includeMarkdown("text/monitoring_tab/radar.md")
       })
@@ -786,6 +812,7 @@ server <- function(input, output) {
     
     # Radio Frequency
     observeEvent(input$radio_frequency, {
+      picVisible(FALSE)
       output$sensor_text <- renderUI({
         includeMarkdown("text/monitoring_tab/radio_frequency.md")
       })
@@ -793,7 +820,7 @@ server <- function(input, output) {
     
     
     # TESTING IMAGE OUTPUT
-    output$picture <- renderUI({
+    output$picture_sensor <- renderUI({
       if (picVisible()) {
         # Show image before the button is clicked
         img(src = "net_1.jpeg", style = "width:100%; height:auto;")
@@ -803,8 +830,10 @@ server <- function(input, output) {
     
     ## Platforms -----------------
     
+    picVisible2 <- reactiveVal(TRUE)
     # Aerial drone
     observeEvent(input$aerial_drone, {
+      picVisible2(FALSE)
       output$platform_text <- renderUI({
         includeMarkdown("text/monitoring_tab/aerial_drone.md")
       })
@@ -812,6 +841,7 @@ server <- function(input, output) {
     
     # Manned Aircraft
     observeEvent(input$manned_aircraft, {
+      picVisible2(FALSE)
       output$platform_text <- renderUI({
         includeMarkdown("text/monitoring_tab/manned_aircraft.md")
       })
@@ -819,6 +849,7 @@ server <- function(input, output) {
     
     # Manned Vessel
     observeEvent(input$manned_vessel, {
+      picVisible2(FALSE)
       output$platform_text <- renderUI({
         includeMarkdown("text/monitoring_tab/manned_vessel.md")
       })
@@ -826,6 +857,7 @@ server <- function(input, output) {
     
     # Onshore Command Center
     observeEvent(input$on_shore_command_center, {
+      picVisible2(FALSE)
       output$platform_text <- renderUI({
         includeMarkdown("text/monitoring_tab/on_shore_command_center.md")
       })
@@ -833,6 +865,7 @@ server <- function(input, output) {
     
     # Smart Buoy
     observeEvent(input$smart_buoy, {
+      picVisible2(FALSE)
       output$platform_text <- renderUI({
         includeMarkdown("text/monitoring_tab/smart_buoy.md")
       })
@@ -840,9 +873,20 @@ server <- function(input, output) {
     
     # USV
     observeEvent(input$usv, {
+      picVisible2(FALSE)
       output$platform_text <- renderUI({
         includeMarkdown("text/monitoring_tab/usv.md")
       })
+    })
+    
+    
+    
+    # TESTING IMAGE OUTPUT
+    output$picture_platform <- renderUI({
+      if (picVisible2()) {
+        # Show image before the button is clicked
+        img(src = "boat_2.jpg", style = "width:100%; height:auto;")
+      }
     })
     
      
