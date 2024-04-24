@@ -737,7 +737,7 @@ server <- function(input, output) {
     })
     
     
-    # TESTING IMAGE OUTPUT
+    # IMAGE OUTPUT - Chloe replace
     output$picture_iuu <- renderUI({
       if (picVisible3()) {
         # Show image before the button is clicked
@@ -819,7 +819,7 @@ server <- function(input, output) {
     })
     
     
-    # TESTING IMAGE OUTPUT
+    # IMAGE OUTPUT - Chloe replace
     output$picture_sensor <- renderUI({
       if (picVisible()) {
         # Show image before the button is clicked
@@ -881,7 +881,7 @@ server <- function(input, output) {
     
     
     
-    # TESTING IMAGE OUTPUT
+    # IMAGE OUTPUT -- Chloe replace
     output$picture_platform <- renderUI({
       if (picVisible2()) {
         # Show image before the button is clicked
