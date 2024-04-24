@@ -731,9 +731,11 @@ server <- function(input, output) {
     ### Monitioring Methods TAB --------------------------------------
     
     ### Sensors -------------
+    picVisible <- reactiveVal(TRUE)
     
     # AIS and VMS
     observeEvent(input$"AIS/VMS", {
+      picVisible(FALSE)
       output$sensor_text <- renderUI({
         includeMarkdown("text/monitoring_tab/ais_vms.md")
       })
@@ -789,6 +791,14 @@ server <- function(input, output) {
       })
     })
     
+    
+    # TESTING IMAGE OUTPUT
+    output$picture <- renderUI({
+      if (picVisible()) {
+        # Show image before the button is clicked
+        img(src = "net_1.jpeg", style = "width:100%; height:auto;")
+      }
+    })
     
     
     ## Platforms -----------------

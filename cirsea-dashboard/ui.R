@@ -350,6 +350,7 @@ body <- dashboardBody(
               
 
               box(width = 7,
+                  uiOutput("picture"), #test
                   uiOutput("sensor_text")) # Placeholder for displaying text based on the selected IUU type
         
                   ), # END Sensors  fluidRows
