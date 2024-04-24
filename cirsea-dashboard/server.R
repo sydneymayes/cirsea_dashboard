@@ -739,6 +739,18 @@ server <- function(input, output) {
       })
     })
     
+    observeEvent(input$"Electronic Monitoring Systems", {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/monitoring_tab/ems.md")
+      })
+    })
+    
+    observeEvent(input$"Satellites", {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/monitoring_tab/satellites.md")
+      })
+    })
+    
     
     # Hydroacoustics
     observeEvent(input$hydroacoustics, {
@@ -751,21 +763,21 @@ server <- function(input, output) {
     # Long Range Camera
     observeEvent(input$long_range_camera, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/long_range_camera.md")
+        includeMarkdown("text/monitoring_tab/long_range_camera.md")
       })
     })
     
     # Onboard Observer
     observeEvent(input$onboard_observer, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/onboard_observer.md")
+        includeMarkdown("text/monitoring_tab/onboard_observer.md")
       })
     })
     
     # Radar
     observeEvent(input$radar, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/radar.md")
+        includeMarkdown("text/monitoring_tab/radar.md")
       })
     })
     
@@ -773,51 +785,53 @@ server <- function(input, output) {
     # Radio Frequency
     observeEvent(input$radio_frequency, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/radio_frequency.md")
+        includeMarkdown("text/monitoring_tab/radio_frequency.md")
       })
     })
     
-    ## Platforms ---------
+    
+    
+    ## Platforms -----------------
     
     # Aerial drone
     observeEvent(input$aerial_drone, {
       output$platform_text <- renderUI({
-        includeMarkdown("text/aerial_drone.md")
+        includeMarkdown("text/monitoring_tab/aerial_drone.md")
       })
     })
     
     # Manned Aircraft
     observeEvent(input$manned_aircraft, {
       output$platform_text <- renderUI({
-        includeMarkdown("text/manned_aircraft.md")
+        includeMarkdown("text/monitoring_tab/manned_aircraft.md")
       })
     })
     
     # Manned Vessel
     observeEvent(input$manned_vessel, {
       output$platform_text <- renderUI({
-        includeMarkdown("text/manned_vessel.md")
+        includeMarkdown("text/monitoring_tab/manned_vessel.md")
       })
     })
     
     # Onshore Command Center
     observeEvent(input$on_shore_command_center, {
       output$platform_text <- renderUI({
-        includeMarkdown("text/on_shore_command_center.md")
+        includeMarkdown("text/monitoring_tab/on_shore_command_center.md")
       })
     })
     
     # Smart Buoy
     observeEvent(input$smart_buoy, {
       output$platform_text <- renderUI({
-        includeMarkdown("text/smart_buoy.md")
+        includeMarkdown("text/monitoring_tab/smart_buoy.md")
       })
     })
     
     # USV
     observeEvent(input$usv, {
       output$platform_text <- renderUI({
-        includeMarkdown("text/usv.md")
+        includeMarkdown("text/monitoring_tab/usv.md")
       })
     })
     
