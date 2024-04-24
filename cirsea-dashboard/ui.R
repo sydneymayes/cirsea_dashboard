@@ -285,7 +285,7 @@ body <- dashboardBody(
               # Make a box for the IUU Type Text
               box(width = 7,
                   uiOutput("iuu_text"), # Placeholder for displaying text based on the selected IUU type
-                  tags$img(src = "boat_1.jpeg",
+                  tags$img(src = "IUU_1.jpeg",
                            alt = "boats",
                            style = "max-width: 100%;") 
               ) # End box for iuu type text
@@ -349,10 +349,10 @@ body <- dashboardBody(
               ),
               
 
-              
               box(width = 7,
                   uiOutput("sensor_text")) # Placeholder for displaying text based on the selected IUU type
-            ), # END Sensors  fluidRows
+        
+                  ), # END Sensors  fluidRows
             
            
             
