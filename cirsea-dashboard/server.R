@@ -739,6 +739,18 @@ server <- function(input, output) {
       })
     })
     
+    observeEvent(input$"Electronic Monitoring Systems", {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/monitoring_tab/ems.md")
+      })
+    })
+    
+    observeEvent(input$"Satellites", {
+      output$sensor_text <- renderUI({
+        includeMarkdown("text/monitoring_tab/satellites.md")
+      })
+    })
+    
     
     # Hydroacoustics
     observeEvent(input$hydroacoustics, {
@@ -751,21 +763,21 @@ server <- function(input, output) {
     # Long Range Camera
     observeEvent(input$long_range_camera, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/long_range_camera.md")
+        includeMarkdown("text/monitoring_tab/long_range_camera.md")
       })
     })
     
     # Onboard Observer
     observeEvent(input$onboard_observer, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/onboard_observer.md")
+        includeMarkdown("text/monitoring_tab/onboard_observer.md")
       })
     })
     
     # Radar
     observeEvent(input$radar, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/radar.md")
+        includeMarkdown("text/monitoring_tab/radar.md")
       })
     })
     
@@ -773,7 +785,7 @@ server <- function(input, output) {
     # Radio Frequency
     observeEvent(input$radio_frequency, {
       output$sensor_text <- renderUI({
-        includeMarkdown("text/radio_frequency.md")
+        includeMarkdown("text/monitoring_tab/radio_frequency.md")
       })
     })
     
