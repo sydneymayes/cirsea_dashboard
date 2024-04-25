@@ -741,7 +741,10 @@ server <- function(input, output) {
     output$picture_iuu <- renderUI({
       if (picVisible3()) {
         # Show image before the button is clicked
-        img(src = "IUU_1.jpeg", style = "width:100%; height:auto;")
+        tags$div(
+        img(src = "IUU_1.jpeg", style = "width:100%; height:auto;"),
+        tags$h4("Insert a caption here if we want.", style = "text-align:center;")
+        )
       }
     })
     
@@ -823,7 +826,10 @@ server <- function(input, output) {
     output$picture_sensor <- renderUI({
       if (picVisible()) {
         # Show image before the button is clicked
-        img(src = "net_1.jpeg", style = "width:100%; height:auto;")
+        tags$div(
+        img(src = "net_1.jpeg", style = "width:100%; height:auto;"),
+        tags$h4("Insert a caption here if we want.", style = "text-align:center;")
+        )
       }
     })
     
@@ -885,7 +891,10 @@ server <- function(input, output) {
     output$picture_platform <- renderUI({
       if (picVisible2()) {
         # Show image before the button is clicked
-        img(src = "boat_2.jpg", style = "width:100%; height:auto;")
+        tags$div(
+        img(src = "boat_2.jpg", style = "width:100%; height:auto;"),
+        tags$h4("Insert a caption here if we want.", style = "text-align:center;")
+        )
       }
     })
     
