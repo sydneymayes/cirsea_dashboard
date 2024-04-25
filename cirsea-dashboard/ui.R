@@ -112,7 +112,7 @@ body <- dashboardBody(
                     inputId = 'cost_input',
                     label = 'Filter by cost preference:',
                     choices = c("$", "$$", "$$$"),
-                    selected = NULL,
+                    selected = "",
                     individual = FALSE,
                     justified = TRUE,
                     size = 'sm',
