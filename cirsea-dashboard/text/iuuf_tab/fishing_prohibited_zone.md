@@ -10,6 +10,7 @@ Fishing in a prohibited zone occurs when vessels engage in fishing activities wh
 
 
 <br>
+
 #####  <span style="font-family: Cardo, ital; color:  #083462;">Monitoring Challenges</span>
 
 
