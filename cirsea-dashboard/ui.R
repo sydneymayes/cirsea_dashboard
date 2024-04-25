@@ -424,7 +424,7 @@ body <- dashboardBody(
                    # background info box ---
                    box(width = NULL,
                        
-                       title = tagList(icon("fish"),
+                       title = tagList(icon("book"),
                                        strong("Additional Resources")),
                        includeMarkdown("text/resources.md") # often will just need to look up how to write the css
                        
