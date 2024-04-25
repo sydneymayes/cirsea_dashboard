@@ -200,13 +200,13 @@ body <- dashboardBody(
     tabItem(tabName = "iuu_types",
             
             # how to use
-            fluidRow(
-              column(width = 5,
-                     #includeMarkdown("text/click_iuu.md")
-                     div("IUU Fishing Events", style = "font-weight: bold; font-size: 20px; text-align:center;"),
-                     div("Click to learn more.", style = "margin-bottom: 10px; padding:50x; font-size: 14px; text-align:center;")
-        
-              )),
+            # fluidRow(
+            #   column(width = 5,
+            #          #includeMarkdown("text/click_iuu.md")
+            #          div("IUU Fishing Events", style = "font-weight: bold; font-size: 20px; text-align:center;"),
+            #          div("Click to learn more.", style = "margin-bottom: 10px; padding:50x; font-size: 14px; text-align:center;")
+            # 
+            #   )),
             
             # IUU type text fluidRow ----
             fluidRow(
@@ -228,6 +228,12 @@ body <- dashboardBody(
               
               # Make a box for the IUU type buttons
               box(width = 5, style = "display: flex; flex-wrap: wrap; justify-content: center;",
+                  
+                  title = tagList(icon("fish"),
+                                  strong("IUU Fishing Events")),
+                  includeMarkdown("text/click_iuu.md"),
+                  
+                  
                   # Define buttons for IUU types dynamically or statically here
                   actionButton("Fishing out of season", 
                                HTML(paste(icon("earth-americas"), 
