@@ -44,7 +44,7 @@ body <- dashboardBody(
     
     tabItem(tabName = "about",
             
-            # left-hand column ----
+            
             column(width = 12,
                    
                    # background info box ---
@@ -201,8 +201,11 @@ body <- dashboardBody(
             
             # how to use
             fluidRow(
-              column(width = 12,
-                     div("Click on an IUU fishing type to learn more", style = "margin-bottom: 20px; padding:50x; font-size: 24px;")
+              column(width = 5,
+                     #includeMarkdown("text/click_iuu.md")
+                     div("IUU Fishing Events", style = "font-weight: bold; font-size: 20px; text-align:center;"),
+                     div("Click to learn more.", style = "margin-bottom: 10px; padding:50x; font-size: 14px; text-align:center;")
+        
               )),
             
             # IUU type text fluidRow ----
@@ -300,9 +303,9 @@ body <- dashboardBody(
             # Sensors and how to use
             # Add new boxes in this section to structure like IUU types
             fluidRow(
-              column(width = 12,
-                     div("Click on a monitoring strategy to learn more", style = "margin-bottom: 20px; font-size: 24px;"),
-                     div("Sensors", style = "margin-bottom: 20px; font-weight: bold;", style = "margin-bottom: 20px; font-size: 20px;")
+              column(width = 5,
+                     div("Sensors", style = "font-weight: bold; font-size: 20px; text-align:center;"),
+                     div("Click to learn more.", style = "margin-bottom: 10px; padding:50x; font-size: 14px; text-align:center;"),
                      
               )),
             
@@ -361,9 +364,9 @@ body <- dashboardBody(
             
             # Platforms and how to use
             fluidRow(
-              column(width = 12, 
-                     div("Platforms", style = "margin-bottom: 20px; margin-top: 20px; font-weight: bold;", style = "margin-bottom: 20px; font-size: 20px;")
-                     
+              column(width = 5, 
+                     div("Platforms", style = "font-weight: bold; font-size: 20px; text-align:center;"),
+                     div("Click to learn more.", style = "margin-bottom: 10px; padding:50x; font-size: 14px; text-align:center;"),
               )),
             
             
@@ -421,6 +424,21 @@ body <- dashboardBody(
     
     # Methodology tab item
     tabItem(tabName = "methodology",
+            
+            
+            column(width = 12,
+                   
+                   # background info box ---
+                   box(width = NULL,
+                       
+                       title = tagList(icon("fish"),
+                                       strong("Methodology")),
+                       includeMarkdown("text/methodology.md") # often will just need to look up how to write the css
+                       
+                       
+                   ) #END background box # takes on width of the column when set to null
+                   
+            ), # END column
             
     ) # END METHODOLOGY TAB ITEM
     
