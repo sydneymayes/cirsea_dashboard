@@ -742,8 +742,8 @@ server <- function(input, output) {
       if (picVisible3()) {
         # Show image before the button is clicked
         tags$div(
-        img(src = "IUU_1.jpeg", style = "width:100%; height:auto;"),
-        tags$h4("Insert a caption here if we want.", style = "text-align:center;")
+        img(src = "IUU_1.jpeg", style = "width:100%; height:auto;")#,
+      #  tags$h4("Insert a caption here if we want.", style = "text-align:center;")
         )
       }
     })
@@ -827,8 +827,8 @@ server <- function(input, output) {
       if (picVisible()) {
         # Show image before the button is clicked
         tags$div(
-        img(src = "boat_2.jpg", style = "width:100%; height:auto;"),
-        tags$h4("Insert a caption here if we want.", style = "text-align:center;")
+        img(src = "boat_2.jpg", style = "width:100%; height:auto;")#,
+      #  tags$h4("Insert a caption here if we want.", style = "text-align:center;")
         )
       }
     })
@@ -892,8 +892,8 @@ server <- function(input, output) {
       if (picVisible2()) {
         # Show image before the button is clicked
         tags$div(
-        img(src = "boat_1.jpeg", style = "width:100%; height:auto;"),
-        tags$h4("Insert a caption here if we want.", style = "text-align:center;")
+        img(src = "boat_1.jpeg", style = "width:100%; height:auto;")#,
+      #  tags$h4("Insert a caption here if we want.", style = "text-align:center;")
         )
       }
     })
