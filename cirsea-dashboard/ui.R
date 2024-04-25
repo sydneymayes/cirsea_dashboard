@@ -83,7 +83,7 @@ body <- dashboardBody(
                               label = 'Step 1: Select IUU type:',
                               choices = unique(iuu_type),
                               selected = unique(iuu_type)[1],
-                              #choices = c("Select an IUU type" = "", unique(iuu_type)), 
+                              #choices = c("Select an IUU type" = "", unique(iuu_type)), ## This breaks the whole app
                               #selected = NULL,
                               options = pickerOptions(actionsBox = TRUE),
                               multiple = FALSE),
@@ -99,13 +99,24 @@ body <- dashboardBody(
                   ),
                   
                   # section checkboxGroupButtons
-                  checkboxGroupButtons(inputId = 'cost_input',
-                                       label = 'Filter by cost preference(s):',
-                                       choices = c("$", "$$", "$$$"),
-                                       selected = NULL,
-                                       individual = FALSE, justified = TRUE, size = 'sm',
-                                       checkIcon = list(yes = icon("check"))
-                                       
+                  # checkboxGroupButtons(inputId = 'cost_input',
+                  #                      label = 'Filter by cost preference(s):',
+                  #                      choices = c("$", "$$", "$$$"),
+                  #                      selected = NULL,
+                  #                      individual = FALSE, justified = TRUE, size = 'sm',
+                  #                      checkIcon = list(yes = icon("check"))
+                  #                      
+                  # ),
+                  
+                  radioGroupButtons(
+                    inputId = 'cost_input',
+                    label = 'Filter by cost preference:',
+                    choices = c("$", "$$", "$$$"),
+                    selected = NULL,
+                    individual = FALSE,
+                    justified = TRUE,
+                    size = 'sm',
+                    checkIcon = list(yes = icon("check"))
                   ),
                   
                   # section checkboxGroupInput
