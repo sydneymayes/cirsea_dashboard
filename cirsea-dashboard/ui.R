@@ -5,8 +5,8 @@ header <- dashboardHeader(
   
   
   # title ---
-  title = "CIRSEA Group Project",
-  titleWidth = 250
+  title = "CIRSEA",
+  titleWidth = 230
   
   
 )
@@ -200,13 +200,13 @@ body <- dashboardBody(
     tabItem(tabName = "iuu_types",
             
             # how to use
-            # fluidRow(
-            #   column(width = 5,
-            #          #includeMarkdown("text/click_iuu.md")
-            #          div("IUU Fishing Events", style = "font-weight: bold; font-size: 20px; text-align:center;"),
-            #          div("Click to learn more.", style = "margin-bottom: 10px; padding:50x; font-size: 14px; text-align:center;")
-            # 
-            #   )),
+             fluidRow(
+               column(width = 5,
+                      #includeMarkdown("text/click_iuu.md")
+                      div("IUU Fishing Events", style = "font-weight: bold;font-family: 'Oswald'; font-size: 25px; color: #083462; text-align:center;"),
+                      div("Click to learn more", style = "margin-bottom: 10px; padding:50x; ont-family: 'Oswald'; font-size: 18px; text-align:center;")
+             
+               )),
             
             # IUU type text fluidRow ----
             fluidRow(
@@ -229,9 +229,9 @@ body <- dashboardBody(
               # Make a box for the IUU type buttons
               box(width = 5, style = "display: flex; flex-wrap: wrap; justify-content: center;",
                   
-                  title = tagList(icon("fish"),
-                                  strong("IUU Fishing Events")),
-                  includeMarkdown("text/click_iuu.md"),
+                 # title = tagList(icon("fish"),
+                                 # strong("IUU Fishing Events")),
+                 # includeMarkdown("text/click_iuu.md"),
                   
                   
                   # Define buttons for IUU types dynamically or statically here
@@ -310,8 +310,8 @@ body <- dashboardBody(
             # Add new boxes in this section to structure like IUU types
             fluidRow(
               column(width = 5,
-                     div("Sensors", style = "font-weight: bold; font-size: 20px; text-align:center;"),
-                     div("Click to learn more.", style = "margin-bottom: 10px; padding:50x; font-size: 14px; text-align:center;"),
+                     div("Sensors", style = "font-weight: bold; font-family: 'Oswald'; font-size: 25px; color: #083462; text-align:center;"),
+                     div("Click to learn more", style = "margin-bottom: 10px; padding:50x; font-family: 'Oswald'; font-size: 18px; text-align:center;"),
                      
               )),
             
@@ -371,8 +371,8 @@ body <- dashboardBody(
             # Platforms and how to use
             fluidRow(
               column(width = 5, 
-                     div("Platforms", style = "font-weight: bold; font-size: 20px; text-align:center;"),
-                     div("Click to learn more.", style = "margin-bottom: 10px; padding:50x; font-size: 14px; text-align:center;"),
+                     div("Platforms", style = "font-weight: bold; font-family: 'Oswald'; font-size: 25px; color: #083462; text-align:center;"),
+                     div("Click to learn more", style = "margin-bottom: 10px; padding:50x; font-family: 'Oswald'; font-size: 18px; text-align:center;"),
               )),
             
             
@@ -451,7 +451,7 @@ body <- dashboardBody(
                    # background info box ---
                    box(width = NULL,
                        
-                       title = tagList(icon("fish"),
+                       title = tagList(icon("asterisk"),
                                        strong("Methodology")),
                        includeMarkdown("text/methodology.md") # often will just need to look up how to write the css
                        
