@@ -8,6 +8,7 @@ server <- function(input, output) {
         return(data.frame())
       }
       
+      
       # Get the selected iuu_type and range from user input
       # Note, I did this just to test the logic at first
       user_iuu_type <- input$iuu_type_input
@@ -102,8 +103,7 @@ server <- function(input, output) {
     # these are the options sensor and platform options (make sure all have been added)
     output$sensor_platform_output <- renderUI({
       
-      # if no pairings
-      no_pairings <- (nrow(filtered_iuu_data()) == 0)
+     
       
       #### PAIRINGS (instead of individual)
       
@@ -153,6 +153,8 @@ server <- function(input, output) {
       observer_by_manned_vessel <- any(grepl("observer by manned_vessel", filtered_iuu_data()$sensor_platform))
       observer_by_onboard <- any(grepl("observer by onboard", filtered_iuu_data()$sensor_platform))
       
+      # if no pairings
+      no_pairings <- (nrow(filtered_iuu_data()) == 0)
       
       # PAIRINGS TEXT -- found in text/pairings
       # want to display just the user selections, these are all the conditions
@@ -430,7 +432,7 @@ server <- function(input, output) {
         }
       }
       
-      ### If no pairings
+      ## If no pairings
       if (no_pairings) {
         no_pairings_text <- "text/no_pairings_tool.md"
         if(file.exists(no_pairings_text)) {

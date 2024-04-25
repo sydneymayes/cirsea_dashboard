@@ -83,6 +83,8 @@ body <- dashboardBody(
                               label = 'Step 1: Select IUU type:',
                               choices = unique(iuu_type),
                               selected = unique(iuu_type)[1],
+                              #choices = c("Select an IUU type" = "", unique(iuu_type)), 
+                              #selected = NULL,
                               options = pickerOptions(actionsBox = TRUE),
                               multiple = FALSE),
                   
