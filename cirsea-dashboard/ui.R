@@ -53,7 +53,7 @@ body <- dashboardBody(
                        title = tagList(icon("fish"),
                                       strong("About The Project")),
                        includeMarkdown("text/about.md"),
-                       tags$img(src = "1.png",
+                       tags$img(src = "about_cirsea.png",
                                 alt = "Logo image",
                                 style = "max-width: 100%;") # often will just need to look up how to write the css
                        
