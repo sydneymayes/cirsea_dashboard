@@ -19,11 +19,12 @@
  font-family: 'Oswald', regular;
  background-color: #E7F6FC;
   color: #083462;
-  font-size: 40px;
+  font-size: 45px;
 }
 
 .skin-blue .box-header .box-title {
   font-family: 'Oswald', regular;
+  color: #083462;
 }
 
 .btn-default {
