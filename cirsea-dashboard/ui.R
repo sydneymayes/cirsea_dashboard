@@ -419,6 +419,20 @@ body <- dashboardBody(
     # Additional Resources tab item
     tabItem(tabName = "resources",
             
+            column(width = 12,
+                   
+                   # background info box ---
+                   box(width = NULL,
+                       
+                       title = tagList(icon("fish"),
+                                       strong("Additional Resources")),
+                       includeMarkdown("text/resources.md") # often will just need to look up how to write the css
+                       
+                       
+                   ) #END background box # takes on width of the column when set to null
+                   
+            ), # END column
+            
     ), # END RESOURCES TAB ITEM
     
     

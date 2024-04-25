@@ -737,7 +737,7 @@ server <- function(input, output) {
     })
     
     
-    # IMAGE OUTPUT - Chloe replace
+    # IMAGE OUTPUT - Chloe replace?
     output$picture_iuu <- renderUI({
       if (picVisible3()) {
         # Show image before the button is clicked
@@ -822,7 +822,7 @@ server <- function(input, output) {
     })
     
     
-    # IMAGE OUTPUT - Chloe replace
+    # IMAGE OUTPUT - Chloe replace?
     output$picture_sensor <- renderUI({
       if (picVisible()) {
         # Show image before the button is clicked
@@ -887,12 +887,12 @@ server <- function(input, output) {
     
     
     
-    # IMAGE OUTPUT -- Chloe replace
+    # IMAGE OUTPUT -- Chloe replace?
     output$picture_platform <- renderUI({
       if (picVisible2()) {
         # Show image before the button is clicked
         tags$div(
-        img(src = "boat_2.jpg", style = "width:100%; height:auto;"),
+        img(src = "boat_1.jpeg", style = "width:100%; height:auto;"),
         tags$h4("Insert a caption here if we want.", style = "text-align:center;")
         )
       }
